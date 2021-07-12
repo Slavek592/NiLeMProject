@@ -1,0 +1,106 @@
+English:
+Welcome to NiLeM (Nikiforov's Learning Machine) project. This project is made to
+make learning of anything (math, chemistry, physics, geography, history...) more
+available. The main result is the NiLeM, but I have also made a NiLeSh, which
+is used to make lessons in NiLeM really quickly. It makes it easy for everyone,
+You do not need to understand HTML, CSS and Javascript.
+
+Let me tell something about the NiLeM.
+Who can use it?
+    Anyone.
+Why to use it?
+    It is simple and there is a lot of possibilities waiting wor You.
+How to use it?
+    Download the project or just the NiLeM part and open the Main.html file
+    in Your browser. And that is it. The other is intuitive.
+
+So, now let me tell the rules of NiLeSh.
+Where to write program:
+    You can make the same program in file or in the console.
+    If You write it to the file, write it to the text document.
+    Write it to the text document.
+    And again: WRITE IT TO THE TEXT DOCUMENT.
+    70% of people do not understand, what does "text document" mean,
+    so let me explain it. It is some file like this. There is only
+    plain text, no meta information. It is opened by TextEditor,
+    nano, vi, vim, edit, micro, or something like that.
+    Text document IS NOT:
+    JPEG image, PNG image, Microsoft Word, Microsoft Excel,
+    Microsoft Powerpoint, Open Document Text, Open Document Spreadsheet,
+    Portable Document Format.
+    NO, it is just plain text, it usually has .txt at the end.
+    But if You can, You can use .nls or .nilesh, it is better for
+    the program.
+Syntax:
+    The program starts with the line "subject//language".
+    Look at the supported languages and subjects below.
+    The 2nd line is the name of the file. It can be in a
+    directory, just add it to the name like the path.
+    If You have the same folder system like this, You can
+    run the program from the NiLeMProject directory and it
+    will change the NiLeM folder. Less time, more work made.
+    You can also change the menu file, just enter "menu"
+    at the place for the name. And then do not use
+    commands for questions, use command "update".
+    The 3rd line is always "{".
+    Next lines will add some questions to Your quiz.
+    See below the list of supported types of questions.
+    Question lines must be written as "type//question//answer"
+    or something like that. It depends on the type, but
+    You always have to use the "//" to split it.
+    End of the questions must be signed as "}" line.
+    And then comes the "end" line.
+Supported languages:
+    English (write lowercase: "english")
+    Czech (write lowercase: "czech")
+    Russian (write lowercase: "russian")
+    German (write lowercase: "german")
+    French (write lowercase: "french")
+    Spanish (write lowercase: "spanish")
+Supported subjects:
+    Math (write lowercase: "math")
+    Physics (write lowercase: "physics")
+    Chemistry (write lowercase: "chemistry")
+    Biology (write lowercase: "biology")
+    Geography (write lowercase: "geography")
+    History (write lowercase: "history")
+    English (write lowercase: "english")
+    Czech (write lowercase: "czech")
+    Russian (write lowercase: "russian")
+    German (write lowercase: "german")
+    French (write lowercase: "french")
+    Spanish (write lowercase: "spanish")
+Supported types of questions (or other commands):
+    enter:
+        Gives the question and lets user write his answer.
+        Must be used: "enter//question//correct answer"
+    radio:
+        Tells the question and lets user choose the correct answer.
+        Must be used: "radio//question//answer0|answer1|answer2...//number of the correct answer (from 0)"
+    explain:
+        Can be used to tell the user some useful information.
+        Includes no question. Can explain some theory. Can have unlimited number of lines.
+        Must be used: "explain//info info info\ninfo info info\ninfo..."
+    update:
+        It is not a command for questions, use it for updating the menu.
+        Use only when the name of file is set as "menu".
+        Must be used without anything other: "update"
+Examples:
+    T4.nls (it is used to make a T4.html file):
+
+math//english
+Tests/T4
+{
+enter//15^2//225
+radio//16^(1/4)//1|2|4|16|64//1
+}
+end
+
+    MathMenu.nls (it is used to update the Math.html file):
+
+math//english
+menu
+{
+update
+}
+end

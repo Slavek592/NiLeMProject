@@ -1,12 +1,14 @@
 #!/usr/bin/python3
 import os
 from Definitions import Runner
+from Definitions import Scripter
 
 print("Welcome, User!")
 print("NiLeSh 'compiler' greets You!")
 while True:
-    command = str(input("Do you want to run a script from file, or to write it here?\nfile/here "))
-    if command in ["f", "F", "file", "File", "h", "H", "here", "Here"]:
+    command = str(input("Do you want to run a script from file, write a file, or to write it here?\n"
+                        "file/here/write "))
+    if command in ["f", "F", "file", "File", "h", "H", "here", "Here", "w", "W", "write", "Write"]:
         break
     else:
         print("Unknown command.")
@@ -31,6 +33,8 @@ if command in ["f", "F", "file", "File"]:
                 Runner.run_from_file("NileshScripts/" + command + ".nilesh")
             else:
                 print("It does not exist, I am sorry.")
+elif command in ["w", "W", "write", "Write"]:
+    Scripter.run_ide()
 else:
     Runner.run_from_console()
 print("Thank You for using NiLeSh and NiLeM!")

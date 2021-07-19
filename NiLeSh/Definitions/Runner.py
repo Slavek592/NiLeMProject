@@ -5,6 +5,13 @@ from . import Printing
 
 
 def run_from_file(file_name):
+    if run_file(file_name, "check"):
+        print("Your code seems good. I am starting executing it.")
+        if run_file(file_name, "execute"):
+            print("Your code was executed.")
+
+
+def run_file(file_name, mode):
     read_file = open(file_name, "r")
     args = [True, 0, "", "", "", 1, 0, False, 0, ""]
     #   Arguments:
@@ -13,30 +20,21 @@ def run_from_file(file_name):
     #   Line, NumberOfQuestions, End,
     #   LengthOfPath, Case]
     for line in read_file:
-        args = read_line("check", line, args)
+        args = read_line(mode, line, args)
         if not args[0]:
-            return
+            if os.path.isfile(args[4] + ".change"):
+                os.remove(args[4] + ".change")
+                os.remove(args[4] + ".check")
+            read_file.close()
+            return False
         elif args[7]:
-            print("Your code seems good. I am starting executing it.")
-            break
+            if args[9] == "test" and mode == "execute":
+                os.remove(args[4] + ".change")
+                os.remove(args[4] + ".check")
+            read_file.close()
+            return True
         else:
             args[5] += 1
-    read_file.close()
-    if args[0]:
-        read_file = open(file_name, "r")
-        args = [True, 0, "", "", "", 1, 0, False, 0, ""]
-        for line in read_file:
-            args = read_line("execute", line, args)
-            if args[0] == "False":
-                return
-            elif args[7]:
-                print("Your code was executed.")
-                if args[9] == "test":
-                    os.remove(args[4] + ".change")
-                    os.remove(args[4] + ".check")
-                break
-            else:
-                args[5] += 1
 
 
 def read_line(mode, line, args):
@@ -69,83 +67,12 @@ def read_line(mode, line, args):
             args[9] = "menu"
             name = ""
             if os.path.isfile("NiLeM/Main.html"):
-                path = "NiLeM/"
-                if args[2] == "math":
-                    path += "Math/Math"
-                elif args[2] == "physics":
-                    path += "Physics/Physics"
-                elif args[2] == "chemistry":
-                    path += "Chemistry/Chemistry"
-                elif args[2] == "biology":
-                    path += "Biology/Biology"
-                elif args[2] == "geography":
-                    path += "Geography/Geography"
-                elif args[2] == "history":
-                    path += "History/History"
-                elif args[2] == "english":
-                    path += "English/English"
-                elif args[2] == "german":
-                    path += "German/German"
-                elif args[2] == "czech":
-                    path += "Czech/Czech"
-                elif args[2] == "russian":
-                    path += "Russian/Russian"
-                elif args[2] == "french":
-                    path += "French/French"
-                elif args[2] == "spanish":
-                    path += "Spanish/Spanish"
+                path = "NiLeM/" + args[2].capitalize() + "/" + args[2].capitalize()
             else:
-                path = "menu"
-                if args[2] == "math":
-                    path = "Math"
-                elif args[2] == "physics":
-                    path += "Physics"
-                elif args[2] == "chemistry":
-                    path += "Chemistry"
-                elif args[2] == "biology":
-                    path += "Biology"
-                elif args[2] == "geography":
-                    path += "Geography"
-                elif args[2] == "history":
-                    path += "History"
-                elif args[2] == "english":
-                    path += "English"
-                elif args[2] == "german":
-                    path += "German"
-                elif args[2] == "czech":
-                    path += "Czech"
-                elif args[2] == "russian":
-                    path += "Russian"
-                elif args[2] == "french":
-                    path += "French"
-                elif args[2] == "spanish":
-                    path += "Spanish"
+                path = args[2].capitalize()
             if args[3] == "english":
                 path += ".html"
-                if args[2] == "math":
-                    name = "Math"
-                elif args[2] == "physics":
-                    name = "Physics"
-                elif args[2] == "chemistry":
-                    name = "Chemistry"
-                elif args[2] == "biology":
-                    name = "Biology"
-                elif args[2] == "geography":
-                    name = "Geography"
-                elif args[2] == "history":
-                    name = "History"
-                elif args[2] == "english":
-                    name = "English"
-                elif args[2] == "german":
-                    name = "German"
-                elif args[2] == "czech":
-                    name = "Czech"
-                elif args[2] == "russian":
-                    name = "Russian"
-                elif args[2] == "french":
-                    name = "French"
-                elif args[2] == "spanish":
-                    name = "Spanish"
+                name = args[2].capitalize()
             elif args[3] == "czech":
                 path += "-czech.html"
                 if args[2] == "math":
@@ -282,44 +209,7 @@ def read_line(mode, line, args):
         elif mode == "execute":
             args[9] = "test"
             if os.path.isfile("NiLeM/Main.html"):
-                path = "NiLeM/"
-                if args[2] == "math":
-                    path += "Math/"
-                elif args[2] == "physics":
-                    path += "Physics/"
-                elif args[2] == "chemistry":
-                    path += "Chemistry/"
-                elif args[2] == "biology":
-                    path += "Biology/"
-                elif args[2] == "geography":
-                    path += "Geography/"
-                elif args[2] == "history":
-                    path += "History/"
-                elif args[2] == "english":
-                    path += "English/"
-                elif args[2] == "german":
-                    path += "German/"
-                elif args[2] == "czech":
-                    path += "Czech/"
-                elif args[2] == "russian":
-                    path += "Russian/"
-                elif args[2] == "french":
-                    path += "French/"
-                elif args[2] == "spanish":
-                    path += "Spanish/"
-                if args[3] == "english":
-                    path += "English/"
-                elif args[3] == "czech":
-                    path += "Czech/"
-                elif args[3] == "russian":
-                    path += "Russian/"
-                elif args[3] == "german":
-                    path += "German/"
-                elif args[3] == "french":
-                    path += "French/"
-                elif args[3] == "spanish":
-                    path += "Spanish/"
-                path += words[0] + ".html"
+                path = "NiLeM/" + args[2].capitalize() + "/" + words[0] + ".html"
                 args[4] = path
             else:
                 args[4] = words[0] + ".html"
@@ -399,8 +289,7 @@ def run_from_console():
                 break
             else:
                 args[5] += 1
-        end = str(input("Do You want to end?\nyes/no "))
-        if end in ["y", "Y", "yes", "Yes"]:
+        if y_or_n("Do You want to end?"):
             break
 
 
@@ -412,19 +301,22 @@ def search_for_files(file_name, language):
         start = ""
         for i in range(len(path) - 1):
             start += path[i] + "/"
-        if language == "english":
-            start += "English/"
-        elif language == "czech":
-            start += "Czech/"
-        elif language == "russian":
-            start += "Russian/"
-        elif language == "german":
-            start += "German/"
-        elif language == "french":
-            start += "French/"
-        elif language == "spanish":
-            start += "Spanish/"
+        start += language.capitalize() + "/"
     results = []
     results.extend(os.walk(start))
     for directory in results:
         Printing.print_tests_to_menu(directory, file_name)
+
+
+def y_or_n(string):
+    while True:
+        print(string)
+        answer = str(input("y/n "))
+        if answer in ["y", "n", "Y", "N", "yes", "no", "Yes", "No"]:
+            break
+        else:
+            print("Unknown answer.")
+    if answer in ["y", "Y", "yes", "Yes"]:
+        return True
+    else:
+        return False

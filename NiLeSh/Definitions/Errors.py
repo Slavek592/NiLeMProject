@@ -32,3 +32,14 @@ def file_middle_error(line, number_of_line):
 def wrong_count_of_words_error(line, number_of_line, expected_count_of_words):
     print("Syntax error! Expected count of words is " + str(expected_count_of_words) + "!")
     error_ending(line, number_of_line)
+
+
+def missing_file_error(line, number_of_line, file_name):
+    print("Error! File: " + file_name + " is mentioned, but it does not exist!")
+    error_ending(line, number_of_line)
+
+
+def wrong_case_error(line, number_of_line, case, command):
+    print("Syntax error! Command: " + command + " was used in the case: " + case + "\n"
+          "It is not supported.")
+    error_ending(line, number_of_line)

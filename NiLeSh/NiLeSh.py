@@ -6,9 +6,9 @@ from Definitions import Scripter
 print("Welcome, User!")
 print("NiLeSh 'compiler' greets You!")
 while True:
-    command = str(input("Do you want to run a script from file, write a file, or to write it here?\n"
-                        "file/here/write "))
-    if command in ["f", "F", "file", "File", "h", "H", "here", "Here", "w", "W", "write", "Write"]:
+    command = str(input("Do you want to run a script from file, run 'IDE', or to write code into console?\n"
+                        "file/console/ide "))
+    if command in ["f", "F", "file", "File", "c", "C", "console", "Console", "i", "I", "ide", "Ide", "IDE"]:
         break
     else:
         print("Unknown command.")
@@ -33,7 +33,7 @@ if command in ["f", "F", "file", "File"]:
                 Runner.run_from_file("NileshScripts/" + command + ".nilesh")
             else:
                 print("It does not exist, I am sorry.")
-elif command in ["w", "W", "write", "Write"]:
+elif command in ["i", "I", "ide", "Ide", "IDE"]:
     Scripter.run_ide()
 else:
     Runner.run_from_console()

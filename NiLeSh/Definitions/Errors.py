@@ -43,3 +43,10 @@ def wrong_case_error(line, number_of_line, case, command):
     print("Syntax error! Command: " + command + " was used in the case: " + case + "\n"
           "It is not supported.")
     error_ending(line, number_of_line)
+
+
+def directory_does_not_exist_error(line, number_of_line, file_name):
+    print("Error! A file in not existing directory was tried to be created.\n"
+          "Try looking at the path and creating the directory as the solution.\n"
+          "File: " + file_name)
+    error_ending(line, number_of_line)

@@ -209,7 +209,12 @@ def read_line(mode, line, args):
                     elif args[2] == "spanish":
                         name = "Español"
                 args[4] = path
-                Printing.print_header(open(args[4], "w"))
+                try:
+                    Printing.print_header(open(args[4], "w"))
+                except FileNotFoundError:
+                    Errors.directory_does_not_exist_error(line, args[5], args[4])
+                    args[0] = False
+                    return args
                 Printing.print_start_of_body(open(args[4], "a"), name, args[3], args[2], args[8], args[9])
         elif mode == "execute":
             args[9] = "test"
@@ -218,7 +223,12 @@ def read_line(mode, line, args):
                 args[4] = path
             else:
                 args[4] = words[0] + ".html"
-            Printing.print_header(open(args[4], "w"))
+            try:
+                Printing.print_header(open(args[4], "w"))
+            except FileNotFoundError:
+                Errors.directory_does_not_exist_error(line, args[5], args[4])
+                args[0] = False
+                return args
             path = words[0].split("/")
             args[8] = len(path)
             Printing.print_start_of_body(open(args[4], "a"), path[len(path) - 1], args[3], args[2], args[8], args[9])

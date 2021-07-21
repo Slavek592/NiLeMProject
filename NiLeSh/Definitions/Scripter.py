@@ -71,6 +71,10 @@ def update_nilesh(file_name):
         string = ""
         for line in file:
             if counter == 0:
+                if line == "nilesh codes":
+                    print("I am sorry, this is a file with an array of other files to run. "
+                          "It is not supported by the IDE for now.")
+                    return
                 words = line.replace("\n", "").split("//")
                 print("Language is " + words[1] + ".")
                 if change():
@@ -117,6 +121,8 @@ def update_nilesh(file_name):
                 elif words[0] == "update":
                     print("The command is: update.\nIt is only for updating menus, "
                           "You need to do something with it here.")
+                elif words[0] == "run":
+                    print("The command is: run.\nThe file to run is: " + words[1])
                 if change():
                     if not Runner.y_or_n("Do You want to delete it (otherwise to change)?"):
                         string += add_partition()
@@ -182,8 +188,8 @@ def choose_subject():
 def add_partition():
     while True:
         action = str(input("Choose the action. Possible ones are: "
-                           "enter, radio, explain. "))
-        if action in ["enter", "Enter", "radio", "Radio", "explain", "Explain"]:
+                           "enter, radio, explain, run. "))
+        if action in ["enter", "Enter", "radio", "Radio", "explain", "Explain", "run", "Run"]:
             break
         else:
             print("Unknown action.")
@@ -218,6 +224,10 @@ def add_partition():
                     break
             string = "radio//" + question + "//" + answers + "//" + correct_answer + "\n"
             return string
+    elif action in ["run", "Run"]:
+        question = str(input("Enter the name of the file: "))
+        string = "run//" + question + "\n"
+        return string
 
 
 def change():

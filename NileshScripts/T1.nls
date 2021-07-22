@@ -1,8 +1,0 @@
-math//english
-Tests/T1
-{
-enter//2+3//5
-enter//8-2//6
-enter//4*2//8
-}
-end

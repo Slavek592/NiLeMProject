@@ -1,7 +1,0 @@
-physics//english
-Velocity/Velocity-01
-{
-radio//s = 20 m; t = 4 s//v = 1 m/s|v = 4 m/s|v = 5 m/s|v = 6 m/s|v = 10 m/s| v = 20 m/s//2
-enter//v = 2 m/s; s = 24 m; t = ?//12
-}
-end

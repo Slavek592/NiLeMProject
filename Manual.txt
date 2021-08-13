@@ -9,13 +9,31 @@ Let me tell something about the NiLeM.
 Who can use it?
     Anyone.
 Why to use it?
-    It is simple and there is a lot of possibilities waiting wor You.
+    It is simple and there is a lot of possibilities waiting for You.
 How to use it?
-    Download the project or just the NiLeM part and open the Main.html file
-    in Your browser. And that is it. The other is intuitive.
+    1. Download the project (or just the NiLeM part). You can do it by clicking 
+       on the button "Code" and then "Download zip".
+    2. Open the Main.html file in Your browser. You can do it by right clicking
+       ob the file and choosing to open with browser.
+    3. Here You are! Now navigate by intuitive buttons to any of subjects and
+       choose any of the lessons.
+    4. Enjoy and learn!
 
-So, now let me tell the rules of NiLeSh.
-Where to write program:
+You may be interested in making something new. If You are, this part is for You.
+So, now let me tell You something about NiLeSh.
+Who can use it?
+    People understanding computers (power users and programmers)
+Why to use it?
+    Power users - teachers may find it useful, an other way to teach. And anyone
+    else can use it for doing domething good.
+What is the definition?
+    NiLeSh is a Python program. It is used to run some peaces of text made to
+    change NiLeM. These peaces of text must be written in NiLeSh language. The
+    language is simple and writers do not need to know how does the result in
+    JavaScript looks. Yes, NiLeSh engine turns these simple programs into a lot
+    more complicated JavaScript scripts. Interested in learninf NiLeSh? Then
+    continue reading.
+Where to write program?
     You can make the same program in file or in the console.
     If You write it to the file, write it to the text document.
     Write it to the text document.
@@ -31,7 +49,7 @@ Where to write program:
     NO, it is just plain text, it usually has .txt at the end.
     But if You can, You can use .nls or .nilesh, it is better for
     the program.
-Syntax:
+What is the syntax?
     The program starts with the line "subject//language".
     Look at the supported languages and subjects below.
     The 2nd line is the name of the file. It can be in a

@@ -22,17 +22,13 @@ How to use it?
 You may be interested in making something new. If You are, this part is for You.
 So, now let me tell You something about NiLeSh.
 Who can use it?
-    People understanding computers (power users and programmers)
+    People understanding computers (power users and programmers) and people
+    following tutorials
 Why to use it?
     Power users - teachers may find it useful, an other way to teach. And anyone
     else can use it for doing domething good.
-What is the definition?
-    NiLeSh is a Python program. It is used to run some peaces of text made to
-    change NiLeM. These peaces of text must be written in NiLeSh language. The
-    language is simple and writers do not need to know how does the result in
-    JavaScript looks. Yes, NiLeSh engine turns these simple programs into a lot
-    more complicated JavaScript scripts. Interested in learninf NiLeSh? Then
-    continue reading.
+How to use it?
+    Write a program and run it with the engine.
 Where to write program?
     You can make the same program in file or in the console.
     If You write it to the file, write it to the text document.

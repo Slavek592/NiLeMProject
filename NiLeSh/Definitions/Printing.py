@@ -26,9 +26,10 @@ def print_start_of_body(file, name, language, subject, length_of_path, case):
         file.write(
             "        <h1>" + Translations.subject_name(subject, language) + "</h1>\n"
         )
-    file.write(
-        "        <h1>" + name + "</h1>\n"
-    )
+    else:
+        file.write(
+            "        <h1>" + name + "</h1>\n"
+        )
     if case == "menu":
         file.write(
             "        <p>" + Translations.to_main(language) + "</p>\n"

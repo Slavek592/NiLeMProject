@@ -299,13 +299,13 @@ def print_tests_to_menu(directory, file_name):
     if 3 < len(dirpath) < 7:
         file.write("        <h" + str(len(dirpath) - 2) + ">" + dirpath[len(dirpath) - 1]
                    + "</h" + str(len(dirpath) - 2) + ">\n")
-    file.write("        <p>")
+    file.write("        <p>\n")
     for filename in filenames:
-        file.write("<button onclick=\"window.location.href='")
+        file.write("            <button onclick=\"window.location.href='")
         depth = 0
         for folder in dirpath:
             depth += 1
             if depth > 2:
                 file.write(folder + "/")
-        file.write(filename + "';\">" + filename + "</button>")
-    file.write("</p>\n")
+        file.write(filename + "';\">" + filename + "</button>\n")
+    file.write("        </p>\n")

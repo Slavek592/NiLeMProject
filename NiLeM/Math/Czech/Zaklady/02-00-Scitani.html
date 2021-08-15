@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Nikiforov's Learning Machine</title>
+        <meta charset="utf-8"/>
+        <style>
+            body {
+                background-color: black;
+                color: white;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>02-00-Scitani</h1>
+        <div id="q" class="container">Klikněte na tlačítko "Další" pro začátek.</div>
+        <p>
+            <button type="button" onclick="ChangeContent()">Další</button>
+            <button type="button" onclick="Check()">Zkontrolovat</button>
+        </p>
+        <p id="c">Není zde žádná zkontrolovaná odpověď.</p>
+        <p><a href="../../Math-czech.html">Zpátky na menu matematiky</a></p>
+        <script>
+            question = 0;
+            function ChangeContent()
+            {
+                document.getElementById("q").innerHTML = "";
+                document.getElementById("c").innerHTML = "Není zde žádná zkontrolovaná odpověď.";
+                if (question == 0)
+                {
+                    question = 1;
+
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("Vítejte v první lekci o sčítání. Co to je a jak na to? To si teď povíme."));
+                    document.getElementById("q").appendChild(text);
+                }
+                else if (question == 1)
+                {
+                    question = 2;
+
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("Představte si, že máte 3 tečky:"));
+                    document.getElementById("q").appendChild(text);
+
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("..."));
+                    document.getElementById("q").appendChild(text);
+
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("A pak máte ješte 5 dalších teček:"));
+                    document.getElementById("q").appendChild(text);
+
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("....."));
+                    document.getElementById("q").appendChild(text);
+
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("A teď je zkusíme sečíst."));
+                    document.getElementById("q").appendChild(text);
+                }
+                else if (question == 2)
+                {
+                    question = 3;
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("Napište odpověď."));
+                    document.getElementById("q").appendChild(text);
+
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("Sečti tyto tečky: ... a tyto tečky: ..... a napiš tečky sem."));
+                    document.getElementById("q").appendChild(text);
+
+                    var inputplace = document.createElement("p");
+                    var inputbox = document.createElement("input");
+                    inputbox.type = "text";
+                    inputbox.id = "ans";
+                    inputbox.name = "ans";
+                    inputplace.appendChild(inputbox);
+                    document.getElementById("q").appendChild(inputplace);
+                }
+                else if (question == 3)
+                {
+                    question = 4;
+
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("Výborně, je to ........"));
+                    document.getElementById("q").appendChild(text);
+
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("No, a stejným způsobem budeme sčítat i čísla. Pokud chcete, můžete si pod nimi nejprve představit tečky. Anebo jablka. Co se vám bude hodit víc."));
+                    document.getElementById("q").appendChild(text);
+                }
+                else if (question == 4)
+                {
+                    question = 5;
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("Napište odpověď."));
+                    document.getElementById("q").appendChild(text);
+
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("Spočítej a napiš číslem, kolik teček nám vyšlo: ........"));
+                    document.getElementById("q").appendChild(text);
+
+                    var inputplace = document.createElement("p");
+                    var inputbox = document.createElement("input");
+                    inputbox.type = "text";
+                    inputbox.id = "ans";
+                    inputbox.name = "ans";
+                    inputplace.appendChild(inputbox);
+                    document.getElementById("q").appendChild(inputplace);
+                }
+                else if (question == 5)
+                {
+                    question = 6;
+
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("Super, přesně takto se sčítá!"));
+                    document.getElementById("q").appendChild(text);
+                }
+                else
+                {
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("Gratuluji! Ukončil jste tuto lekci."));
+                    document.getElementById("q").appendChild(text);
+                }
+            }
+            function Check()
+            {
+                if (question == 1)
+                {                }                else if (question == 3)
+                {
+                    if (document.getElementById("ans").value == "........")
+                    {
+                        document.getElementById("c").innerHTML = "Správně.";
+                    }
+                    else
+                    {
+                        document.getElementById("c").innerHTML = "Nesprávně.";
+                    }
+                }
+                else if (question == 5)
+                {
+                    if (document.getElementById("ans").value == "8")
+                    {
+                        document.getElementById("c").innerHTML = "Správně.";
+                    }
+                    else
+                    {
+                        document.getElementById("c").innerHTML = "Nesprávně.";
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>

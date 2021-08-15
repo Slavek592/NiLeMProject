@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Nikiforov's Learning Machine</title>
+        <meta charset="utf-8"/>
+        <style>
+            body {
+                background-color: black;
+                color: white;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>00-00</h1>
+        <div id="q" class="container">Нажмите на кнопку "Дальше", чтобы начать.</div>
+        <p>
+            <button type="button" onclick="ChangeContent()">Дальше</button>
+            <button type="button" onclick="Check()">Проверить</button>
+        </p>
+        <p id="c">Здесь нет никакого исправленного ответа.</p>
+        <p><a href="../../English-russian.html">Обратно на меню английского</a></p>
+        <script>
+            question = 0;
+            function ChangeContent()
+            {
+                document.getElementById("q").innerHTML = "";
+                document.getElementById("c").innerHTML = "Здесь нет никакого исправленного ответа.";
+                if (question == 0)
+                {
+                    question = 1;
+
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("Добро пожаловать в изучение английского языка!"));
+                    document.getElementById("q").appendChild(text);
+
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("Мы начнём с начал. Если хотите, откройте другую тему по своему вкусу."));
+                    document.getElementById("q").appendChild(text);
+                }
+                else if (question == 1)
+                {
+                    question = 2;
+
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("В данной части обучения будут разные темы, в каждой будут уроки."));
+                    document.getElementById("q").appendChild(text);
+
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("Если больше не хотите продолжать заниматься этой темой, перейдите на следующую."));
+                    document.getElementById("q").appendChild(text);
+
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("Вы определите это по названиям уроков. Первое число - число темы. Второе - урока в теме."));
+                    document.getElementById("q").appendChild(text);
+                }
+                else if (question == 2)
+                {
+                    question = 3;
+
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("План таков:"));
+                    document.getElementById("q").appendChild(text);
+
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("    01 - Изучение латиници"));
+                    document.getElementById("q").appendChild(text);
+
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("    02 - Простейшие фразы"));
+                    document.getElementById("q").appendChild(text);
+                }
+                else if (question == 3)
+                {
+                    question = 4;
+
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("Готовы? Начнём! Выберите себе первый урок."));
+                    document.getElementById("q").appendChild(text);
+                }
+                else
+                {
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("Поздравляю! Вы закончили этот урок."));
+                    document.getElementById("q").appendChild(text);
+                }
+            }
+            function Check()
+            {
+                if (question == 1)
+                {                }            }
+        </script>
+    </body>
+</html>

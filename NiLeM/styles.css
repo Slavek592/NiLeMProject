@@ -1,3 +1,4 @@
+/* The lines below provide You with the dark mode. */
 body {
     background-color: black;
     color: white;
@@ -12,3 +13,26 @@ input {
     color: white;
     border-color: gray;
 }
+
+/* The lines below provide You with the light mode. */
+/*body {
+    background-color: white;
+    color: black;
+}
+button {
+    background-color: #F0F0F0;
+    color: black;
+    border-color: gray;
+}
+input {
+    background-color: #F0F0F0;
+    color: black;
+    border-color: gray;
+}*/
+
+/*
+Changing the mode:
+1. Comment the lines of the one being used.
+2. Uncomment the lines of the one You want to use.
+*/
+

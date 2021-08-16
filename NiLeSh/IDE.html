@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Nikiforov's Learning Shell IDE</title>
+        <meta charset="utf-8"/>
+        <style>
+            body {
+                background-color: black;
+                color: white;
+            }
+        </style>
+        <script>
+            var language = "none";
+            var subject = "none";
+            var name = "none";
+            var questions = [];
+            var q_number = -1;
+            var q_needs = 0;
+            var q_done = 0;
+            var q_type = "";
+            var possible_answers = 0
+            function ChangeLanguage(string)
+            {
+                language = string;
+                document.getElementById("language").innerHTML = string;
+            }
+            function ChangeSubject(string)
+            {
+                subject = string;
+                document.getElementById("subject").innerHTML = string;
+            }
+            function ChangeName()
+            {
+                name = document.getElementById("nameplace").value;
+                document.getElementById("name").innerHTML = document.getElementById("nameplace").value;
+            }
+            function NewQuestion(type)
+            {
+                if (q_needs == q_done)
+                {
+                    document.getElementById("comment").innerHTML = "";
+                    q_type = type;
+                    q_number += 1;
+                    q_done = 0;
+                    UpdateQNeeds();
+                    questions[q_number] = type;
+                    WriteNewLine("questions", "Question " + q_number + ": " + type);
+                    QPartSetter();
+                }
+                else
+                {
+                    document.getElementById("comment").innerHTML = "Your last question is not finished.";
+                }
+            }
+            function UpdateQNeeds()
+            {
+                if (q_type == "enter")
+                {
+                    q_needs = 2;
+                }
+                else if (q_type == "radio")
+                {
+                    q_needs = 3;
+                }
+                else if (q_type == "explain")
+                {
+                    q_needs = 1;
+                }
+            }
+            function WriteNewLine(id, string)
+            {
+                var text = document.createElement("p");
+                text.appendChild(document.createTextNode(string));
+                document.getElementById(id).appendChild(text);
+            }
+            function CreateInputbox(number)
+            {
+                var inputplace = document.createElement("p");
+                var inputbox = document.createElement("input");
+                inputbox.type = "text";
+                inputbox.id = "answer" + number;
+                inputbox.name = "answer" + number;
+                inputplace.appendChild(inputbox);
+                document.getElementById("new_question").appendChild(inputplace);
+            }
+            function QPartSetter()
+            {
+                document.getElementById("new_question").innerHTML = "";
+                if (q_type == "enter")
+                {
+                    if (q_done == 0)
+                    {
+                        WriteNewLine("new_question", "Enter the question to be shown to the user.");
+                        CreateInputbox(0);
+                    }
+                    else if (q_done == 1)
+                    {
+                        WriteNewLine("new_question", "Enter the right answer.");
+                        CreateInputbox(0);
+                    }
+                }
+                else if (q_type == "radio")
+                {
+                    if (q_done == 0)
+                    {
+                        WriteNewLine("new_question", "Enter the question to be shown to the user.");
+                        CreateInputbox(0);
+                    }
+                    else if (q_done == 1)
+                    {
+                        WriteNewLine("new_question", "Click on the button below to add a new possible answer.");
+                        CreateButton("NewAnswer");
+                    }
+                    else if (q_done == 2)
+                    {
+                        WriteNewLine("new_question", "Enter the number of the right answer (numbering is from 0).");
+                        CreateInputbox(0);
+                    }
+                }
+                else if (q_type == "explain")
+                {
+                    if (q_done == 0)
+                    {
+                        WriteNewLine("new_question", "Enter the explanation to be shown to the user.");
+                        CreateInputbox(0);
+                    }
+                }
+                if (q_done != q_needs)
+                {
+                    CreateButton("Done");
+                }
+                else
+                {
+                    document.getElementById("comment").innerHTML = "This question is finished. You can make a new one, or generate the result.";
+                }
+            }
+            function CreateButton(string)
+            {
+                var buttonplace = document.createElement("p");
+                var button = document.createElement("button");
+                button.type = "button";
+                if (string == "Done")
+                {
+                    button.onclick = function () {Done();} ;
+                    button.innerHTML = "Done";
+                }
+                else if (string == "NewAnswer")
+                {
+                    button.onclick = function () {NewAnswer();} ;
+                    button.innerHTML = "NewAnswer";
+                }
+                buttonplace.appendChild(button);
+                document.getElementById("new_question").appendChild(buttonplace);
+            }
+            function Done()
+            {
+                if (q_type == "explain" || q_type == "enter" || (q_type == "radio" && (q_done == 0 || q_done == 2)))
+                {
+                    questions[q_number] += "//" + document.getElementById("answer0").value;
+                    if (q_done == 0)
+                    {
+                        WriteNewLine("questions", "Question's string: " + document.getElementById("answer0").value);
+                    }
+                    else if ((q_type == "enter" && q_done == 1) || (q_type == "radio" && q_done == 2))
+                    {
+                        WriteNewLine("questions", "Right answer: " + document.getElementById("answer0").value);
+                    }
+                }
+                else if (q_type == "radio" && q_done == 1)
+                {
+                    questions[q_number] += "//";
+                    WriteNewLine("questions", "Possible answers:");
+                    for (let i = 0; i < possible_answers; i ++)
+                    {
+                        if (i != 0)
+                        {
+                            questions[q_number] += "|";
+                        }
+                        questions[q_number] += document.getElementById("answer" + i).value;
+                        WriteNewLine("questions", document.getElementById("answer" + i).value);
+                    }
+                }
+                q_done += 1;
+                QPartSetter();
+            }
+            function Generate()
+            {
+                if (language == "none")
+                {
+                    document.getElementById("comment").innerHTML = "Choose language.";
+                }
+                else if (subject == "none")
+                {
+                    document.getElementById("comment").innerHTML = "Choose subject.";
+                }
+                else if (name == "")
+                {
+                    document.getElementById("comment").innerHTML = "Enter name.";
+                }
+                else if (q_needs == q_done)
+                {
+                    document.getElementById("result").innerHTML = "";
+                    document.getElementById("comment").innerHTML = "Copy these lines and paste them into a file.";
+                    WriteNewLine("result", subject + "//" + language);
+                    WriteNewLine("result", name);
+                    WriteNewLine("result", "{");
+                    for (let i = 0; i < questions.length; i ++)
+                    {
+                        WriteNewLine("result", questions[i]);
+                    }
+                    WriteNewLine("result", "}");
+                    WriteNewLine("result", "end");
+                }
+                else
+                {
+                    document.getElementById("comment").innerHTML = "Your last question is not finished.";
+                }
+            }
+            function NewAnswer()
+            {
+                CreateInputbox(possible_answers);
+                possible_answers ++;
+            }
+            function ChangeMode(toDark)
+            {
+                if (toDark)
+                {
+                    document.body.style.backgroundColor = "black";
+                    document.body.style.color = "white";
+                }
+                else
+                {
+                    document.body.style.backgroundColor = "white";
+                    document.body.style.color = "black";
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        <h1>IDE</h1>
+        <p>
+            <button type="button" onclick="ChangeMode(true)">Dark mode</button>
+            <button type="button" onclick="ChangeMode(false)">Light mode</button>
+        </p>
+        <h2>Language</h2>
+        <p>
+            <button type="button" onclick="ChangeLanguage('english')">English</button>
+            <button type="button" onclick="ChangeLanguage('czech')">Czech</button>
+            <button type="button" onclick="ChangeLanguage('russian')">Russian</button>
+            <button type="button" onclick="ChangeLanguage('german')">German</button>
+            <button type="button" onclick="ChangeLanguage('french')">French</button>
+            <button type="button" onclick="ChangeLanguage('spanish')">Spanish</button>
+        </p>
+        <p id="language">none</p>
+        <h2>Subject</h2>
+        <p>
+            <button type="button" onclick="ChangeSubject('math')">Math</button>
+            <button type="button" onclick="ChangeSubject('physics')">Physics</button>
+            <button type="button" onclick="ChangeSubject('chemistry')">Chemistry</button>
+            <button type="button" onclick="ChangeSubject('biology')">Biology</button>
+            <button type="button" onclick="ChangeSubject('geography')">Geography</button>
+            <button type="button" onclick="ChangeSubject('history')">History</button>
+            <button type="button" onclick="ChangeSubject('english')">English</button>
+            <button type="button" onclick="ChangeSubject('czech')">Czech</button>
+            <button type="button" onclick="ChangeSubject('russian')">Russian</button>
+            <button type="button" onclick="ChangeSubject('german')">German</button>
+            <button type="button" onclick="ChangeSubject('french')">French</button>
+            <button type="button" onclick="ChangeSubject('spanish')">Spanish</button>
+        </p>
+        <p id="subject">none</p>
+        <h2>Name</h2>
+        <p><input type="text" id="nameplace" name="nameplace"></input></p>
+        <p><button type="button" onclick="ChangeName()">Set name</button></p>
+        <p id="name">none</p>
+        <h2>Questions</h2>
+        <p>
+            <button type="button" onclick="NewQuestion('enter')">New enter question</button>
+            <button type="button" onclick="NewQuestion('radio')">New radio question</button>
+            <button type="button" onclick="NewQuestion('explain')">New explanation</button>
+        </p>
+        <div id="new_question" class="container"></div>
+        <div id="questions" class="container"></div>
+        <p><button type="button" onclick="Generate()">Generate</button></p>
+        <p id="comment"></p>
+        <p id="result"></p>
+    </body>
+</html>

@@ -2,19 +2,20 @@
 from . import Translations
 
 
-def print_header(file):
+def print_header(file, length_of_path):
     file.write(
         "<!DOCTYPE html>\n"
         "<html>\n"
         "    <head>\n"
         "        <title>Nikiforov's Learning Machine</title>\n"
         "        <meta charset=\"utf-8\"/>\n"
-        "        <style>\n"
-        "            body {\n"
-        "                background-color: black;\n"
-        "                color: white;\n"
-        "            }\n"
-        "        </style>\n"
+    )
+    link_line = "        <link rel=\"stylesheet\" href=\""
+    for i in range(length_of_path):
+        link_line += "../"
+    link_line += "styles.css\">\n"
+    file.write(
+        link_line +
         "    </head>\n"
         "\n"
         "    <body>\n"

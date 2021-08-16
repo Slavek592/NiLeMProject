@@ -81,7 +81,7 @@ def read_line(mode, line, args):
                     path += "-" + args[3] + ".html"
                 args[4] = path
                 try:
-                    Printing.print_header(open(args[4], "w"))
+                    Printing.print_header(open(args[4], "w"), 1)
                 except FileNotFoundError:
                     Errors.directory_does_not_exist_error(line, args[5], args[4])
                     args[0] = False
@@ -94,14 +94,14 @@ def read_line(mode, line, args):
                 args[4] = path
             else:
                 args[4] = words[0] + ".html"
+            path = words[0].split("/")
+            args[8] = len(path)
             try:
-                Printing.print_header(open(args[4], "w"))
+                Printing.print_header(open(args[4], "w"), args[8] + 1)
             except FileNotFoundError:
                 Errors.directory_does_not_exist_error(line, args[5], args[4])
                 args[0] = False
                 return args
-            path = words[0].split("/")
-            args[8] = len(path)
             Printing.print_start_of_body(open(args[4], "a"), path[len(path) - 1], args[3], args[2], args[8], args[9])
             Printing.create_storing_files(args[4], args[3])
         else:

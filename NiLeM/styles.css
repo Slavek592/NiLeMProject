@@ -1,0 +1,14 @@
+body {
+    background-color: black;
+    color: white;
+}
+button {
+    background-color: #0F0F0F;
+    color: white;
+    border-color: gray;
+}
+input {
+    background-color: #0F0F0F;
+    color: white;
+    border-color: gray;
+}

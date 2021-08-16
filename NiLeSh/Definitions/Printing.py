@@ -273,8 +273,8 @@ def store_explain(file_name, texts, question_number):
         file = open(file_name + ".check", "a")
         file.write(
             "                if (question == 1)\n"
-            "                {"
-            "                }"
+            "                {\n"
+            "                }\n"
         )
         file.close()
 

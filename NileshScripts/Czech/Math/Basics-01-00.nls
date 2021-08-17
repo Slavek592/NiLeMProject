@@ -1,0 +1,15 @@
+math//czech
+Zaklady/01-00-Cisla
+{
+explain//Vítejte v první lekci o číslech.\nPokud už čísla znáte, nezabývejte se tím a jděte dál.
+explain//Zde je seznam nejmenších čísel, které pravděpodobně znáte, když už umíte číst:\n1 - jedna\n2 - dva\n3 - tři\n4 - čtyři\n5 - pět\n6 - šest\n7 - sedm\n8 - osm\n9 - devět\n10 - deset
+explain//A teď krátké procvičení...
+enter//Sedm se číslicí zapíše jako...//7
+enter//Šest se číslicí zapíše jako...//6
+enter//Osm se číslicí zapíše jako...//8
+enter//Dva se číslicí zapíše jako...//2
+enter//Pět se číslicí zapíše jako...//5
+enter//Čtyři se číslicí zapíše jako...//4
+explain//Super, přesně takto se počítá!
+}
+end

@@ -13,7 +13,7 @@ def print_header(file, length_of_path):
     link_line = "        <link rel=\"stylesheet\" href=\""
     for i in range(length_of_path):
         link_line += "../"
-    link_line += "styles.css\">\n"
+    link_line += "Core/styles.css\">\n"
     file.write(
         link_line +
         "    </head>\n"
@@ -54,10 +54,25 @@ def print_start_of_body(file, name, language, subject, length_of_path, case):
         file.write(string)
 
 
-def print_start_of_script(file):
+def print_start_of_script(file, length_of_path, language):
+    link_line = "        <script src=\""
+    for i in range(length_of_path):
+        link_line += "../"
+    link_line += "Core/default.js\"></script>\n"
     file.write(
+        link_line +
         "        <script>\n"
-        "            question = 0;\n"
+        "            question = -1;\n"
+        "            function OwnCheckEnter(correct_answer)\n"
+        "            {\n"
+        "                CheckEnter(\"" + Translations.good(language) + "\", \""
+        + Translations.bad(language) + "\", correct_answer)\n"
+        "            }\n"
+        "            function OwnCheckRadio(correct_answer)\n"
+        "            {\n"
+        "                CheckRadio(\"" + Translations.good(language) + "\", \""
+        + Translations.bad(language) + "\", correct_answer)\n"
+        "            }\n"
     )
 
 
@@ -81,8 +96,8 @@ def create_storing_files(file_name, language):
         "            {\n"
         "                document.getElementById(\"q\").innerHTML = \"\";\n"
         "                document.getElementById(\"c\").innerHTML = \""
-        + Translations.no_checked_answer(language) + "\";"
-        "\n"
+        + Translations.no_checked_answer(language) + "\";\n"
+        "                question ++;\n"
     )
     file.close()
     file = open(file_name + ".check", "w")
@@ -98,10 +113,7 @@ def add_closings_to_storing_files(file_name, language):
     file.write(
         "                else\n"
         "                {\n"
-        "                    var text = document.createElement(\"p\");\n"
-        "                    text.appendChild(document.createTextNode(\""
-        + Translations.congrats(language) + "\"));\n"
-        "                    document.getElementById(\"q\").appendChild(text);\n"
+        "                    PrintLine(\"" + Translations.congrats(language) + "\");\n"
         "                }\n"
         "            }\n"
     )
@@ -125,47 +137,24 @@ def store_enter(file_name, question, answer, question_number, language):
         )
     file.write(
         "                {\n"
-        "                    question = " + str(question_number + 1) + ";\n"
-        "                    var text = document.createElement(\"p\");\n"
-        "                    text.appendChild(document.createTextNode(\""
-        + Translations.enter_answer(language) + "\"));\n"
-        "                    document.getElementById(\"q\").appendChild(text);\n"
-        "\n"
-        "                    var text = document.createElement(\"p\");\n"
-        "                    text.appendChild(document.createTextNode(\"" + question + "\"));\n"
-        "                    document.getElementById(\"q\").appendChild(text);\n"
-        "\n"
-        "                    var inputplace = document.createElement(\"p\");\n"
-        "                    var inputbox = document.createElement(\"input\");\n"
-        "                    inputbox.type = \"text\";\n"
-        "                    inputbox.id = \"ans\";\n"
-        "                    inputbox.name = \"ans\";\n"
-        "                    inputplace.appendChild(inputbox);\n"
-        "                    document.getElementById(\"q\").appendChild(inputplace);\n"
+        "                    PrintLine(\"" + Translations.enter_answer(language) + "\");\n"
+        "                    PrintLine(\"" + question + "\");\n"
+        "                    CreateInputbox();\n"
         "                }\n"
     )
     file.close()
     file = open(file_name + ".check", "a")
     if question_number == 0:
         file.write(
-            "                if (question == 1)\n"
+            "                if (question == 0)\n"
         )
     else:
         file.write(
-            "                else if (question == " + str(question_number + 1) + ")\n"
+            "                else if (question == " + str(question_number) + ")\n"
         )
     file.write(
         "                {\n"
-        "                    if (document.getElementById(\"ans\").value == \"" + answer + "\")\n"
-        "                    {\n"
-        "                        document.getElementById(\"c\").innerHTML = \""
-        + Translations.good(language) + "\";\n"
-        "                    }\n"
-        "                    else\n"
-        "                    {\n"
-        "                        document.getElementById(\"c\").innerHTML = \""
-        + Translations.bad(language) + "\";\n"
-        "                    }\n"
+        "                    OwnCheckEnter(\"" + answer + "\");\n"
         "                }\n"
     )
     file.close()
@@ -184,61 +173,24 @@ def store_radio(file_name, question, answers, correct_answer, question_number, l
         )
     file.write(
         "                {\n"
-        "                    question = " + str(question_number + 1) + ";\n"
-        "                    var text = document.createElement(\"p\");\n"
-        "                    text.appendChild(document.createTextNode(\""
-        + Translations.choose_answer(language) + "\"));\n"
-        "                    document.getElementById(\"q\").appendChild(text);\n"
-        "\n"
-        "                    var text = document.createElement(\"p\");\n"
-        "                    text.appendChild(document.createTextNode(\"" + question + "\"));\n"
-        "                    document.getElementById(\"q\").appendChild(text);\n"
-        "\n"
-        "                    var inputplace = document.createElement(\"p\");\n"
-        "                    inputplace.id = \"inp\";\n"
-    )
-    for answer in answers:
-        file.write(
-            "                    var inputradio = document.createElement(\"input\");\n"
-            "                    inputradio.type = \"radio\";\n"
-            "                    inputradio.id = \"ans\";\n"
-            "                    inputradio.name = \"ans\";\n"
-            "                    inputplace.appendChild(inputradio);\n"
-            "                    inputplace.appendChild(document.createTextNode(\"" + answer + "\"));\n"
-        )
-    file.write(
-        "                    document.getElementById(\"q\").appendChild(inputplace);\n"
+        "                    PrintLine(\"" + Translations.choose_answer(language) + "\");\n"
+        "                    PrintLine(\"" + question + "\");\n"
+        "                    CreateInputradio(" + str(answers) + ");\n"
         "                }\n"
     )
     file.close()
     file = open(file_name + ".check", "a")
     if question_number == 0:
         file.write(
-            "                if (question == 1)\n"
+            "                if (question == 0)\n"
         )
     else:
         file.write(
-            "                else if (question == " + str(question_number + 1) + ")\n"
+            "                else if (question == " + str(question_number) + ")\n"
         )
     file.write(
         "                {\n"
-        "                    var ele = document.getElementsByName('ans');\n"
-        "                    for (i = 0; i < ele.length; i++)\n"
-        "                    {\n"
-        "                        if (ele[i].checked)\n"
-        "                        {\n"
-        "                            if (i == " + correct_answer + ")\n"
-        "                            {\n"
-        "                                document.getElementById(\"c\").innerHTML = \""
-        + Translations.good(language) + "\";\n"
-        "                            }\n"
-        "                            else\n"
-        "                            {\n"
-        "                                document.getElementById(\"c\").innerHTML = \""
-        + Translations.bad(language) + "\";\n"
-        "                            }\n"
-        "                        }\n"
-        "                    }\n"
+        "                    OwnCheckRadio(\"" + correct_answer + ");\n"
         "                }\n"
     )
     file.close()
@@ -257,14 +209,10 @@ def store_explain(file_name, texts, question_number):
         )
     file.write(
         "                {\n"
-        "                    question = " + str(question_number + 1) + ";\n"
     )
     for text in texts:
         file.write(
-            "\n"
-            "                    var text = document.createElement(\"p\");\n"
-            "                    text.appendChild(document.createTextNode(\"" + text + "\"));\n"
-            "                    document.getElementById(\"q\").appendChild(text);\n"
+            "                    PrintLine(\"" + text + "\");\n"
         )
     file.write(
         "                }\n"
@@ -273,7 +221,7 @@ def store_explain(file_name, texts, question_number):
     if question_number == 0:
         file = open(file_name + ".check", "a")
         file.write(
-            "                if (question == 1)\n"
+            "                if (question == 0)\n"
             "                {\n"
             "                }\n"
         )

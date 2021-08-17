@@ -74,7 +74,9 @@ def read_line(mode, line, args):
                 if os.path.isfile("NiLeM/Main.html"):
                     path = "NiLeM/" + args[2].capitalize() + "/" + args[2].capitalize()
                 else:
-                    path = args[2].capitalize()
+                    Errors.nilem_not_found_error(line, args[5])
+                    args[0] = False
+                    return args
                 if args[3] == "english":
                     path += ".html"
                 else:
@@ -93,7 +95,9 @@ def read_line(mode, line, args):
                 path = "NiLeM/" + args[2].capitalize() + "/" + args[3].capitalize() + "/" + words[0] + ".html"
                 args[4] = path
             else:
-                args[4] = words[0] + ".html"
+                Errors.nilem_not_found_error(line, args[5])
+                args[0] = False
+                return args
             path = words[0].split("/")
             args[8] = len(path)
             try:
@@ -120,7 +124,7 @@ def read_line(mode, line, args):
                 search_for_files(args[4], args[3])
                 Printing.print_end_of_body(open(args[4], "a"))
             elif args[9] == "test" and mode == "execute":
-                Printing.print_start_of_script(open(args[4], "a"))
+                Printing.print_start_of_script(open(args[4], "a"), args[8] + 1, args[3])
                 Printing.add_closings_to_storing_files(args[4], args[3])
                 Printing.print_from_storing_files_to_the_main_one(args[4])
                 Printing.print_end_of_script(open(args[4], "a"))

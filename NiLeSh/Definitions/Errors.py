@@ -50,3 +50,9 @@ def directory_does_not_exist_error(line, number_of_line, file_name):
           "Try looking at the path and creating the directory as the solution.\n"
           "File: " + file_name)
     error_ending(line, number_of_line)
+
+
+def nilem_not_found_error(line, number_of_line):
+    print("Error! NiLeM folder not found. Try launching NiLeSh program from "
+          "the NiLeMProject folder.")
+    error_ending(line, number_of_line)

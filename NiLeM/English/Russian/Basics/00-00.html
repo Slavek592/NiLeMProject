@@ -3,7 +3,7 @@
     <head>
         <title>Nikiforov's Learning Machine</title>
         <meta charset="utf-8"/>
-        <link rel="stylesheet" href="../../../styles.css">
+        <link rel="stylesheet" href="../../../Core/styles.css">
     </head>
 
     <body>
@@ -15,74 +15,51 @@
         </p>
         <p id="c">Здесь нет никакого исправленного ответа.</p>
         <p><a href="../../English-russian.html">Обратно на меню английского</a></p>
+        <script src="../../../Core/default.js"></script>
         <script>
-            question = 0;
+            question = -1;
+            function OwnCheckEnter(correct_answer)
+            {
+                CheckEnter("Правильно.", "Не правильно.", correct_answer)
+            }
+            function OwnCheckRadio(correct_answer)
+            {
+                CheckRadio("Правильно.", "Не правильно.", correct_answer)
+            }
             function ChangeContent()
             {
                 document.getElementById("q").innerHTML = "";
                 document.getElementById("c").innerHTML = "Здесь нет никакого исправленного ответа.";
+                question ++;
                 if (question == 0)
                 {
-                    question = 1;
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Добро пожаловать в изучение английского языка!"));
-                    document.getElementById("q").appendChild(text);
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Мы начнём с начал. Если хотите, откройте другую тему по своему вкусу."));
-                    document.getElementById("q").appendChild(text);
+                    PrintLine("Добро пожаловать в изучение английского языка!");
+                    PrintLine("Мы начнём с начал. Если хотите, откройте другую тему по своему вкусу.");
                 }
                 else if (question == 1)
                 {
-                    question = 2;
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("В данной части обучения будут разные темы, в каждой будут уроки."));
-                    document.getElementById("q").appendChild(text);
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Если больше не хотите продолжать заниматься этой темой, перейдите на следующую."));
-                    document.getElementById("q").appendChild(text);
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Вы определите это по названиям уроков. Первое число - число темы. Второе - урока в теме."));
-                    document.getElementById("q").appendChild(text);
+                    PrintLine("В данной части обучения будут разные темы, в каждой будут уроки.");
+                    PrintLine("Если больше не хотите продолжать заниматься этой темой, перейдите на следующую.");
+                    PrintLine("Вы определите это по названиям уроков. Первое число - число темы. Второе - урока в теме.");
                 }
                 else if (question == 2)
                 {
-                    question = 3;
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("План таков:"));
-                    document.getElementById("q").appendChild(text);
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("    01 - Изучение латиници"));
-                    document.getElementById("q").appendChild(text);
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("    02 - Простейшие фразы"));
-                    document.getElementById("q").appendChild(text);
+                    PrintLine("План таков:");
+                    PrintLine("    01 - Изучение латиници");
+                    PrintLine("    02 - Простейшие фразы");
                 }
                 else if (question == 3)
                 {
-                    question = 4;
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Готовы? Начнём! Выберите себе первый урок."));
-                    document.getElementById("q").appendChild(text);
+                    PrintLine("Готовы? Начнём! Выберите себе первый урок.");
                 }
                 else
                 {
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Поздравляю! Вы закончили этот урок."));
-                    document.getElementById("q").appendChild(text);
+                    PrintLine("Поздравляю! Вы закончили этот урок.");
                 }
             }
             function Check()
             {
-                if (question == 1)
+                if (question == 0)
                 {
                 }
             }

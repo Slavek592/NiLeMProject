@@ -3,7 +3,7 @@
     <head>
         <title>Nikiforov's Learning Machine</title>
         <meta charset="utf-8"/>
-        <link rel="stylesheet" href="../../../styles.css">
+        <link rel="stylesheet" href="../../../Core/styles.css">
     </head>
 
     <body>
@@ -15,245 +15,106 @@
         </p>
         <p id="c">Není zde žádná zkontrolovaná odpověď.</p>
         <p><a href="../../Math-czech.html">Zpátky na menu matematiky</a></p>
+        <script src="../../../Core/default.js"></script>
         <script>
-            question = 0;
+            question = -1;
+            function OwnCheckEnter(correct_answer)
+            {
+                CheckEnter("Správně.", "Nesprávně.", correct_answer)
+            }
+            function OwnCheckRadio(correct_answer)
+            {
+                CheckRadio("Správně.", "Nesprávně.", correct_answer)
+            }
             function ChangeContent()
             {
                 document.getElementById("q").innerHTML = "";
                 document.getElementById("c").innerHTML = "Není zde žádná zkontrolovaná odpověď.";
+                question ++;
                 if (question == 0)
                 {
-                    question = 1;
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Nedávno jsme si řekli, jak se dají sčítat jednoduchá čísla."));
-                    document.getElementById("q").appendChild(text);
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Zkus spočítat snadné příklady (pokud potřebuješ, můžeš použít prsty)."));
-                    document.getElementById("q").appendChild(text);
+                    PrintLine("Nedávno jsme si řekli, jak se dají sčítat jednoduchá čísla.");
+                    PrintLine("Zkus spočítat snadné příklady (pokud potřebuješ, můžeš použít prsty).");
                 }
                 else if (question == 1)
                 {
-                    question = 2;
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Napište odpověď."));
-                    document.getElementById("q").appendChild(text);
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("2+3"));
-                    document.getElementById("q").appendChild(text);
-
-                    var inputplace = document.createElement("p");
-                    var inputbox = document.createElement("input");
-                    inputbox.type = "text";
-                    inputbox.id = "ans";
-                    inputbox.name = "ans";
-                    inputplace.appendChild(inputbox);
-                    document.getElementById("q").appendChild(inputplace);
+                    PrintLine("Napište odpověď.");
+                    PrintLine("2+3");
+                    CreateInputbox();
                 }
                 else if (question == 2)
                 {
-                    question = 3;
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Napište odpověď."));
-                    document.getElementById("q").appendChild(text);
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("3+1"));
-                    document.getElementById("q").appendChild(text);
-
-                    var inputplace = document.createElement("p");
-                    var inputbox = document.createElement("input");
-                    inputbox.type = "text";
-                    inputbox.id = "ans";
-                    inputbox.name = "ans";
-                    inputplace.appendChild(inputbox);
-                    document.getElementById("q").appendChild(inputplace);
+                    PrintLine("Napište odpověď.");
+                    PrintLine("3+1");
+                    CreateInputbox();
                 }
                 else if (question == 3)
                 {
-                    question = 4;
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Napište odpověď."));
-                    document.getElementById("q").appendChild(text);
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("4+3"));
-                    document.getElementById("q").appendChild(text);
-
-                    var inputplace = document.createElement("p");
-                    var inputbox = document.createElement("input");
-                    inputbox.type = "text";
-                    inputbox.id = "ans";
-                    inputbox.name = "ans";
-                    inputplace.appendChild(inputbox);
-                    document.getElementById("q").appendChild(inputplace);
+                    PrintLine("Napište odpověď.");
+                    PrintLine("4+3");
+                    CreateInputbox();
                 }
                 else if (question == 4)
                 {
-                    question = 5;
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Napište odpověď."));
-                    document.getElementById("q").appendChild(text);
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("6+1"));
-                    document.getElementById("q").appendChild(text);
-
-                    var inputplace = document.createElement("p");
-                    var inputbox = document.createElement("input");
-                    inputbox.type = "text";
-                    inputbox.id = "ans";
-                    inputbox.name = "ans";
-                    inputplace.appendChild(inputbox);
-                    document.getElementById("q").appendChild(inputplace);
+                    PrintLine("Napište odpověď.");
+                    PrintLine("6+1");
+                    CreateInputbox();
                 }
                 else if (question == 5)
                 {
-                    question = 6;
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Napište odpověď."));
-                    document.getElementById("q").appendChild(text);
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("2+4"));
-                    document.getElementById("q").appendChild(text);
-
-                    var inputplace = document.createElement("p");
-                    var inputbox = document.createElement("input");
-                    inputbox.type = "text";
-                    inputbox.id = "ans";
-                    inputbox.name = "ans";
-                    inputplace.appendChild(inputbox);
-                    document.getElementById("q").appendChild(inputplace);
+                    PrintLine("Napište odpověď.");
+                    PrintLine("2+4");
+                    CreateInputbox();
                 }
                 else if (question == 6)
                 {
-                    question = 7;
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Napište odpověď."));
-                    document.getElementById("q").appendChild(text);
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("1+2"));
-                    document.getElementById("q").appendChild(text);
-
-                    var inputplace = document.createElement("p");
-                    var inputbox = document.createElement("input");
-                    inputbox.type = "text";
-                    inputbox.id = "ans";
-                    inputbox.name = "ans";
-                    inputplace.appendChild(inputbox);
-                    document.getElementById("q").appendChild(inputplace);
+                    PrintLine("Napište odpověď.");
+                    PrintLine("1+2");
+                    CreateInputbox();
                 }
                 else if (question == 7)
                 {
-                    question = 8;
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Napište odpověď."));
-                    document.getElementById("q").appendChild(text);
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("5+3"));
-                    document.getElementById("q").appendChild(text);
-
-                    var inputplace = document.createElement("p");
-                    var inputbox = document.createElement("input");
-                    inputbox.type = "text";
-                    inputbox.id = "ans";
-                    inputbox.name = "ans";
-                    inputplace.appendChild(inputbox);
-                    document.getElementById("q").appendChild(inputplace);
+                    PrintLine("Napište odpověď.");
+                    PrintLine("5+3");
+                    CreateInputbox();
                 }
                 else
                 {
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Gratuluji! Ukončil jste tuto lekci."));
-                    document.getElementById("q").appendChild(text);
+                    PrintLine("Gratuluji! Ukončil jste tuto lekci.");
                 }
             }
             function Check()
             {
-                if (question == 1)
+                if (question == 0)
                 {
+                }
+                else if (question == 1)
+                {
+                    OwnCheckEnter("5");
                 }
                 else if (question == 2)
                 {
-                    if (document.getElementById("ans").value == "5")
-                    {
-                        document.getElementById("c").innerHTML = "Správně.";
-                    }
-                    else
-                    {
-                        document.getElementById("c").innerHTML = "Nesprávně.";
-                    }
+                    OwnCheckEnter("4");
                 }
                 else if (question == 3)
                 {
-                    if (document.getElementById("ans").value == "4")
-                    {
-                        document.getElementById("c").innerHTML = "Správně.";
-                    }
-                    else
-                    {
-                        document.getElementById("c").innerHTML = "Nesprávně.";
-                    }
+                    OwnCheckEnter("7");
                 }
                 else if (question == 4)
                 {
-                    if (document.getElementById("ans").value == "7")
-                    {
-                        document.getElementById("c").innerHTML = "Správně.";
-                    }
-                    else
-                    {
-                        document.getElementById("c").innerHTML = "Nesprávně.";
-                    }
+                    OwnCheckEnter("7");
                 }
                 else if (question == 5)
                 {
-                    if (document.getElementById("ans").value == "7")
-                    {
-                        document.getElementById("c").innerHTML = "Správně.";
-                    }
-                    else
-                    {
-                        document.getElementById("c").innerHTML = "Nesprávně.";
-                    }
+                    OwnCheckEnter("6");
                 }
                 else if (question == 6)
                 {
-                    if (document.getElementById("ans").value == "6")
-                    {
-                        document.getElementById("c").innerHTML = "Správně.";
-                    }
-                    else
-                    {
-                        document.getElementById("c").innerHTML = "Nesprávně.";
-                    }
+                    OwnCheckEnter("3");
                 }
                 else if (question == 7)
                 {
-                    if (document.getElementById("ans").value == "3")
-                    {
-                        document.getElementById("c").innerHTML = "Správně.";
-                    }
-                    else
-                    {
-                        document.getElementById("c").innerHTML = "Nesprávně.";
-                    }
-                }
-                else if (question == 8)
-                {
-                    if (document.getElementById("ans").value == "8")
-                    {
-                        document.getElementById("c").innerHTML = "Správně.";
-                    }
-                    else
-                    {
-                        document.getElementById("c").innerHTML = "Nesprávně.";
-                    }
+                    OwnCheckEnter("8");
                 }
             }
         </script>

@@ -3,7 +3,7 @@
     <head>
         <title>Nikiforov's Learning Machine</title>
         <meta charset="utf-8"/>
-        <link rel="stylesheet" href="../../../styles.css">
+        <link rel="stylesheet" href="../../../Core/styles.css">
     </head>
 
     <body>
@@ -15,135 +15,72 @@
         </p>
         <p id="c">Není zde žádná zkontrolovaná odpověď.</p>
         <p><a href="../../Math-czech.html">Zpátky na menu matematiky</a></p>
+        <script src="../../../Core/default.js"></script>
         <script>
-            question = 0;
+            question = -1;
+            function OwnCheckEnter(correct_answer)
+            {
+                CheckEnter("Správně.", "Nesprávně.", correct_answer)
+            }
+            function OwnCheckRadio(correct_answer)
+            {
+                CheckRadio("Správně.", "Nesprávně.", correct_answer)
+            }
             function ChangeContent()
             {
                 document.getElementById("q").innerHTML = "";
                 document.getElementById("c").innerHTML = "Není zde žádná zkontrolovaná odpověď.";
+                question ++;
                 if (question == 0)
                 {
-                    question = 1;
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Vítejte v první lekci o sčítání. Co to je a jak na to? To si teď povíme."));
-                    document.getElementById("q").appendChild(text);
+                    PrintLine("Vítejte v první lekci o sčítání. Co to je a jak na to? To si teď povíme.");
                 }
                 else if (question == 1)
                 {
-                    question = 2;
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Představte si, že máte 3 tečky:"));
-                    document.getElementById("q").appendChild(text);
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("..."));
-                    document.getElementById("q").appendChild(text);
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("A pak máte ješte 5 dalších teček:"));
-                    document.getElementById("q").appendChild(text);
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("....."));
-                    document.getElementById("q").appendChild(text);
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("A teď je zkusíme sečíst."));
-                    document.getElementById("q").appendChild(text);
+                    PrintLine("Představte si, že máte 3 tečky:");
+                    PrintLine("...");
+                    PrintLine("A pak máte ješte 5 dalších teček:");
+                    PrintLine(".....");
+                    PrintLine("A teď je zkusíme sečíst.");
                 }
                 else if (question == 2)
                 {
-                    question = 3;
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Napište odpověď."));
-                    document.getElementById("q").appendChild(text);
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Sečti tyto tečky: ... a tyto tečky: ..... a napiš tečky sem."));
-                    document.getElementById("q").appendChild(text);
-
-                    var inputplace = document.createElement("p");
-                    var inputbox = document.createElement("input");
-                    inputbox.type = "text";
-                    inputbox.id = "ans";
-                    inputbox.name = "ans";
-                    inputplace.appendChild(inputbox);
-                    document.getElementById("q").appendChild(inputplace);
+                    PrintLine("Napište odpověď.");
+                    PrintLine("Sečti tyto tečky: ... a tyto tečky: ..... a napiš tečky sem.");
+                    CreateInputbox();
                 }
                 else if (question == 3)
                 {
-                    question = 4;
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Výborně, je to ........"));
-                    document.getElementById("q").appendChild(text);
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("No, a stejným způsobem budeme sčítat i čísla. Pokud chcete, můžete si pod nimi nejprve představit tečky. Anebo jablka. Co se vám bude hodit víc."));
-                    document.getElementById("q").appendChild(text);
+                    PrintLine("Výborně, je to ........");
+                    PrintLine("No, a stejným způsobem budeme sčítat i čísla. Pokud chcete, můžete si pod nimi nejprve představit tečky. Anebo jablka. Co se vám bude hodit víc.");
                 }
                 else if (question == 4)
                 {
-                    question = 5;
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Napište odpověď."));
-                    document.getElementById("q").appendChild(text);
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Spočítej a napiš číslem, kolik teček nám vyšlo: ........"));
-                    document.getElementById("q").appendChild(text);
-
-                    var inputplace = document.createElement("p");
-                    var inputbox = document.createElement("input");
-                    inputbox.type = "text";
-                    inputbox.id = "ans";
-                    inputbox.name = "ans";
-                    inputplace.appendChild(inputbox);
-                    document.getElementById("q").appendChild(inputplace);
+                    PrintLine("Napište odpověď.");
+                    PrintLine("Spočítej a napiš číslem, kolik teček nám vyšlo: ........");
+                    CreateInputbox();
                 }
                 else if (question == 5)
                 {
-                    question = 6;
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Super, přesně takto se sčítá!"));
-                    document.getElementById("q").appendChild(text);
+                    PrintLine("Super, přesně takto se sčítá!");
                 }
                 else
                 {
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Gratuluji! Ukončil jste tuto lekci."));
-                    document.getElementById("q").appendChild(text);
+                    PrintLine("Gratuluji! Ukončil jste tuto lekci.");
                 }
             }
             function Check()
             {
-                if (question == 1)
+                if (question == 0)
                 {
                 }
-                else if (question == 3)
+                else if (question == 2)
                 {
-                    if (document.getElementById("ans").value == "........")
-                    {
-                        document.getElementById("c").innerHTML = "Správně.";
-                    }
-                    else
-                    {
-                        document.getElementById("c").innerHTML = "Nesprávně.";
-                    }
+                    OwnCheckEnter("........");
                 }
-                else if (question == 5)
+                else if (question == 4)
                 {
-                    if (document.getElementById("ans").value == "8")
-                    {
-                        document.getElementById("c").innerHTML = "Správně.";
-                    }
-                    else
-                    {
-                        document.getElementById("c").innerHTML = "Nesprávně.";
-                    }
+                    OwnCheckEnter("8");
                 }
             }
         </script>

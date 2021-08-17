@@ -3,7 +3,7 @@
     <head>
         <title>Nikiforov's Learning Machine</title>
         <meta charset="utf-8"/>
-        <link rel="stylesheet" href="../../styles.css">
+        <link rel="stylesheet" href="../../Core/styles.css">
     </head>
 
     <body>
@@ -15,103 +15,58 @@
         </p>
         <p id="c">There is no any checked answer.</p>
         <p><a href="../Czech.html">Back to Czech menu</a></p>
+        <script src="../../Core/default.js"></script>
         <script>
-            question = 0;
+            question = -1;
+            function OwnCheckEnter(correct_answer)
+            {
+                CheckEnter("Correct.", "Incorrect.", correct_answer)
+            }
+            function OwnCheckRadio(correct_answer)
+            {
+                CheckRadio("Correct.", "Incorrect.", correct_answer)
+            }
             function ChangeContent()
             {
                 document.getElementById("q").innerHTML = "";
                 document.getElementById("c").innerHTML = "There is no any checked answer.";
+                question ++;
                 if (question == 0)
                 {
-                    question = 1;
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Hello. = Ahoj."));
-                    document.getElementById("q").appendChild(text);
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("How are You? = Jak se máš?"));
-                    document.getElementById("q").appendChild(text);
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Good. = Dobře."));
-                    document.getElementById("q").appendChild(text);
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Bad = Špatně."));
-                    document.getElementById("q").appendChild(text);
+                    PrintLine("Hello. = Ahoj.");
+                    PrintLine("How are You? = Jak se máš?");
+                    PrintLine("Good. = Dobře.");
+                    PrintLine("Bad = Špatně.");
                 }
                 else if (question == 1)
                 {
-                    question = 2;
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Enter answer."));
-                    document.getElementById("q").appendChild(text);
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Translate "Hello." (starts with capital, ends with .):"));
-                    document.getElementById("q").appendChild(text);
-
-                    var inputplace = document.createElement("p");
-                    var inputbox = document.createElement("input");
-                    inputbox.type = "text";
-                    inputbox.id = "ans";
-                    inputbox.name = "ans";
-                    inputplace.appendChild(inputbox);
-                    document.getElementById("q").appendChild(inputplace);
+                    PrintLine("Enter answer.");
+                    PrintLine("Translate "Hello." (starts with capital, ends with .):");
+                    CreateInputbox();
                 }
                 else if (question == 2)
                 {
-                    question = 3;
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Enter answer."));
-                    document.getElementById("q").appendChild(text);
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Translate "Good." (with capital and dot):"));
-                    document.getElementById("q").appendChild(text);
-
-                    var inputplace = document.createElement("p");
-                    var inputbox = document.createElement("input");
-                    inputbox.type = "text";
-                    inputbox.id = "ans";
-                    inputbox.name = "ans";
-                    inputplace.appendChild(inputbox);
-                    document.getElementById("q").appendChild(inputplace);
+                    PrintLine("Enter answer.");
+                    PrintLine("Translate "Good." (with capital and dot):");
+                    CreateInputbox();
                 }
                 else
                 {
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Congratulation! You have ended this lesson."));
-                    document.getElementById("q").appendChild(text);
+                    PrintLine("Congratulation! You have ended this lesson.");
                 }
             }
             function Check()
             {
-                if (question == 1)
+                if (question == 0)
                 {
+                }
+                else if (question == 1)
+                {
+                    OwnCheckEnter("Ahoj.");
                 }
                 else if (question == 2)
                 {
-                    if (document.getElementById("ans").value == "Ahoj.")
-                    {
-                        document.getElementById("c").innerHTML = "Correct.";
-                    }
-                    else
-                    {
-                        document.getElementById("c").innerHTML = "Incorrect.";
-                    }
-                }
-                else if (question == 3)
-                {
-                    if (document.getElementById("ans").value == "Dobře.")
-                    {
-                        document.getElementById("c").innerHTML = "Correct.";
-                    }
-                    else
-                    {
-                        document.getElementById("c").innerHTML = "Incorrect.";
-                    }
+                    OwnCheckEnter("Dobře.");
                 }
             }
         </script>

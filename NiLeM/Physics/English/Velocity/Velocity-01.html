@@ -3,7 +3,7 @@
     <head>
         <title>Nikiforov's Learning Machine</title>
         <meta charset="utf-8"/>
-        <link rel="stylesheet" href="../../../styles.css">
+        <link rel="stylesheet" href="../../../Core/styles.css">
     </head>
 
     <body>
@@ -15,119 +15,48 @@
         </p>
         <p id="c">There is no any checked answer.</p>
         <p><a href="../../Physics.html">Back to Physics menu</a></p>
+        <script src="../../../Core/default.js"></script>
         <script>
-            question = 0;
+            question = -1;
+            function OwnCheckEnter(correct_answer)
+            {
+                CheckEnter("Correct.", "Incorrect.", correct_answer)
+            }
+            function OwnCheckRadio(correct_answer)
+            {
+                CheckRadio("Correct.", "Incorrect.", correct_answer)
+            }
             function ChangeContent()
             {
                 document.getElementById("q").innerHTML = "";
                 document.getElementById("c").innerHTML = "There is no any checked answer.";
+                question ++;
                 if (question == 0)
                 {
-                    question = 1;
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Choose answer."));
-                    document.getElementById("q").appendChild(text);
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("s = 20 m; t = 4 s"));
-                    document.getElementById("q").appendChild(text);
-
-                    var inputplace = document.createElement("p");
-                    inputplace.id = "inp";
-                    var inputradio = document.createElement("input");
-                    inputradio.type = "radio";
-                    inputradio.id = "ans";
-                    inputradio.name = "ans";
-                    inputplace.appendChild(inputradio);
-                    inputplace.appendChild(document.createTextNode("v = 1 m/s"));
-                    var inputradio = document.createElement("input");
-                    inputradio.type = "radio";
-                    inputradio.id = "ans";
-                    inputradio.name = "ans";
-                    inputplace.appendChild(inputradio);
-                    inputplace.appendChild(document.createTextNode("v = 4 m/s"));
-                    var inputradio = document.createElement("input");
-                    inputradio.type = "radio";
-                    inputradio.id = "ans";
-                    inputradio.name = "ans";
-                    inputplace.appendChild(inputradio);
-                    inputplace.appendChild(document.createTextNode("v = 5 m/s"));
-                    var inputradio = document.createElement("input");
-                    inputradio.type = "radio";
-                    inputradio.id = "ans";
-                    inputradio.name = "ans";
-                    inputplace.appendChild(inputradio);
-                    inputplace.appendChild(document.createTextNode("v = 6 m/s"));
-                    var inputradio = document.createElement("input");
-                    inputradio.type = "radio";
-                    inputradio.id = "ans";
-                    inputradio.name = "ans";
-                    inputplace.appendChild(inputradio);
-                    inputplace.appendChild(document.createTextNode("v = 10 m/s"));
-                    var inputradio = document.createElement("input");
-                    inputradio.type = "radio";
-                    inputradio.id = "ans";
-                    inputradio.name = "ans";
-                    inputplace.appendChild(inputradio);
-                    inputplace.appendChild(document.createTextNode(" v = 20 m/s"));
-                    document.getElementById("q").appendChild(inputplace);
+                    PrintLine("Choose answer.");
+                    PrintLine("s = 20 m; t = 4 s");
+                    CreateInputradio(['v = 1 m/s', 'v = 4 m/s', 'v = 5 m/s', 'v = 6 m/s', 'v = 10 m/s', ' v = 20 m/s']);
                 }
                 else if (question == 1)
                 {
-                    question = 2;
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Enter answer."));
-                    document.getElementById("q").appendChild(text);
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("v = 2 m/s; s = 24 m; t = ?"));
-                    document.getElementById("q").appendChild(text);
-
-                    var inputplace = document.createElement("p");
-                    var inputbox = document.createElement("input");
-                    inputbox.type = "text";
-                    inputbox.id = "ans";
-                    inputbox.name = "ans";
-                    inputplace.appendChild(inputbox);
-                    document.getElementById("q").appendChild(inputplace);
+                    PrintLine("Enter answer.");
+                    PrintLine("v = 2 m/s; s = 24 m; t = ?");
+                    CreateInputbox();
                 }
                 else
                 {
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Congratulation! You have ended this lesson."));
-                    document.getElementById("q").appendChild(text);
+                    PrintLine("Congratulation! You have ended this lesson.");
                 }
             }
             function Check()
             {
-                if (question == 1)
+                if (question == 0)
                 {
-                    var ele = document.getElementsByName('ans');
-                    for (i = 0; i < ele.length; i++)
-                    {
-                        if (ele[i].checked)
-                        {
-                            if (i == 2)
-                            {
-                                document.getElementById("c").innerHTML = "Correct.";
-                            }
-                            else
-                            {
-                                document.getElementById("c").innerHTML = "Incorrect.";
-                            }
-                        }
-                    }
+                    OwnCheckRadio("2);
                 }
-                else if (question == 2)
+                else if (question == 1)
                 {
-                    if (document.getElementById("ans").value == "12")
-                    {
-                        document.getElementById("c").innerHTML = "Correct.";
-                    }
-                    else
-                    {
-                        document.getElementById("c").innerHTML = "Incorrect.";
-                    }
+                    OwnCheckEnter("12");
                 }
             }
         </script>

@@ -3,7 +3,7 @@
     <head>
         <title>Nikiforov's Learning Machine</title>
         <meta charset="utf-8"/>
-        <link rel="stylesheet" href="../../../styles.css">
+        <link rel="stylesheet" href="../../../Core/styles.css">
     </head>
 
     <body>
@@ -15,149 +15,58 @@
         </p>
         <p id="c">Není zde žádná zkontrolovaná odpověď.</p>
         <p><a href="../../Chemistry-czech.html">Zpátky na menu chemie</a></p>
+        <script src="../../../Core/default.js"></script>
         <script>
-            question = 0;
+            question = -1;
+            function OwnCheckEnter(correct_answer)
+            {
+                CheckEnter("Správně.", "Nesprávně.", correct_answer)
+            }
+            function OwnCheckRadio(correct_answer)
+            {
+                CheckRadio("Správně.", "Nesprávně.", correct_answer)
+            }
             function ChangeContent()
             {
                 document.getElementById("q").innerHTML = "";
                 document.getElementById("c").innerHTML = "Není zde žádná zkontrolovaná odpověď.";
+                question ++;
                 if (question == 0)
                 {
-                    question = 1;
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Napište odpověď."));
-                    document.getElementById("q").appendChild(text);
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Napiš název pro CH4 (malými písmeny)"));
-                    document.getElementById("q").appendChild(text);
-
-                    var inputplace = document.createElement("p");
-                    var inputbox = document.createElement("input");
-                    inputbox.type = "text";
-                    inputbox.id = "ans";
-                    inputbox.name = "ans";
-                    inputplace.appendChild(inputbox);
-                    document.getElementById("q").appendChild(inputplace);
+                    PrintLine("Napište odpověď.");
+                    PrintLine("Napiš název pro CH4 (malými písmeny)");
+                    CreateInputbox();
                 }
                 else if (question == 1)
                 {
-                    question = 2;
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Napište odpověď."));
-                    document.getElementById("q").appendChild(text);
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Napiš název pro CH3-CH3 (malými písmeny)"));
-                    document.getElementById("q").appendChild(text);
-
-                    var inputplace = document.createElement("p");
-                    var inputbox = document.createElement("input");
-                    inputbox.type = "text";
-                    inputbox.id = "ans";
-                    inputbox.name = "ans";
-                    inputplace.appendChild(inputbox);
-                    document.getElementById("q").appendChild(inputplace);
+                    PrintLine("Napište odpověď.");
+                    PrintLine("Napiš název pro CH3-CH3 (malými písmeny)");
+                    CreateInputbox();
                 }
                 else if (question == 2)
                 {
-                    question = 3;
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Vyberte odpověď."));
-                    document.getElementById("q").appendChild(text);
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("CH3-CH2-CH2-CH3 je..."));
-                    document.getElementById("q").appendChild(text);
-
-                    var inputplace = document.createElement("p");
-                    inputplace.id = "inp";
-                    var inputradio = document.createElement("input");
-                    inputradio.type = "radio";
-                    inputradio.id = "ans";
-                    inputradio.name = "ans";
-                    inputplace.appendChild(inputradio);
-                    inputplace.appendChild(document.createTextNode("heptan"));
-                    var inputradio = document.createElement("input");
-                    inputradio.type = "radio";
-                    inputradio.id = "ans";
-                    inputradio.name = "ans";
-                    inputplace.appendChild(inputradio);
-                    inputplace.appendChild(document.createTextNode("oktan"));
-                    var inputradio = document.createElement("input");
-                    inputradio.type = "radio";
-                    inputradio.id = "ans";
-                    inputradio.name = "ans";
-                    inputplace.appendChild(inputradio);
-                    inputplace.appendChild(document.createTextNode("propan"));
-                    var inputradio = document.createElement("input");
-                    inputradio.type = "radio";
-                    inputradio.id = "ans";
-                    inputradio.name = "ans";
-                    inputplace.appendChild(inputradio);
-                    inputplace.appendChild(document.createTextNode("hexan"));
-                    var inputradio = document.createElement("input");
-                    inputradio.type = "radio";
-                    inputradio.id = "ans";
-                    inputradio.name = "ans";
-                    inputplace.appendChild(inputradio);
-                    inputplace.appendChild(document.createTextNode("butan"));
-                    var inputradio = document.createElement("input");
-                    inputradio.type = "radio";
-                    inputradio.id = "ans";
-                    inputradio.name = "ans";
-                    inputplace.appendChild(inputradio);
-                    inputplace.appendChild(document.createTextNode("pentan"));
-                    document.getElementById("q").appendChild(inputplace);
+                    PrintLine("Vyberte odpověď.");
+                    PrintLine("CH3-CH2-CH2-CH3 je...");
+                    CreateInputradio(['heptan', 'oktan', 'propan', 'hexan', 'butan', 'pentan']);
                 }
                 else
                 {
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Gratuluji! Ukončil jste tuto lekci."));
-                    document.getElementById("q").appendChild(text);
+                    PrintLine("Gratuluji! Ukončil jste tuto lekci.");
                 }
             }
             function Check()
             {
-                if (question == 1)
+                if (question == 0)
                 {
-                    if (document.getElementById("ans").value == "methan")
-                    {
-                        document.getElementById("c").innerHTML = "Správně.";
-                    }
-                    else
-                    {
-                        document.getElementById("c").innerHTML = "Nesprávně.";
-                    }
+                    OwnCheckEnter("methan");
+                }
+                else if (question == 1)
+                {
+                    OwnCheckEnter("ethan");
                 }
                 else if (question == 2)
                 {
-                    if (document.getElementById("ans").value == "ethan")
-                    {
-                        document.getElementById("c").innerHTML = "Správně.";
-                    }
-                    else
-                    {
-                        document.getElementById("c").innerHTML = "Nesprávně.";
-                    }
-                }
-                else if (question == 3)
-                {
-                    var ele = document.getElementsByName('ans');
-                    for (i = 0; i < ele.length; i++)
-                    {
-                        if (ele[i].checked)
-                        {
-                            if (i == 4)
-                            {
-                                document.getElementById("c").innerHTML = "Správně.";
-                            }
-                            else
-                            {
-                                document.getElementById("c").innerHTML = "Nesprávně.";
-                            }
-                        }
-                    }
+                    OwnCheckRadio("4);
                 }
             }
         </script>

@@ -3,7 +3,7 @@
     <head>
         <title>Nikiforov's Learning Machine</title>
         <meta charset="utf-8"/>
-        <link rel="stylesheet" href="../../../styles.css">
+        <link rel="stylesheet" href="../../../Core/styles.css">
     </head>
 
     <body>
@@ -15,62 +15,48 @@
         </p>
         <p id="c">Není zde žádná zkontrolovaná odpověď.</p>
         <p><a href="../../Math-czech.html">Zpátky na menu matematiky</a></p>
+        <script src="../../../Core/default.js"></script>
         <script>
-            question = 0;
+            question = -1;
+            function OwnCheckEnter(correct_answer)
+            {
+                CheckEnter("Správně.", "Nesprávně.", correct_answer)
+            }
+            function OwnCheckRadio(correct_answer)
+            {
+                CheckRadio("Správně.", "Nesprávně.", correct_answer)
+            }
             function ChangeContent()
             {
                 document.getElementById("q").innerHTML = "";
                 document.getElementById("c").innerHTML = "Není zde žádná zkontrolovaná odpověď.";
+                question ++;
                 if (question == 0)
                 {
-                    question = 1;
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Zdravím, vítejte!"));
-                    document.getElementById("q").appendChild(text);
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Tato část pojednává o elementární matematice (sčítání, odečítání, násobení, dělení)."));
-                    document.getElementById("q").appendChild(text);
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Pokud se tím zabývat nechcete, vyhledejte si jiné téma."));
-                    document.getElementById("q").appendChild(text);
+                    PrintLine("Zdravím, vítejte!");
+                    PrintLine("Tato část pojednává o elementární matematice (sčítání, odečítání, násobení, dělení).");
+                    PrintLine("Pokud se tím zabývat nechcete, vyhledejte si jiné téma.");
                 }
                 else if (question == 1)
                 {
-                    question = 2;
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Pokud se tímto tématem zabývat chcete, můžete si vybrat jinou hodinu z tohoto oddílu. Tato je jen úvodní."));
-                    document.getElementById("q").appendChild(text);
+                    PrintLine("Pokud se tímto tématem zabývat chcete, můžete si vybrat jinou hodinu z tohoto oddílu. Tato je jen úvodní.");
                 }
                 else if (question == 2)
                 {
-                    question = 3;
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("V názvu vždy uvidiíte 2 čísla. Jedno z nich je číslo daného podtématu a druhé je číslo lekce v tomto podtématu."));
-                    document.getElementById("q").appendChild(text);
+                    PrintLine("V názvu vždy uvidiíte 2 čísla. Jedno z nich je číslo daného podtématu a druhé je číslo lekce v tomto podtématu.");
                 }
                 else if (question == 3)
                 {
-                    question = 4;
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Výborně tedy, hodně štěstí!"));
-                    document.getElementById("q").appendChild(text);
+                    PrintLine("Výborně tedy, hodně štěstí!");
                 }
                 else
                 {
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Gratuluji! Ukončil jste tuto lekci."));
-                    document.getElementById("q").appendChild(text);
+                    PrintLine("Gratuluji! Ukončil jste tuto lekci.");
                 }
             }
             function Check()
             {
-                if (question == 1)
+                if (question == 0)
                 {
                 }
             }

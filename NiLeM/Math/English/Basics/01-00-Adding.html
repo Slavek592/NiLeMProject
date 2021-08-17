@@ -3,7 +3,7 @@
     <head>
         <title>Nikiforov's Learning Machine</title>
         <meta charset="utf-8"/>
-        <link rel="stylesheet" href="../../../styles.css">
+        <link rel="stylesheet" href="../../../Core/styles.css">
     </head>
 
     <body>
@@ -15,361 +15,120 @@
         </p>
         <p id="c">There is no any checked answer.</p>
         <p><a href="../../Math.html">Back to Math menu</a></p>
+        <script src="../../../Core/default.js"></script>
         <script>
-            question = 0;
+            question = -1;
+            function OwnCheckEnter(correct_answer)
+            {
+                CheckEnter("Correct.", "Incorrect.", correct_answer)
+            }
+            function OwnCheckRadio(correct_answer)
+            {
+                CheckRadio("Correct.", "Incorrect.", correct_answer)
+            }
             function ChangeContent()
             {
                 document.getElementById("q").innerHTML = "";
                 document.getElementById("c").innerHTML = "There is no any checked answer.";
+                question ++;
                 if (question == 0)
                 {
-                    question = 1;
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Welcome to adding!"));
-                    document.getElementById("q").appendChild(text);
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("In this part You will learn to add."));
-                    document.getElementById("q").appendChild(text);
+                    PrintLine("Welcome to adding!");
+                    PrintLine("In this part You will learn to add.");
                 }
                 else if (question == 1)
                 {
-                    question = 2;
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Imagine adding dots. Yes, dots."));
-                    document.getElementById("q").appendChild(text);
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Here we have some dots:"));
-                    document.getElementById("q").appendChild(text);
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode(""));
-                    document.getElementById("q").appendChild(text);
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("....."));
-                    document.getElementById("q").appendChild(text);
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode(""));
-                    document.getElementById("q").appendChild(text);
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("And here are some dots:"));
-                    document.getElementById("q").appendChild(text);
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode(""));
-                    document.getElementById("q").appendChild(text);
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("..."));
-                    document.getElementById("q").appendChild(text);
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode(""));
-                    document.getElementById("q").appendChild(text);
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Try to count the first dots. 5 dots. And try to count the other ones. 3 dots."));
-                    document.getElementById("q").appendChild(text);
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("And now let's put them together!"));
-                    document.getElementById("q").appendChild(text);
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode(""));
-                    document.getElementById("q").appendChild(text);
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("........"));
-                    document.getElementById("q").appendChild(text);
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode(""));
-                    document.getElementById("q").appendChild(text);
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("And now let's count it!"));
-                    document.getElementById("q").appendChild(text);
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("8 dots."));
-                    document.getElementById("q").appendChild(text);
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Congrats, You have mastered simple adding!"));
-                    document.getElementById("q").appendChild(text);
+                    PrintLine("Imagine adding dots. Yes, dots.");
+                    PrintLine("Here we have some dots:");
+                    PrintLine("");
+                    PrintLine(".....");
+                    PrintLine("");
+                    PrintLine("And here are some dots:");
+                    PrintLine("");
+                    PrintLine("...");
+                    PrintLine("");
+                    PrintLine("Try to count the first dots. 5 dots. And try to count the other ones. 3 dots.");
+                    PrintLine("And now let's put them together!");
+                    PrintLine("");
+                    PrintLine("........");
+                    PrintLine("");
+                    PrintLine("And now let's count it!");
+                    PrintLine("8 dots.");
+                    PrintLine("Congrats, You have mastered simple adding!");
                 }
                 else if (question == 2)
                 {
-                    question = 3;
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Let's master it a bit more!"));
-                    document.getElementById("q").appendChild(text);
+                    PrintLine("Let's master it a bit more!");
                 }
                 else if (question == 3)
                 {
-                    question = 4;
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Enter answer."));
-                    document.getElementById("q").appendChild(text);
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("2+3"));
-                    document.getElementById("q").appendChild(text);
-
-                    var inputplace = document.createElement("p");
-                    var inputbox = document.createElement("input");
-                    inputbox.type = "text";
-                    inputbox.id = "ans";
-                    inputbox.name = "ans";
-                    inputplace.appendChild(inputbox);
-                    document.getElementById("q").appendChild(inputplace);
+                    PrintLine("Enter answer.");
+                    PrintLine("2+3");
+                    CreateInputbox();
                 }
                 else if (question == 4)
                 {
-                    question = 5;
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Enter answer."));
-                    document.getElementById("q").appendChild(text);
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("1+1"));
-                    document.getElementById("q").appendChild(text);
-
-                    var inputplace = document.createElement("p");
-                    var inputbox = document.createElement("input");
-                    inputbox.type = "text";
-                    inputbox.id = "ans";
-                    inputbox.name = "ans";
-                    inputplace.appendChild(inputbox);
-                    document.getElementById("q").appendChild(inputplace);
+                    PrintLine("Enter answer.");
+                    PrintLine("1+1");
+                    CreateInputbox();
                 }
                 else if (question == 5)
                 {
-                    question = 6;
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Choose answer."));
-                    document.getElementById("q").appendChild(text);
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("5+4"));
-                    document.getElementById("q").appendChild(text);
-
-                    var inputplace = document.createElement("p");
-                    inputplace.id = "inp";
-                    var inputradio = document.createElement("input");
-                    inputradio.type = "radio";
-                    inputradio.id = "ans";
-                    inputradio.name = "ans";
-                    inputplace.appendChild(inputradio);
-                    inputplace.appendChild(document.createTextNode("6"));
-                    var inputradio = document.createElement("input");
-                    inputradio.type = "radio";
-                    inputradio.id = "ans";
-                    inputradio.name = "ans";
-                    inputplace.appendChild(inputradio);
-                    inputplace.appendChild(document.createTextNode("7"));
-                    var inputradio = document.createElement("input");
-                    inputradio.type = "radio";
-                    inputradio.id = "ans";
-                    inputradio.name = "ans";
-                    inputplace.appendChild(inputradio);
-                    inputplace.appendChild(document.createTextNode("8"));
-                    var inputradio = document.createElement("input");
-                    inputradio.type = "radio";
-                    inputradio.id = "ans";
-                    inputradio.name = "ans";
-                    inputplace.appendChild(inputradio);
-                    inputplace.appendChild(document.createTextNode("9"));
-                    var inputradio = document.createElement("input");
-                    inputradio.type = "radio";
-                    inputradio.id = "ans";
-                    inputradio.name = "ans";
-                    inputplace.appendChild(inputradio);
-                    inputplace.appendChild(document.createTextNode("10"));
-                    document.getElementById("q").appendChild(inputplace);
+                    PrintLine("Choose answer.");
+                    PrintLine("5+4");
+                    CreateInputradio(['6', '7', '8', '9', '10']);
                 }
                 else if (question == 6)
                 {
-                    question = 7;
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Enter answer."));
-                    document.getElementById("q").appendChild(text);
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("7+1"));
-                    document.getElementById("q").appendChild(text);
-
-                    var inputplace = document.createElement("p");
-                    var inputbox = document.createElement("input");
-                    inputbox.type = "text";
-                    inputbox.id = "ans";
-                    inputbox.name = "ans";
-                    inputplace.appendChild(inputbox);
-                    document.getElementById("q").appendChild(inputplace);
+                    PrintLine("Enter answer.");
+                    PrintLine("7+1");
+                    CreateInputbox();
                 }
                 else if (question == 7)
                 {
-                    question = 8;
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Choose answer."));
-                    document.getElementById("q").appendChild(text);
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("9+0"));
-                    document.getElementById("q").appendChild(text);
-
-                    var inputplace = document.createElement("p");
-                    inputplace.id = "inp";
-                    var inputradio = document.createElement("input");
-                    inputradio.type = "radio";
-                    inputradio.id = "ans";
-                    inputradio.name = "ans";
-                    inputplace.appendChild(inputradio);
-                    inputplace.appendChild(document.createTextNode("7"));
-                    var inputradio = document.createElement("input");
-                    inputradio.type = "radio";
-                    inputradio.id = "ans";
-                    inputradio.name = "ans";
-                    inputplace.appendChild(inputradio);
-                    inputplace.appendChild(document.createTextNode("8"));
-                    var inputradio = document.createElement("input");
-                    inputradio.type = "radio";
-                    inputradio.id = "ans";
-                    inputradio.name = "ans";
-                    inputplace.appendChild(inputradio);
-                    inputplace.appendChild(document.createTextNode("9"));
-                    var inputradio = document.createElement("input");
-                    inputradio.type = "radio";
-                    inputradio.id = "ans";
-                    inputradio.name = "ans";
-                    inputplace.appendChild(inputradio);
-                    inputplace.appendChild(document.createTextNode("10"));
-                    var inputradio = document.createElement("input");
-                    inputradio.type = "radio";
-                    inputradio.id = "ans";
-                    inputradio.name = "ans";
-                    inputplace.appendChild(inputradio);
-                    inputplace.appendChild(document.createTextNode("11"));
-                    document.getElementById("q").appendChild(inputplace);
+                    PrintLine("Choose answer.");
+                    PrintLine("9+0");
+                    CreateInputradio(['7', '8', '9', '10', '11']);
                 }
                 else if (question == 8)
                 {
-                    question = 9;
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Enter answer."));
-                    document.getElementById("q").appendChild(text);
-
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("5+2"));
-                    document.getElementById("q").appendChild(text);
-
-                    var inputplace = document.createElement("p");
-                    var inputbox = document.createElement("input");
-                    inputbox.type = "text";
-                    inputbox.id = "ans";
-                    inputbox.name = "ans";
-                    inputplace.appendChild(inputbox);
-                    document.getElementById("q").appendChild(inputplace);
+                    PrintLine("Enter answer.");
+                    PrintLine("5+2");
+                    CreateInputbox();
                 }
                 else
                 {
-                    var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Congratulation! You have ended this lesson."));
-                    document.getElementById("q").appendChild(text);
+                    PrintLine("Congratulation! You have ended this lesson.");
                 }
             }
             function Check()
             {
-                if (question == 1)
+                if (question == 0)
                 {
+                }
+                else if (question == 3)
+                {
+                    OwnCheckEnter("5");
                 }
                 else if (question == 4)
                 {
-                    if (document.getElementById("ans").value == "5")
-                    {
-                        document.getElementById("c").innerHTML = "Correct.";
-                    }
-                    else
-                    {
-                        document.getElementById("c").innerHTML = "Incorrect.";
-                    }
+                    OwnCheckEnter("2");
                 }
                 else if (question == 5)
                 {
-                    if (document.getElementById("ans").value == "2")
-                    {
-                        document.getElementById("c").innerHTML = "Correct.";
-                    }
-                    else
-                    {
-                        document.getElementById("c").innerHTML = "Incorrect.";
-                    }
+                    OwnCheckRadio("3);
                 }
                 else if (question == 6)
                 {
-                    var ele = document.getElementsByName('ans');
-                    for (i = 0; i < ele.length; i++)
-                    {
-                        if (ele[i].checked)
-                        {
-                            if (i == 3)
-                            {
-                                document.getElementById("c").innerHTML = "Correct.";
-                            }
-                            else
-                            {
-                                document.getElementById("c").innerHTML = "Incorrect.";
-                            }
-                        }
-                    }
+                    OwnCheckEnter("8");
                 }
                 else if (question == 7)
                 {
-                    if (document.getElementById("ans").value == "8")
-                    {
-                        document.getElementById("c").innerHTML = "Correct.";
-                    }
-                    else
-                    {
-                        document.getElementById("c").innerHTML = "Incorrect.";
-                    }
+                    OwnCheckRadio("2);
                 }
                 else if (question == 8)
                 {
-                    var ele = document.getElementsByName('ans');
-                    for (i = 0; i < ele.length; i++)
-                    {
-                        if (ele[i].checked)
-                        {
-                            if (i == 2)
-                            {
-                                document.getElementById("c").innerHTML = "Correct.";
-                            }
-                            else
-                            {
-                                document.getElementById("c").innerHTML = "Incorrect.";
-                            }
-                        }
-                    }
-                }
-                else if (question == 9)
-                {
-                    if (document.getElementById("ans").value == "7")
-                    {
-                        document.getElementById("c").innerHTML = "Correct.";
-                    }
-                    else
-                    {
-                        document.getElementById("c").innerHTML = "Incorrect.";
-                    }
+                    OwnCheckEnter("7");
                 }
             }
         </script>

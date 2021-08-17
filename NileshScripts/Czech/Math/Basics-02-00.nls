@@ -1,0 +1,11 @@
+math//czech
+Zaklady/02-00-Scitani
+{
+explain//Vítejte v první lekci o sčítání. Co to je a jak na to? To si teď povíme.
+explain//Představte si, že máte 3 tečky:\n...\nA pak máte ješte 5 dalších teček:\n.....\nA teď je zkusíme sečíst.
+enter//Sečti tyto tečky: ... a tyto tečky: ..... a napiš tečky sem.//........
+explain//Výborně, je to ........\nNo, a stejným způsobem budeme sčítat i čísla. Pokud chcete, můžete si pod nimi nejprve představit tečky. Anebo jablka. Co se vám bude hodit víc.
+enter//Spočítej a napiš číslem, kolik teček nám vyšlo: ........//8
+explain//Super, přesně takto se sčítá!
+}
+end

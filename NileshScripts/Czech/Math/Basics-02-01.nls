@@ -1,0 +1,13 @@
+math//czech
+Zaklady/02-01-Scitani
+{
+explain//Nedávno jsme si řekli, jak se dají sčítat jednoduchá čísla.\nZkus spočítat snadné příklady (pokud potřebuješ, můžeš použít prsty).
+enter//2+3//5
+enter//3+1//4
+enter//4+3//7
+enter//6+1//7
+enter//2+4//6
+enter//1+2//3
+enter//5+3//8
+}
+end

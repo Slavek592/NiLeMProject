@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Nikiforov's Learning Machine</title>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" href="../../../Core/styles.css">
+    </head>
+
+    <body>
+        <h1>01-00-Cisla</h1>
+        <div id="q" class="container">Klikněte na tlačítko "Další" pro začátek.</div>
+        <p>
+            <button type="button" onclick="ChangeContent()">Další</button>
+            <button type="button" onclick="Check()">Zkontrolovat</button>
+        </p>
+        <p id="c">Není zde žádná zkontrolovaná odpověď.</p>
+        <p><a href="../../Math-czech.html">Zpátky na menu matematiky</a></p>
+        <script src="../../../Core/default.js"></script>
+        <script>
+            question = -1;
+            function OwnCheckEnter(correct_answer)
+            {
+                CheckEnter("Správně.", "Nesprávně.", correct_answer)
+            }
+            function OwnCheckRadio(correct_answer)
+            {
+                CheckRadio("Správně.", "Nesprávně.", correct_answer)
+            }
+            function ChangeContent()
+            {
+                document.getElementById("q").innerHTML = "";
+                document.getElementById("c").innerHTML = "Není zde žádná zkontrolovaná odpověď.";
+                question ++;
+                if (question == 0)
+                {
+                    PrintLine("Vítejte v první lekci o číslech.");
+                    PrintLine("Pokud už čísla znáte, nezabývejte se tím a jděte dál.");
+                }
+                else if (question == 1)
+                {
+                    PrintLine("Zde je seznam nejmenších čísel, které pravděpodobně znáte, když už umíte číst:");
+                    PrintLine("1 - jedna");
+                    PrintLine("2 - dva");
+                    PrintLine("3 - tři");
+                    PrintLine("4 - čtyři");
+                    PrintLine("5 - pět");
+                    PrintLine("6 - šest");
+                    PrintLine("7 - sedm");
+                    PrintLine("8 - osm");
+                    PrintLine("9 - devět");
+                    PrintLine("10 - deset");
+                }
+                else if (question == 2)
+                {
+                    PrintLine("A teď krátké procvičení...");
+                }
+                else if (question == 3)
+                {
+                    PrintLine("Napište odpověď.");
+                    PrintLine("Sedm se číslicí zapíše jako...");
+                    CreateInputbox();
+                }
+                else if (question == 4)
+                {
+                    PrintLine("Napište odpověď.");
+                    PrintLine("Šest se číslicí zapíše jako...");
+                    CreateInputbox();
+                }
+                else if (question == 5)
+                {
+                    PrintLine("Napište odpověď.");
+                    PrintLine("Osm se číslicí zapíše jako...");
+                    CreateInputbox();
+                }
+                else if (question == 6)
+                {
+                    PrintLine("Napište odpověď.");
+                    PrintLine("Dva se číslicí zapíše jako...");
+                    CreateInputbox();
+                }
+                else if (question == 7)
+                {
+                    PrintLine("Napište odpověď.");
+                    PrintLine("Pět se číslicí zapíše jako...");
+                    CreateInputbox();
+                }
+                else if (question == 8)
+                {
+                    PrintLine("Napište odpověď.");
+                    PrintLine("Čtyři se číslicí zapíše jako...");
+                    CreateInputbox();
+                }
+                else if (question == 9)
+                {
+                    PrintLine("Super, přesně takto se počítá!");
+                }
+                else
+                {
+                    PrintLine("Gratuluji! Ukončil jste tuto lekci.");
+                }
+            }
+            function Check()
+            {
+                if (question == 0)
+                {
+                }
+                else if (question == 3)
+                {
+                    OwnCheckEnter("7");
+                }
+                else if (question == 4)
+                {
+                    OwnCheckEnter("6");
+                }
+                else if (question == 5)
+                {
+                    OwnCheckEnter("8");
+                }
+                else if (question == 6)
+                {
+                    OwnCheckEnter("2");
+                }
+                else if (question == 7)
+                {
+                    OwnCheckEnter("5");
+                }
+                else if (question == 8)
+                {
+                    OwnCheckEnter("4");
+                }
+            }
+        </script>
+    </body>
+</html>

@@ -1,8 +1,0 @@
-chemistry//czech
-Organika/Uhlovodiky-01
-{
-enter//Napiš název pro CH4 (malými písmeny)//methan
-enter//Napiš název pro CH3-CH3 (malými písmeny)//ethan
-radio//CH3-CH2-CH2-CH3 je...//heptan|oktan|propan|hexan|butan|pentan//4
-}
-end

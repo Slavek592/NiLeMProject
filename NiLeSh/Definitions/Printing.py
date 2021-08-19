@@ -190,7 +190,7 @@ def store_radio(file_name, question, answers, correct_answer, question_number, l
         )
     file.write(
         "                {\n"
-        "                    OwnCheckRadio(\"" + correct_answer + ");\n"
+        "                    OwnCheckRadio(\"" + correct_answer + "\");\n"
         "                }\n"
     )
     file.close()

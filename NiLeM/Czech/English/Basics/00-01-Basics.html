@@ -3,18 +3,18 @@
     <head>
         <title>Nikiforov's Learning Machine</title>
         <meta charset="utf-8"/>
-        <link rel="stylesheet" href="../../styles.css">
+        <link rel="stylesheet" href="../../../styles.css">
     </head>
 
     <body>
-        <h1>Basics2</h1>
+        <h1>00-01-Basics</h1>
         <div id="q" class="container">Click on the button "Next" to start.</div>
         <p>
             <button type="button" onclick="ChangeContent()">Next</button>
             <button type="button" onclick="Check()">Check answer</button>
         </p>
         <p id="c">There is no any checked answer.</p>
-        <p><a href="../Czech.html">Back to Czech menu</a></p>
+        <p><a href="../../Czech.html">Back to Czech menu</a></p>
         <script>
             question = 0;
             function ChangeContent()
@@ -26,19 +26,19 @@
                     question = 1;
 
                     var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Hello. = Ahoj."));
+                    text.appendChild(document.createTextNode("Man in muž."));
                     document.getElementById("q").appendChild(text);
 
                     var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("How are You? = Jak se máš?"));
+                    text.appendChild(document.createTextNode("Woman is žena."));
                     document.getElementById("q").appendChild(text);
 
                     var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Good. = Dobře."));
+                    text.appendChild(document.createTextNode("Boy is chlapec."));
                     document.getElementById("q").appendChild(text);
 
                     var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Bad = Špatně."));
+                    text.appendChild(document.createTextNode("And girl is dívka."));
                     document.getElementById("q").appendChild(text);
                 }
                 else if (question == 1)
@@ -49,7 +49,7 @@
                     document.getElementById("q").appendChild(text);
 
                     var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Translate "Hello." (starts with capital, ends with .):"));
+                    text.appendChild(document.createTextNode("Translate man to czech (lowercase)."));
                     document.getElementById("q").appendChild(text);
 
                     var inputplace = document.createElement("p");
@@ -64,19 +64,39 @@
                 {
                     question = 3;
                     var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Enter answer."));
+                    text.appendChild(document.createTextNode("Choose answer."));
                     document.getElementById("q").appendChild(text);
 
                     var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("Translate "Good." (with capital and dot):"));
+                    text.appendChild(document.createTextNode("Translate girl to czech."));
                     document.getElementById("q").appendChild(text);
 
                     var inputplace = document.createElement("p");
-                    var inputbox = document.createElement("input");
-                    inputbox.type = "text";
-                    inputbox.id = "ans";
-                    inputbox.name = "ans";
-                    inputplace.appendChild(inputbox);
+                    inputplace.id = "inp";
+                    var inputradio = document.createElement("input");
+                    inputradio.type = "radio";
+                    inputradio.id = "ans";
+                    inputradio.name = "ans";
+                    inputplace.appendChild(inputradio);
+                    inputplace.appendChild(document.createTextNode("muž"));
+                    var inputradio = document.createElement("input");
+                    inputradio.type = "radio";
+                    inputradio.id = "ans";
+                    inputradio.name = "ans";
+                    inputplace.appendChild(inputradio);
+                    inputplace.appendChild(document.createTextNode("chlapec"));
+                    var inputradio = document.createElement("input");
+                    inputradio.type = "radio";
+                    inputradio.id = "ans";
+                    inputradio.name = "ans";
+                    inputplace.appendChild(inputradio);
+                    inputplace.appendChild(document.createTextNode("dívka"));
+                    var inputradio = document.createElement("input");
+                    inputradio.type = "radio";
+                    inputradio.id = "ans";
+                    inputradio.name = "ans";
+                    inputplace.appendChild(inputradio);
+                    inputplace.appendChild(document.createTextNode("žena"));
                     document.getElementById("q").appendChild(inputplace);
                 }
                 else
@@ -93,7 +113,7 @@
                 }
                 else if (question == 2)
                 {
-                    if (document.getElementById("ans").value == "Ahoj.")
+                    if (document.getElementById("ans").value == "muž")
                     {
                         document.getElementById("c").innerHTML = "Correct.";
                     }
@@ -104,13 +124,20 @@
                 }
                 else if (question == 3)
                 {
-                    if (document.getElementById("ans").value == "Dobře.")
+                    var ele = document.getElementsByName('ans');
+                    for (i = 0; i < ele.length; i++)
                     {
-                        document.getElementById("c").innerHTML = "Correct.";
-                    }
-                    else
-                    {
-                        document.getElementById("c").innerHTML = "Incorrect.";
+                        if (ele[i].checked)
+                        {
+                            if (i == 2)
+                            {
+                                document.getElementById("c").innerHTML = "Correct.";
+                            }
+                            else
+                            {
+                                document.getElementById("c").innerHTML = "Incorrect.";
+                            }
+                        }
                     }
                 }
             }

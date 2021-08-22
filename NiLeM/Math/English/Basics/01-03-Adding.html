@@ -3,12 +3,7 @@
     <head>
         <title>Nikiforov's Learning Machine</title>
         <meta charset="utf-8"/>
-        <style>
-            body {
-                background-color: black;
-                color: white;
-            }
-        </style>
+        <link rel="stylesheet" href="../../../styles.css">
     </head>
 
     <body>
@@ -42,7 +37,7 @@
                     document.getElementById("q").appendChild(text);
 
                     var text = document.createElement("p");
-                    text.appendChild(document.createTextNode("What is 5 + 11"));
+                    text.appendChild(document.createTextNode("What is 5 + 11?"));
                     document.getElementById("q").appendChild(text);
 
                     var inputplace = document.createElement("p");
@@ -108,7 +103,9 @@
             function Check()
             {
                 if (question == 1)
-                {                }                else if (question == 2)
+                {
+                }
+                else if (question == 2)
                 {
                     if (document.getElementById("ans").value == "16")
                     {

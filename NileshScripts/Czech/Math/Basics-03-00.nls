@@ -1,0 +1,8 @@
+math//czech
+Zaklady/03-00-Odecitani
+{
+explain//Co je odečítání? To je jako když máte několik jablek a některá z nich dáte svému kamarádovi. A chcete zjistit, kolik jich zbylo.
+enter//Máte 2 jablka. 1 dáte. Kolik zbylo?//1
+radio//Máte 4 jablka. 2 dáte. Kolik zbylo?//1|2|tři|4//1
+}
+end

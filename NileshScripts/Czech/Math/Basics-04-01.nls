@@ -1,0 +1,14 @@
+math//czech
+Zaklady/04-01-Nasobeni
+{
+explain//Je dobré vědět, že x×y=y×x, můžeme činitele prohazovat mezi sebou a výsledek se nezmění.
+explain//Násobení je pro nás klíčová záležitost, proto se všichni učíme malou násobilku.
+explain//0×0=0/n1×0=0\n2×0=0\n3×0=0\n4×0=0\n5×0=0\n6×0=0\n7×0=0\n8×0=0\n9×0=0\n10×0=0
+explain//Cokoli krát 0 je 0.
+explain//A teď si to ve stručnosti procvičíme.
+radio//5×0=?//0|1|2|3|4|5//0
+enter//6×0=?//0
+enter//3×0=?//0
+enter//20×0=?//0
+}
+end

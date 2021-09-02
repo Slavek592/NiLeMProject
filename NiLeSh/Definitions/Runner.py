@@ -35,6 +35,9 @@ def run_file(file_name, mode):
             return True
         else:
             args[5] += 1
+    if not args[7]:
+        Errors.missing_end_error()
+        return False
 
 
 def read_line(mode, line, args):

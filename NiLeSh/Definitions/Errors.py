@@ -50,3 +50,8 @@ def directory_does_not_exist_error(line, number_of_line, file_name):
           "Try looking at the path and creating the directory as the solution.\n"
           "File: " + file_name)
     error_ending(line, number_of_line)
+
+
+def missing_end_error():
+    print("Syntax error! The file has no end line. It must end by the line \"end\".")
+

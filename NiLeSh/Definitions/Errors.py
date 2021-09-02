@@ -56,3 +56,7 @@ def nilem_not_found_error(line, number_of_line):
     print("Error! NiLeM folder not found. Try launching NiLeSh program from "
           "the NiLeMProject folder.")
     error_ending(line, number_of_line)
+
+
+def missing_end_error():
+    print("Syntax error! The file has no end line. It must end by the line \"end\".")

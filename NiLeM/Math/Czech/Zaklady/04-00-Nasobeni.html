@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Nikiforov's Learning Machine</title>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" href="../../../Core/styles.css">
+    </head>
+
+    <body>
+        <h1>04-00-Nasobeni</h1>
+        <div id="q" class="container">Klikněte na tlačítko "Další" pro začátek.</div>
+        <p>
+            <button type="button" onclick="ChangeContent()">Další</button>
+            <button type="button" onclick="Check()">Zkontrolovat</button>
+        </p>
+        <p id="c">Není zde žádná zkontrolovaná odpověď.</p>
+        <p><a href="../../Math-czech.html">Zpátky na menu matematiky</a></p>
+        <script src="../../../Core/default.js"></script>
+        <script>
+            question = -1;
+            function OwnCheckEnter(correct_answer)
+            {
+                CheckEnter("Správně.", "Nesprávně.", correct_answer)
+            }
+            function OwnCheckRadio(correct_answer)
+            {
+                CheckRadio("Správně.", "Nesprávně.", correct_answer)
+            }
+            function ChangeContent()
+            {
+                document.getElementById("q").innerHTML = "";
+                document.getElementById("c").innerHTML = "Není zde žádná zkontrolovaná odpověď.";
+                question ++;
+                if (question == 0)
+                {
+                    PrintLine("Začněme se zabývat násobením.");
+                }
+                else if (question == 1)
+                {
+                    PrintLine("Když násobíme, je to jako víckrát sečíst.");
+                    PrintLine("x×y = x+x+x+... a to y-krát.");
+                }
+                else if (question == 2)
+                {
+                    PrintLine("5×3=5+5+5=15");
+                }
+                else if (question == 3)
+                {
+                    PrintLine("A teď to zkuste sami.");
+                }
+                else if (question == 4)
+                {
+                    PrintLine("Napište odpověď.");
+                    PrintLine("2×2=2+2=?");
+                    CreateInputbox();
+                }
+                else if (question == 5)
+                {
+                    PrintLine("Vyberte odpověď.");
+                    PrintLine("4×3=4+4+4=?");
+                    CreateInputradio(['8', '10', '12', '14', '16']);
+                }
+                else if (question == 6)
+                {
+                    PrintLine("Vyberte odpověď.");
+                    PrintLine("5×2=5+5=?");
+                    CreateInputradio(['5', '7', '8', '9', '10']);
+                }
+                else if (question == 7)
+                {
+                    PrintLine("Vyberte odpověď.");
+                    PrintLine("6×3=6+6+6=?");
+                    CreateInputradio(['6', '8', '12', '15', '18', '24']);
+                }
+                else if (question == 8)
+                {
+                    PrintLine("Napište odpověď.");
+                    PrintLine("3×3=?");
+                    CreateInputbox();
+                }
+                else
+                {
+                    PrintLine("Gratuluji! Ukončil jste tuto lekci.");
+                }
+            }
+            function Check()
+            {
+                if (question == 0)
+                {
+                }
+                else if (question == 4)
+                {
+                    OwnCheckEnter("4");
+                }
+                else if (question == 5)
+                {
+                    OwnCheckRadio("2);
+                }
+                else if (question == 6)
+                {
+                    OwnCheckRadio("4);
+                }
+                else if (question == 7)
+                {
+                    OwnCheckRadio("4);
+                }
+                else if (question == 8)
+                {
+                    OwnCheckEnter("9");
+                }
+            }
+        </script>
+    </body>
+</html>

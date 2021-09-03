@@ -1,0 +1,19 @@
+math//czech
+Rovnice/01-00-Nejjednodussi
+{
+explain//Co jsou rovnice?\nZačněme otázkou: Co je rovnost?
+explain//Rovnost je třeba zde:\n2+3=5
+explain//Zásada rovnosti je v tom, že je znamínko rovnosti a na obou jeho stranách je výraz, které si jsou rovny.
+explain//Rovnice se téměř neliší. Jen obsahuje tzv. neznámé.
+explain//Neznámou píšeme většinou jako písmeno, nejčastěji se používá písmeno x.
+explain//Neznámá zastupuje jakési číslo, ale nevíme jaké.
+explain//Když řešíme rovnici, snažíme se přijít na to, jaké číslo bychom mohli dát na místo proměnné (proměnných).
+explain//Začneme nejjednoduššími rovnicemi.\nx=4\nTo je rovnice, jejíž řešení vidíme všichni na první pohled.
+radio//Které číslo bychom měli dát na místo x v rovnici "x=4", aby vyšla platná rovnost?//0|1|2|3|4|5|6//4
+explain//Někdy je potřeba provést výpočty, abyste zjistili hodnotu proměnné.
+enter//Napište řešení rovnice (hodnotu x): x=5+1//6
+enter//Za jaké číslo musíte nahradit x, aby Vám vyšla platná rovnost z rovnice: x=3×4?//12
+radio//Čemu by se mělo rovnat x, aby to vycházelo: x+1=1//0|1|2|3|4//2
+enter//Vyřešte rovnici: x+2=4-1//1
+}
+end

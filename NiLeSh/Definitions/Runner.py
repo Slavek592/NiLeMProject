@@ -51,7 +51,8 @@ def read_line(mode, line, args):
             args[9] = "codes"
         else:
             if words[0] not in ["math", "physics", "chemistry", "biology", "geography", "history",
-                                "english", "german", "czech", "russian", "french", "spanish"]:
+                                "english", "german", "czech", "russian", "french", "spanish",
+                                "literature", "music", "art", "informatics"]:
                 Errors.first_line_error(line, args[5])
                 args[0] = False
                 return args

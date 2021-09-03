@@ -29,6 +29,14 @@ def subject_name(subject, language):
             return "Francouzština"
         elif subject == "spanish":
             return "Španělština"
+        elif subject == "literature":
+            return "Literatura"
+        elif subject == "music":
+            return "Hudba"
+        elif subject == "art":
+            return "Umění"
+        elif subject == "informatics":
+            return "Informatika"
     elif language == "russian":
         if subject == "math":
             return "Математика"
@@ -54,6 +62,14 @@ def subject_name(subject, language):
             return "Французский"
         elif subject == "spanish":
             return "Испанский"
+        elif subject == "literature":
+            return "Литература"
+        elif subject == "music":
+            return "Музыка"
+        elif subject == "art":
+            return "Искусство"
+        elif subject == "informatics":
+            return "Информатика"
     elif language == "german":
         if subject == "math":
             return "Mathe"
@@ -79,6 +95,14 @@ def subject_name(subject, language):
             return "Französisch"
         elif subject == "spanish":
             return "Spanisch"
+        elif subject == "literature":
+            return "Literatur"
+        elif subject == "music":
+            return "Musik"
+        elif subject == "art":
+            return "Kunst"
+        elif subject == "informatics":
+            return "Informatik"
     elif language == "french":
         if subject == "math":
             return "Mathématique"
@@ -104,6 +128,14 @@ def subject_name(subject, language):
             return "Français"
         elif subject == "spanish":
             return "Espagnol"
+        elif subject == "literature":
+            return "Littérature"
+        elif subject == "music":
+            return "Musique"
+        elif subject == "art":
+            return "Arts"
+        elif subject == "informatics":
+            return "Informatique"
     elif language == "spanish":
         if subject == "math":
             return "Matemáticas"
@@ -129,6 +161,14 @@ def subject_name(subject, language):
             return "Francés"
         elif subject == "spanish":
             return "Español"
+        elif subject == "literature":
+            return "Literatura"
+        elif subject == "music":
+            return "Música"
+        elif subject == "art":
+            return "Arte"
+        elif subject == "informatics":
+            return "Informática"
 
 
 def click_on_next(language):
@@ -232,6 +272,14 @@ def on_subject_menu(subject, language):
             return "French.html\">Back to French menu</a></p>\n"
         elif subject == "spanish":
             return "Spanish.html\">Back to Spanish menu</a></p>\n"
+        elif subject == "literature":
+            return "Literature.html\">Back to Literature menu</a></p>\n"
+        elif subject == "music":
+            return "Music.html\">Back to Music menu</a></p>\n"
+        elif subject == "art":
+            return "Art.html\">Back to Art menu</a></p>\n"
+        elif subject == "informatics":
+            return "Informatics.html\">Back to Informatics menu</a></p>\n"
     elif language == "czech":
         if subject == "math":
             return "Math-czech.html\">Zpátky na menu matematiky</a></p>\n"
@@ -257,6 +305,14 @@ def on_subject_menu(subject, language):
             return "French-czech.html\">Zpátky na menu francouzštiny</a></p>\n"
         elif subject == "spanish":
             return "Spanish-czech.html\">Zpátky na menu španělštiny</a></p>\n"
+        elif subject == "literature":
+            return "Literature-czech.html\">Zpátky na menu literatury</a></p>\n"
+        elif subject == "music":
+            return "Music-czech.html\">Zpátky na menu hudby</a></p>\n"
+        elif subject == "art":
+            return "Art-czech.html\">Zpátky na menu umění</a></p>\n"
+        elif subject == "informatics":
+            return "Informatics-czech.html\">Zpátky na menu informatiky</a></p>\n"
     elif language == "russian":
         if subject == "math":
             return "Math-russian.html\">Обратно на меню математики</a></p>\n"
@@ -282,6 +338,14 @@ def on_subject_menu(subject, language):
             return "French-russian.html\">Обратно на меню французского</a></p>\n"
         elif subject == "spanish":
             return "Spanish-russian.html\">Обратно на меню испанского</a></p>\n"
+        elif subject == "literature":
+            return "Literature-russian.html\">Обратно на меню литературы</a></p>\n"
+        elif subject == "music":
+            return "Music-russian.html\">Обратно на меню музыки</a></p>\n"
+        elif subject == "art":
+            return "Art-russian.html\">Обратно на меню искусства</a></p>\n"
+        elif subject == "informatics":
+            return "Informatics-russian.html\">Обратно на меню информатики</a></p>\n"
     elif language == "german":
         if subject == "math":
             return "Math-german.html\">Zurück zum Mathe-Menü</a></p>\n"
@@ -307,6 +371,14 @@ def on_subject_menu(subject, language):
             return "French-german.html\">Zurück zum Französisch-Menü</a></p>\n"
         elif subject == "spanish":
             return "Spanish-german.html\">Zurück zum Spanisch-Menü</a></p>\n"
+        elif subject == "literature":
+            return "Literature-german.html\">Zurück zum Literatur-Menü</a></p>\n"
+        elif subject == "music":
+            return "Music-german.html\">Zurück zum Musik-Menü</a></p>\n"
+        elif subject == "art":
+            return "Art-german.html\">Zurück zum Kunst-Menü</a></p>\n"
+        elif subject == "informatics":
+            return "Informatics-german.html\">Zurück zum Informatik-Menü</a></p>\n"
     elif language == "french":
         if subject == "math":
             return "Math-french.html\">Retour au menu mathématique</a></p>\n"
@@ -332,6 +404,14 @@ def on_subject_menu(subject, language):
             return "French-french.html\">Retour au menu français</a></p>\n"
         elif subject == "spanish":
             return "Spanish-french.html\">Retour au menu espagnol</a></p>\n"
+        elif subject == "literature":
+            return "Literature-french.html\">Retour au menu littérature</a></p>\n"
+        elif subject == "music":
+            return "Music-french.html\">Retour au menu musique</a></p>\n"
+        elif subject == "art":
+            return "Art-french.html\">Retour au menu arts</a></p>\n"
+        elif subject == "informatics":
+            return "Informatics-french.html\">Retour au menu informatique</a></p>\n"
     elif language == "spanish":
         if subject == "math":
             return "Math-spanish.html\">Volver al menú de matemáticas</a></p>\n"
@@ -357,6 +437,14 @@ def on_subject_menu(subject, language):
             return "French-spanish.html\">Volver al menú francés</a></p>\n"
         elif subject == "spanish":
             return "Spanish-spanish.html\">Volver al menú en español</a></p>\n"
+        elif subject == "literature":
+            return "Literature-spanish.html\">Volver al menú literatura</a></p>\n"
+        elif subject == "music":
+            return "Music-spanish.html\">Volver al menú música</a></p>\n"
+        elif subject == "art":
+            return "Art-spanish.html\">Volver al menú arte</a></p>\n"
+        elif subject == "informatics":
+            return "Informatics-spanish.html\">Volver al menú informática</a></p>\n"
 
 
 def good(language):

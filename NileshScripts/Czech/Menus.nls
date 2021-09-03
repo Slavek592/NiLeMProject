@@ -12,5 +12,9 @@ run//GermanMenu.nls
 run//FrenchMenu.nls
 run//RussianMenu.nls
 run//SpanishMenu.nls
+run//LiteratureMenu.nls
+run//MusicMenu.nls
+run//ArtMenu.nls
+run//InformaticsMenu.nls
 }
 end

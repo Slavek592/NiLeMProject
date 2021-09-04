@@ -19,7 +19,7 @@ function CreateInputradio(answers)
     var inputplace = document.createElement("p");
     inputplace.id = "inp";
 
-    for (let i = 1; i < answers.length; i++)
+    for (let i = 0; i < answers.length; i++)
     {
         var inputradio = document.createElement("input");
         inputradio.type = "radio";

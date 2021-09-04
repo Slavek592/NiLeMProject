@@ -126,6 +126,7 @@ def add_closings_to_storing_files(file_name, language):
 
 
 def store_enter(file_name, question, answer, question_number, language):
+    texts = question.split("\\n")
     file = open(file_name + ".change", "a")
     if question_number == 0:
         file.write(
@@ -138,7 +139,12 @@ def store_enter(file_name, question, answer, question_number, language):
     file.write(
         "                {\n"
         "                    PrintLine(\"" + Translations.enter_answer(language) + "\");\n"
-        "                    PrintLine(\"" + question + "\");\n"
+    )
+    for text in texts:
+        file.write(
+            "                    PrintLine(\"" + text + "\");\n"
+        )
+    file.write(
         "                    CreateInputbox();\n"
         "                }\n"
     )
@@ -161,6 +167,7 @@ def store_enter(file_name, question, answer, question_number, language):
 
 
 def store_radio(file_name, question, answers, correct_answer, question_number, language):
+    texts = question.split("\\n")
     answers = answers.split("|")
     file = open(file_name + ".change", "a")
     if question_number == 0:
@@ -174,7 +181,12 @@ def store_radio(file_name, question, answers, correct_answer, question_number, l
     file.write(
         "                {\n"
         "                    PrintLine(\"" + Translations.choose_answer(language) + "\");\n"
-        "                    PrintLine(\"" + question + "\");\n"
+    )
+    for text in texts:
+        file.write(
+            "                    PrintLine(\"" + text + "\");\n"
+        )
+    file.write(
         "                    CreateInputradio(" + str(answers) + ");\n"
         "                }\n"
     )

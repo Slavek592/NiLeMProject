@@ -9,11 +9,11 @@ explain//Neznámou píšeme většinou jako písmeno, nejčastěji se používá
 explain//Neznámá zastupuje jakési číslo, ale nevíme jaké.
 explain//Když řešíme rovnici, snažíme se přijít na to, jaké číslo bychom mohli dát na místo proměnné (proměnných).
 explain//Začneme nejjednoduššími rovnicemi.\nx=4\nTo je rovnice, jejíž řešení vidíme všichni na první pohled.
-radio//Které číslo bychom měli dát na místo x v rovnici "x=4", aby vyšla platná rovnost?//0|1|2|3|4|5|6//4
+radio//Které číslo bychom měli dát na místo x v rovnici\nx=4\naby vyšla platná rovnost?//0|1|2|3|4|5|6//4
 explain//Někdy je potřeba provést výpočty, abyste zjistili hodnotu proměnné.
-enter//Napište řešení rovnice (hodnotu x): x=5+1//6
-enter//Za jaké číslo musíte nahradit x, aby Vám vyšla platná rovnost z rovnice: x=3×4?//12
-radio//Čemu by se mělo rovnat x, aby to vycházelo: x+1=1//0|1|2|3|4//2
-enter//Vyřešte rovnici: x+2=4-1//1
+enter//Napište řešení rovnice (hodnotu x):\nx=5+1//6
+enter//Za jaké číslo musíte nahradit x, aby Vám vyšla platná rovnost z rovnice:\nx=3×4//12
+radio//Čemu by se mělo rovnat x, aby to vycházelo:\nx+1=1//0|1|2|3|4//0
+enter//Vyřešte rovnici:\nx+2=4-1//1
 }
 end

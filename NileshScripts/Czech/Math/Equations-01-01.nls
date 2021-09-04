@@ -7,9 +7,9 @@ explain//Co jsou ekvivalentní úpravy?\nTo jsou úpravy, které provedete na ob
 explain//Cílem úprav je, abychom se dostali do stavu, kdy bychom měli proměnnou na jedné straně rovnice (na jedné straně od znaménka rovnosti) a číslo na druhé, abychom věděli hodnotu proměnné. Ne vždy se to musí podařit, ale na začátku Vašeho studia ano.
 explain//Jedna z takových ekvivalentních úprav je přičtení a odečtení libovolného čísla.
 explain//Máme rovnici:\nx+1=3\nA pokud provedeme úpravu a odečteme od obou stran číslo 1, dostaneme:\nx=\nVidíte, že na tom není nic složitého. Zkuste teď sami použít úpravy ve snadných příkladech.
-radio//Vyřešte rovnici: x-7=2//x=-5|x=5|x=7|x=9//3
+radio//Vyřešte rovnici:\nx-7=2//x=-5|x=5|x=7|x=9//3
 radio//x+1=3//x=-2|x=2|x=4//1
 radio//x+6=2//x=-8|x=-4|x=-2|x=2|x=4|x=8//1
-enter//Čemu se rovná x: x-3=4*2?//11
+enter//Čemu se rovná x:\nx-3=4*2//11
 }
 end

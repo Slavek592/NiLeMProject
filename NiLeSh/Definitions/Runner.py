@@ -9,6 +9,8 @@ def run_from_file(file_name):
         print(file_name + ": Your code seems good. I am starting executing it.")
         if run_file(file_name, "execute"):
             print(file_name + ": Your code was executed.")
+            return True
+    return False
 
 
 def run_file(file_name, mode):
@@ -185,7 +187,7 @@ def read_line(mode, line, args):
                     args[0] = False
                     return args
                 elif mode == "execute":
-                    file_name = get_path(args[10]) + words[1]
+                    file_name = get_outer_path(args[10], 1) + words[1]
                     if os.path.isfile(file_name):
                         run_from_file(file_name)
                     else:
@@ -217,7 +219,7 @@ def run_from_console():
 
 
 def search_for_files(file_name, language):
-    path = get_path(file_name) + language.capitalize() + "/"
+    path = get_outer_path(file_name, 1) + language.capitalize() + "/"
     results = []
     results.extend(os.walk(path))
     for directory in results:
@@ -238,12 +240,9 @@ def y_or_n(string):
         return False
 
 
-def get_path(file_name):
+def get_outer_path(file_name, steps):
     path = file_name.split("/")
-    if len(path) == 1:
-        return
-    else:
-        result = ""
-        for i in range(len(path) - 1):
-            result += path[i] + "/"
+    result = ""
+    for i in range(len(path) - steps):
+        result += path[i] + "/"
     return result

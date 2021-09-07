@@ -1,0 +1,16 @@
+chemistry//czech
+Zaklady/00-00-Uvitani
+{
+explain//Vítejte v chemii!
+explain//Začneme mluvit o tom nejmenším, co existuje.\nZačneme mluvit o atomech.
+explain//Atom se dlouhou dobu považoval za nedělitelnou částici. Již víme, že to tak není, ale nejprve... Co je atom?
+explain//Atomy jsou všude, skládá se z nich téměř vše, co známe. Lidé jsou z atomů, počítače jsou z atomů, vzduch je taky z nich.
+explain//Jsou ale tak malé, že se nedají spatřit ani pod obyčejným mikroskopem.
+explain//Existují různé druhy atomů. Třeba atom železa. Nebo atom mědi.
+explain//Když si vezmeme hodně atomů železa, může vzniknout i kus železa, který bude vidět i obyčejným okem. Jen jich tam musí být hodně.
+explain//Druhů atomů je hodně a jsou sepsány v periodické tabulce prvků.
+radio//Máte v sobě atomy?//Ano|Ne//0
+radio//Atomy jsou malé, tudíž jich je neskutečně hodně i na malém kusu prostoru.//Ano|Ne//0
+radio//Všechny atomy jsou stejné.//Ano|Ne//1
+}
+end

@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Nikiforov's Learning Machine</title>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" href="../../../styles.css">
+    </head>
+
+    <body>
+        <h1>01-00-Nejjednodussi</h1>
+        <div id="q" class="container">Klikněte na tlačítko "Další" pro začátek.</div>
+        <p>
+            <button type="button" onclick="ChangeContent()">Další</button>
+            <button type="button" onclick="Check()">Zkontrolovat</button>
+        </p>
+        <p id="c">Není zde žádná zkontrolovaná odpověď.</p>
+        <p><a href="../../Math-czech.html">Zpátky na menu matematiky</a></p>
+        <script>
+            question = 0;
+            function ChangeContent()
+            {
+                document.getElementById("q").innerHTML = "";
+                document.getElementById("c").innerHTML = "Není zde žádná zkontrolovaná odpověď.";
+                if (question == 0)
+                {
+                    question = 1;
+
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("Co jsou rovnice?"));
+                    document.getElementById("q").appendChild(text);
+
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("Začněme otázkou: Co je rovnost?"));
+                    document.getElementById("q").appendChild(text);
+                }
+                else if (question == 1)
+                {
+                    question = 2;
+
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("Rovnost je třeba zde:"));
+                    document.getElementById("q").appendChild(text);
+
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("2+3=5"));
+                    document.getElementById("q").appendChild(text);
+                }
+                else if (question == 2)
+                {
+                    question = 3;
+
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("Zásada rovnosti je v tom, že je znamínko rovnosti a na obou jeho stranách je výraz, které si jsou rovny."));
+                    document.getElementById("q").appendChild(text);
+                }
+                else if (question == 3)
+                {
+                    question = 4;
+
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("Rovnice se téměř neliší. Jen obsahuje tzv. neznámé."));
+                    document.getElementById("q").appendChild(text);
+                }
+                else if (question == 4)
+                {
+                    question = 5;
+
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("Neznámou píšeme většinou jako písmeno, nejčastěji se používá písmeno x."));
+                    document.getElementById("q").appendChild(text);
+                }
+                else if (question == 5)
+                {
+                    question = 6;
+
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("Neznámá zastupuje jakési číslo, ale nevíme jaké."));
+                    document.getElementById("q").appendChild(text);
+                }
+                else if (question == 6)
+                {
+                    question = 7;
+
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("Když řešíme rovnici, snažíme se přijít na to, jaké číslo bychom mohli dát na místo proměnné (proměnných)."));
+                    document.getElementById("q").appendChild(text);
+                }
+                else if (question == 7)
+                {
+                    question = 8;
+
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("Začneme nejjednoduššími rovnicemi."));
+                    document.getElementById("q").appendChild(text);
+
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("x=4"));
+                    document.getElementById("q").appendChild(text);
+
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("To je rovnice, jejíž řešení vidíme všichni na první pohled."));
+                    document.getElementById("q").appendChild(text);
+                }
+                else if (question == 8)
+                {
+                    question = 9;
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("Vyberte odpověď."));
+                    document.getElementById("q").appendChild(text);
+
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("Které číslo bychom měli dát na místo x v rovnici\nx=4\naby vyšla platná rovnost?"));
+                    document.getElementById("q").appendChild(text);
+
+                    var inputplace = document.createElement("p");
+                    inputplace.id = "inp";
+                    var inputradio = document.createElement("input");
+                    inputradio.type = "radio";
+                    inputradio.id = "ans";
+                    inputradio.name = "ans";
+                    inputplace.appendChild(inputradio);
+                    inputplace.appendChild(document.createTextNode("0"));
+                    var inputradio = document.createElement("input");
+                    inputradio.type = "radio";
+                    inputradio.id = "ans";
+                    inputradio.name = "ans";
+                    inputplace.appendChild(inputradio);
+                    inputplace.appendChild(document.createTextNode("1"));
+                    var inputradio = document.createElement("input");
+                    inputradio.type = "radio";
+                    inputradio.id = "ans";
+                    inputradio.name = "ans";
+                    inputplace.appendChild(inputradio);
+                    inputplace.appendChild(document.createTextNode("2"));
+                    var inputradio = document.createElement("input");
+                    inputradio.type = "radio";
+                    inputradio.id = "ans";
+                    inputradio.name = "ans";
+                    inputplace.appendChild(inputradio);
+                    inputplace.appendChild(document.createTextNode("3"));
+                    var inputradio = document.createElement("input");
+                    inputradio.type = "radio";
+                    inputradio.id = "ans";
+                    inputradio.name = "ans";
+                    inputplace.appendChild(inputradio);
+                    inputplace.appendChild(document.createTextNode("4"));
+                    var inputradio = document.createElement("input");
+                    inputradio.type = "radio";
+                    inputradio.id = "ans";
+                    inputradio.name = "ans";
+                    inputplace.appendChild(inputradio);
+                    inputplace.appendChild(document.createTextNode("5"));
+                    var inputradio = document.createElement("input");
+                    inputradio.type = "radio";
+                    inputradio.id = "ans";
+                    inputradio.name = "ans";
+                    inputplace.appendChild(inputradio);
+                    inputplace.appendChild(document.createTextNode("6"));
+                    document.getElementById("q").appendChild(inputplace);
+                }
+                else if (question == 9)
+                {
+                    question = 10;
+
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("Někdy je potřeba provést výpočty, abyste zjistili hodnotu proměnné."));
+                    document.getElementById("q").appendChild(text);
+                }
+                else if (question == 10)
+                {
+                    question = 11;
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("Napište odpověď."));
+                    document.getElementById("q").appendChild(text);
+
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("Napište řešení rovnice (hodnotu x):\nx=5+1"));
+                    document.getElementById("q").appendChild(text);
+
+                    var inputplace = document.createElement("p");
+                    var inputbox = document.createElement("input");
+                    inputbox.type = "text";
+                    inputbox.id = "ans";
+                    inputbox.name = "ans";
+                    inputplace.appendChild(inputbox);
+                    document.getElementById("q").appendChild(inputplace);
+                }
+                else if (question == 11)
+                {
+                    question = 12;
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("Napište odpověď."));
+                    document.getElementById("q").appendChild(text);
+
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("Za jaké číslo musíte nahradit x, aby Vám vyšla platná rovnost z rovnice:\nx=3×4"));
+                    document.getElementById("q").appendChild(text);
+
+                    var inputplace = document.createElement("p");
+                    var inputbox = document.createElement("input");
+                    inputbox.type = "text";
+                    inputbox.id = "ans";
+                    inputbox.name = "ans";
+                    inputplace.appendChild(inputbox);
+                    document.getElementById("q").appendChild(inputplace);
+                }
+                else if (question == 12)
+                {
+                    question = 13;
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("Vyberte odpověď."));
+                    document.getElementById("q").appendChild(text);
+
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("Čemu by se mělo rovnat x, aby to vycházelo:\nx+1=1"));
+                    document.getElementById("q").appendChild(text);
+
+                    var inputplace = document.createElement("p");
+                    inputplace.id = "inp";
+                    var inputradio = document.createElement("input");
+                    inputradio.type = "radio";
+                    inputradio.id = "ans";
+                    inputradio.name = "ans";
+                    inputplace.appendChild(inputradio);
+                    inputplace.appendChild(document.createTextNode("0"));
+                    var inputradio = document.createElement("input");
+                    inputradio.type = "radio";
+                    inputradio.id = "ans";
+                    inputradio.name = "ans";
+                    inputplace.appendChild(inputradio);
+                    inputplace.appendChild(document.createTextNode("1"));
+                    var inputradio = document.createElement("input");
+                    inputradio.type = "radio";
+                    inputradio.id = "ans";
+                    inputradio.name = "ans";
+                    inputplace.appendChild(inputradio);
+                    inputplace.appendChild(document.createTextNode("2"));
+                    var inputradio = document.createElement("input");
+                    inputradio.type = "radio";
+                    inputradio.id = "ans";
+                    inputradio.name = "ans";
+                    inputplace.appendChild(inputradio);
+                    inputplace.appendChild(document.createTextNode("3"));
+                    var inputradio = document.createElement("input");
+                    inputradio.type = "radio";
+                    inputradio.id = "ans";
+                    inputradio.name = "ans";
+                    inputplace.appendChild(inputradio);
+                    inputplace.appendChild(document.createTextNode("4"));
+                    document.getElementById("q").appendChild(inputplace);
+                }
+                else if (question == 13)
+                {
+                    question = 14;
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("Napište odpověď."));
+                    document.getElementById("q").appendChild(text);
+
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("Vyřešte rovnici:\nx+2=4-1"));
+                    document.getElementById("q").appendChild(text);
+
+                    var inputplace = document.createElement("p");
+                    var inputbox = document.createElement("input");
+                    inputbox.type = "text";
+                    inputbox.id = "ans";
+                    inputbox.name = "ans";
+                    inputplace.appendChild(inputbox);
+                    document.getElementById("q").appendChild(inputplace);
+                }
+                else
+                {
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("Gratuluji! Ukončil jste tuto lekci."));
+                    document.getElementById("q").appendChild(text);
+                }
+            }
+            function Check()
+            {
+                if (question == 1)
+                {
+                }
+                else if (question == 9)
+                {
+                    var ele = document.getElementsByName('ans');
+                    for (i = 0; i < ele.length; i++)
+                    {
+                        if (ele[i].checked)
+                        {
+                            if (i == 4)
+                            {
+                                document.getElementById("c").innerHTML = "Správně.";
+                            }
+                            else
+                            {
+                                document.getElementById("c").innerHTML = "Nesprávně.";
+                            }
+                        }
+                    }
+                }
+                else if (question == 11)
+                {
+                    if (document.getElementById("ans").value == "6")
+                    {
+                        document.getElementById("c").innerHTML = "Správně.";
+                    }
+                    else
+                    {
+                        document.getElementById("c").innerHTML = "Nesprávně.";
+                    }
+                }
+                else if (question == 12)
+                {
+                    if (document.getElementById("ans").value == "12")
+                    {
+                        document.getElementById("c").innerHTML = "Správně.";
+                    }
+                    else
+                    {
+                        document.getElementById("c").innerHTML = "Nesprávně.";
+                    }
+                }
+                else if (question == 13)
+                {
+                    var ele = document.getElementsByName('ans');
+                    for (i = 0; i < ele.length; i++)
+                    {
+                        if (ele[i].checked)
+                        {
+                            if (i == 0)
+                            {
+                                document.getElementById("c").innerHTML = "Správně.";
+                            }
+                            else
+                            {
+                                document.getElementById("c").innerHTML = "Nesprávně.";
+                            }
+                        }
+                    }
+                }
+                else if (question == 14)
+                {
+                    if (document.getElementById("ans").value == "1")
+                    {
+                        document.getElementById("c").innerHTML = "Správně.";
+                    }
+                    else
+                    {
+                        document.getElementById("c").innerHTML = "Nesprávně.";
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>

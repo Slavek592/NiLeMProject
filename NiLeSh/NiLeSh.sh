@@ -1,6 +1,6 @@
 #!/bin/sh
-scriptdir="$(dirname "$0")"
-cd "$scriptdir"
+SCRIPTDIR="$(dirname "$0")"
+cd "$SCRIPTDIR"
 cd ../
 python3 NiLeSh/NiLeSh.py
 

@@ -233,218 +233,225 @@ def no_checked_answer(language):
 
 def to_main(language):
     if language == "english":
-        return "<a href=\"../Main.html\">Back to Main menu</a>"
+        return "Back to Main menu"
     elif language == "czech":
-        return "<a href=\"../Main-czech.html\">Zpátky na hlavní menu</a>"
+        return "Zpátky na hlavní menu"
     elif language == "russian":
-        return "<a href=\"../Main-russian.html\">Обратно на главное меню</a>"
+        return "Обратно на главное меню"
     elif language == "german":
-        return "<a href=\"../Main-german.html\">Zurück zum Hauptmenü</a>"
+        return "Zurück zum Hauptmenü"
     elif language == "french":
-        return "<a href=\"../Main-french.html\">Retour au menu principal</a>"
+        return "Retour au menu principal"
     elif language == "spanish":
-        return "<a href=\"../Main-spanish.html\">Volver al menú principal</a>"
+        return "Volver al menú principal"
 
 
 def on_subject_menu(subject, language):
     if language == "english":
         if subject == "math":
-            return "Math.html\">Back to Math menu</a></p>\n"
+            return "Back to Math menu"
         elif subject == "physics":
-            return "Physics.html\">Back to Physics menu</a></p>\n"
+            return "Back to Physics menu"
         elif subject == "chemistry":
-            return "Chemistry.html\">Back to Chemistry menu</a></p>\n"
+            return "Back to Chemistry menu"
         elif subject == "biology":
-            return "Biology.html\">Back to Biology menu</a></p>\n"
+            return "Back to Biology menu"
         elif subject == "geography":
-            return "Geography.html\">Back to Geography menu</a></p>\n"
+            return "Back to Geography menu"
         elif subject == "history":
-            return "History.html\">Back to History menu</a></p>\n"
+            return "Back to History menu"
         elif subject == "english":
-            return "English.html\">Back to English menu</a></p>\n"
+            return "Back to English menu"
         elif subject == "german":
-            return "German.html\">Back to German menu</a></p>\n"
+            return "Back to German menu"
         elif subject == "czech":
-            return "Czech.html\">Back to Czech menu</a></p>\n"
+            return "Back to Czech menu"
         elif subject == "russian":
-            return "Russian.html\">Back to Russian menu</a></p>\n"
+            return "Back to Russian menu"
         elif subject == "french":
-            return "French.html\">Back to French menu</a></p>\n"
+            return "Back to French menu"
         elif subject == "spanish":
-            return "Spanish.html\">Back to Spanish menu</a></p>\n"
+            return "Back to Spanish menu"
         elif subject == "literature":
-            return "Literature.html\">Back to Literature menu</a></p>\n"
+            return "Back to Literature menu"
         elif subject == "music":
-            return "Music.html\">Back to Music menu</a></p>\n"
+            return "Back to Music menu"
         elif subject == "art":
-            return "Art.html\">Back to Art menu</a></p>\n"
+            return "Back to Art menu"
         elif subject == "informatics":
-            return "Informatics.html\">Back to Informatics menu</a></p>\n"
+            return "Back to Informatics menu"
     elif language == "czech":
         if subject == "math":
-            return "Math-czech.html\">Zpátky na menu matematiky</a></p>\n"
+            return "Zpátky na menu matematiky"
         elif subject == "physics":
-            return "Physics-czech.html\">Zpátky na menu fyziky</a></p>\n"
+            return "Zpátky na menu fyziky"
         elif subject == "chemistry":
-            return "Chemistry-czech.html\">Zpátky na menu chemie</a></p>\n"
+            return "Zpátky na menu chemie"
         elif subject == "biology":
-            return "Biology-czech.html\">Zpátky na menu biologie</a></p>\n"
+            return "Zpátky na menu biologie"
         elif subject == "geography":
-            return "Geography-czech.html\">Zpátky na menu zeměpisu</a></p>\n"
+            return "Zpátky na menu zeměpisu"
         elif subject == "history":
-            return "History-czech.html\">Zpátky na menu dějepisu</a></p>\n"
+            return "Zpátky na menu dějepisu"
         elif subject == "english":
-            return "English-czech.html\">Zpátky na menu angličtiny</a></p>\n"
+            return "Zpátky na menu angličtiny"
         elif subject == "german":
-            return "German-czech.html\">Zpátky na menu němčiny</a></p>\n"
+            return "Zpátky na menu němčiny"
         elif subject == "czech":
-            return "Czech-czech.html\">Zpátky na menu češtiny</a></p>\n"
+            return "Zpátky na menu češtiny"
         elif subject == "russian":
-            return "Russian-czech.html\">Zpátky na menu ruštiny</a></p>\n"
+            return "Zpátky na menu ruštiny"
         elif subject == "french":
-            return "French-czech.html\">Zpátky na menu francouzštiny</a></p>\n"
+            return "Zpátky na menu francouzštiny"
         elif subject == "spanish":
-            return "Spanish-czech.html\">Zpátky na menu španělštiny</a></p>\n"
+            return "Zpátky na menu španělštiny"
         elif subject == "literature":
-            return "Literature-czech.html\">Zpátky na menu literatury</a></p>\n"
+            return "Zpátky na menu literatury"
         elif subject == "music":
-            return "Music-czech.html\">Zpátky na menu hudby</a></p>\n"
+            return "Zpátky na menu hudby"
         elif subject == "art":
-            return "Art-czech.html\">Zpátky na menu umění</a></p>\n"
+            return "Zpátky na menu umění"
         elif subject == "informatics":
-            return "Informatics-czech.html\">Zpátky na menu informatiky</a></p>\n"
+            return "Zpátky na menu informatiky"
     elif language == "russian":
         if subject == "math":
-            return "Math-russian.html\">Обратно на меню математики</a></p>\n"
+            return "Обратно на меню математики"
         elif subject == "physics":
-            return "Physics-russian.html\">Обратно на меню физики</a></p>\n"
+            return "Обратно на меню физики"
         elif subject == "chemistry":
-            return "Chemistry-russian.html\">Обратно на меню химии</a></p>\n"
+            return "Обратно на меню химии"
         elif subject == "biology":
-            return "Biology-russian.html\">Обратно на меню биологии</a></p>\n"
+            return "Обратно на меню биологии"
         elif subject == "geography":
-            return "Geography-russian.html\">Обратно на меню географии</a></p>\n"
+            return "Обратно на меню географии"
         elif subject == "history":
-            return "History-russian.html\">Обратно на меню истории</a></p>\n"
+            return "Обратно на меню истории"
         elif subject == "english":
-            return "English-russian.html\">Обратно на меню английского</a></p>\n"
+            return "Обратно на меню английского"
         elif subject == "german":
-            return "German-russian.html\">Обратно на меню немецкого</a></p>\n"
+            return "Обратно на меню немецкого"
         elif subject == "czech":
-            return "Czech-russian.html\">Обратно на меню чешского</a></p>\n"
+            return "Обратно на меню чешского"
         elif subject == "russian":
-            return "Russian-russian.html\">Обратно на меню русского</a></p>\n"
+            return "Обратно на меню русского"
         elif subject == "french":
-            return "French-russian.html\">Обратно на меню французского</a></p>\n"
+            return "Обратно на меню французского"
         elif subject == "spanish":
-            return "Spanish-russian.html\">Обратно на меню испанского</a></p>\n"
+            return "Обратно на меню испанского"
         elif subject == "literature":
-            return "Literature-russian.html\">Обратно на меню литературы</a></p>\n"
+            return "Обратно на меню литературы"
         elif subject == "music":
-            return "Music-russian.html\">Обратно на меню музыки</a></p>\n"
+            return "Обратно на меню музыки"
         elif subject == "art":
-            return "Art-russian.html\">Обратно на меню искусства</a></p>\n"
+            return "Обратно на меню искусства"
         elif subject == "informatics":
-            return "Informatics-russian.html\">Обратно на меню информатики</a></p>\n"
+            return "Обратно на меню информатики"
     elif language == "german":
         if subject == "math":
-            return "Math-german.html\">Zurück zum Mathe-Menü</a></p>\n"
+            return "Zurück zum Mathe-Menü"
         elif subject == "physics":
-            return "Physics-german.html\">Zurück zum Physik-Menü</a></p>\n"
+            return "Zurück zum Physik-Menü"
         elif subject == "chemistry":
-            return "Chemistry-german.html\">Zurück zum Chemie-Menü</a></p>\n"
+            return "Zurück zum Chemie-Menü"
         elif subject == "biology":
-            return "Biology-german.html\">Zurück zum Biologie-Menü</a></p>\n"
+            return "Zurück zum Biologie-Menü"
         elif subject == "geography":
-            return "Geography-german.html\">Zurück zum Geografie-Menü</a></p>\n"
+            return "Zurück zum Geografie-Menü"
         elif subject == "history":
-            return "History-german.html\">Zurück zum Geschichte-Menü</a></p>\n"
+            return "Zurück zum Geschichte-Menü"
         elif subject == "english":
-            return "English-german.html\">Zurück zum Englisch-Menü</a></p>\n"
+            return "Zurück zum Englisch-Menü"
         elif subject == "german":
-            return "German-german.html\">Zurück zum Deutsch-Menü</a></p>\n"
+            return "Zurück zum Deutsch-Menü"
         elif subject == "czech":
-            return "Czech-german.html\">Zurück zum Tschechisch-Menü</a></p>\n"
+            return "Zurück zum Tschechisch-Menü"
         elif subject == "russian":
-            return "Russian-german.html\">Zurück zum Russisch-Menü</a></p>\n"
+            return "Zurück zum Russisch-Menü"
         elif subject == "french":
-            return "French-german.html\">Zurück zum Französisch-Menü</a></p>\n"
+            return "Zurück zum Französisch-Menü"
         elif subject == "spanish":
-            return "Spanish-german.html\">Zurück zum Spanisch-Menü</a></p>\n"
+            return "Zurück zum Spanisch-Menü"
         elif subject == "literature":
-            return "Literature-german.html\">Zurück zum Literatur-Menü</a></p>\n"
+            return "Zurück zum Literatur-Menü"
         elif subject == "music":
-            return "Music-german.html\">Zurück zum Musik-Menü</a></p>\n"
+            return "Zurück zum Musik-Menü"
         elif subject == "art":
-            return "Art-german.html\">Zurück zum Kunst-Menü</a></p>\n"
+            return "Zurück zum Kunst-Menü"
         elif subject == "informatics":
-            return "Informatics-german.html\">Zurück zum Informatik-Menü</a></p>\n"
+            return "Zurück zum Informatik-Menü"
     elif language == "french":
         if subject == "math":
-            return "Math-french.html\">Retour au menu mathématique</a></p>\n"
+            return "Retour au menu mathématique"
         elif subject == "physics":
-            return "Physics-french.html\">Retour au menu physique</a></p>\n"
+            return "Retour au menu physique"
         elif subject == "chemistry":
-            return "Chemistry-french.html\">Retour au menu chimie</a></p>\n"
+            return "Retour au menu chimie"
         elif subject == "biology":
-            return "Biology-french.html\">Retour au menu biologie</a></p>\n"
+            return "Retour au menu biologie"
         elif subject == "geography":
-            return "Geography-french.html\">Retour au menu géographie</a></p>\n"
+            return "Retour au menu géographie"
         elif subject == "history":
-            return "History-french.html\">Retour au menu historique</a></p>\n"
+            return "Retour au menu historique"
         elif subject == "english":
-            return "English-french.html\">Retour au menu anglais</a></p>\n"
+            return "Retour au menu anglais"
         elif subject == "german":
-            return "German-french.html\">Retour au menu allemand</a></p>\n"
+            return "Retour au menu allemand"
         elif subject == "czech":
-            return "Czech-french.html\">Retour au menu tchèque</a></p>\n"
+            return "Retour au menu tchèque"
         elif subject == "russian":
-            return "Russian-french.html\">Retour au menu russe</a></p>\n"
+            return "Retour au menu russe"
         elif subject == "french":
-            return "French-french.html\">Retour au menu français</a></p>\n"
+            return "Retour au menu français"
         elif subject == "spanish":
-            return "Spanish-french.html\">Retour au menu espagnol</a></p>\n"
+            return "Retour au menu espagnol"
         elif subject == "literature":
-            return "Literature-french.html\">Retour au menu littérature</a></p>\n"
+            return "Retour au menu littérature"
         elif subject == "music":
-            return "Music-french.html\">Retour au menu musique</a></p>\n"
+            return "Retour au menu musique"
         elif subject == "art":
-            return "Art-french.html\">Retour au menu arts</a></p>\n"
+            return "Retour au menu arts"
         elif subject == "informatics":
-            return "Informatics-french.html\">Retour au menu informatique</a></p>\n"
+            return "Retour au menu informatique"
     elif language == "spanish":
         if subject == "math":
-            return "Math-spanish.html\">Volver al menú de matemáticas</a></p>\n"
+            return "Volver al menú de matemáticas"
         elif subject == "physics":
-            return "Physics-spanish.html\">Volver al menú de Física</a></p>\n"
+            return "Volver al menú de Física"
         elif subject == "chemistry":
-            return "Chemistry-spanish.html\">Volver al menú de Química</a></p>\n"
+            return "Volver al menú de Química"
         elif subject == "biology":
-            return "Biology-spanish.html\">Volver al menú de Biología</a></p>\n"
+            return "Volver al menú de Biología"
         elif subject == "geography":
-            return "Geography-spanish.html\">Volver al menú Geografía</a></p>\n"
+            return "Volver al menú Geografía"
         elif subject == "history":
-            return "History-spanish.html\">Volver al menú Historial</a></p>\n"
+            return "Volver al menú Historial"
         elif subject == "english":
-            return "English-spanish.html\">Volver al menú en inglés</a></p>\n"
+            return "Volver al menú en inglés"
         elif subject == "german":
-            return "German-spanish.html\">Volver al menú alemán</a></p>\n"
+            return "Volver al menú alemán"
         elif subject == "czech":
-            return "Czech-spanish.html\">Volver al menú checo</a></p>\n"
+            return "Volver al menú checo"
         elif subject == "russian":
-            return "Russian-spanish.html\">Volver al menú ruso</a></p>\n"
+            return "Volver al menú ruso"
         elif subject == "french":
-            return "French-spanish.html\">Volver al menú francés</a></p>\n"
+            return "Volver al menú francés"
         elif subject == "spanish":
-            return "Spanish-spanish.html\">Volver al menú en español</a></p>\n"
+            return "Volver al menú en español"
         elif subject == "literature":
-            return "Literature-spanish.html\">Volver al menú literatura</a></p>\n"
+            return "Volver al menú literatura"
         elif subject == "music":
-            return "Music-spanish.html\">Volver al menú música</a></p>\n"
+            return "Volver al menú música"
         elif subject == "art":
-            return "Art-spanish.html\">Volver al menú arte</a></p>\n"
+            return "Volver al menú arte"
         elif subject == "informatics":
-            return "Informatics-spanish.html\">Volver al menú informática</a></p>\n"
+            return "Volver al menú informática"
+
+
+def file_language(language):
+    if language != "english":
+        return "-" + language
+    else:
+        return ""
 
 
 def good(language):

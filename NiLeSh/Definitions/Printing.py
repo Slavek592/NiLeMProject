@@ -33,7 +33,8 @@ def print_start_of_body(file, name, language, subject, length_of_path, case):
         )
     if case == "menu":
         file.write(
-            "        <p>" + Translations.to_main(language) + "</p>\n"
+            "        <p><a href=\"../Main" + Translations.file_language(language) +
+            ".html\">" + Translations.to_main(language) + "</a></p>\n"
         )
     else:
         file.write(
@@ -47,11 +48,13 @@ def print_start_of_body(file, name, language, subject, length_of_path, case):
             "        </p>\n"
             "        <p id=\"c\">" + Translations.no_checked_answer(language) + "</p>\n"
         )
-        string = "        <p><a href=\""
+        file.write("        <p><a href=\"")
         for i in range(length_of_path):
-            string += "../"
-        string += Translations.on_subject_menu(subject, language)
-        file.write(string)
+            file.write("../")
+        file.write(
+            subject.capitalize() + Translations.file_language(language) + ".html\">" +
+            Translations.on_subject_menu(subject, language) + "</a></p>\n"
+        )
 
 
 def print_start_of_script(file):

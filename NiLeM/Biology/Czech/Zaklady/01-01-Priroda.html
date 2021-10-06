@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Nikiforov's Learning Machine</title>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" href="../../../styles.css">
+    </head>
+
+    <body>
+        <h1>01-01-Priroda</h1>
+        <div id="q" class="container">Klikněte na tlačítko "Další" pro začátek.</div>
+        <p>
+            <button type="button" onclick="ChangeContent()">Další</button>
+            <button type="button" onclick="Check()">Zkontrolovat</button>
+        </p>
+        <p id="c">Není zde žádná zkontrolovaná odpověď.</p>
+        <p><a href="../../Biology-czech.html">Zpátky na menu biologie</a></p>
+        <script>
+            question = 0;
+            function ChangeContent()
+            {
+                document.getElementById("q").innerHTML = "";
+                document.getElementById("c").innerHTML = "Není zde žádná zkontrolovaná odpověď.";
+                if (question == 0)
+                {
+                    question = 1;
+
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("Jak se pozná, co je živé?"));
+                    document.getElementById("q").appendChild(text);
+
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("Vše, co je živé, musí dělat toto:"));
+                    document.getElementById("q").appendChild(text);
+
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("1. dýchat"));
+                    document.getElementById("q").appendChild(text);
+
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("2. přijímat potravu a vodu"));
+                    document.getElementById("q").appendChild(text);
+
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("3. rozmnožovat se"));
+                    document.getElementById("q").appendChild(text);
+
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("4. pohybovat se"));
+                    document.getElementById("q").appendChild(text);
+
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("5. reagovat na podněty."));
+                    document.getElementById("q").appendChild(text);
+
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("Zároveň by se mělo vše živé skládat aspoň částečně z organických materiálů, ale o tom více později na chemii."));
+                    document.getElementById("q").appendChild(text);
+                }
+                else if (question == 1)
+                {
+                    question = 2;
+
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("Pojďme se podívat na konkrétní příklady."));
+                    document.getElementById("q").appendChild(text);
+                }
+                else if (question == 2)
+                {
+                    question = 3;
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("Vyberte odpověď."));
+                    document.getElementById("q").appendChild(text);
+
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("Jí člověk?"));
+                    document.getElementById("q").appendChild(text);
+
+                    var inputplace = document.createElement("p");
+                    inputplace.id = "inp";
+                    var inputradio = document.createElement("input");
+                    inputradio.type = "radio";
+                    inputradio.id = "ans";
+                    inputradio.name = "ans";
+                    inputplace.appendChild(inputradio);
+                    inputplace.appendChild(document.createTextNode("Ano"));
+                    var inputradio = document.createElement("input");
+                    inputradio.type = "radio";
+                    inputradio.id = "ans";
+                    inputradio.name = "ans";
+                    inputplace.appendChild(inputradio);
+                    inputplace.appendChild(document.createTextNode("Ne"));
+                    document.getElementById("q").appendChild(inputplace);
+                }
+                else if (question == 3)
+                {
+                    question = 4;
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("Vyberte odpověď."));
+                    document.getElementById("q").appendChild(text);
+
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("Dýchá člověk?"));
+                    document.getElementById("q").appendChild(text);
+
+                    var inputplace = document.createElement("p");
+                    inputplace.id = "inp";
+                    var inputradio = document.createElement("input");
+                    inputradio.type = "radio";
+                    inputradio.id = "ans";
+                    inputradio.name = "ans";
+                    inputplace.appendChild(inputradio);
+                    inputplace.appendChild(document.createTextNode("Ano"));
+                    var inputradio = document.createElement("input");
+                    inputradio.type = "radio";
+                    inputradio.id = "ans";
+                    inputradio.name = "ans";
+                    inputplace.appendChild(inputradio);
+                    inputplace.appendChild(document.createTextNode("Ne"));
+                    document.getElementById("q").appendChild(inputplace);
+                }
+                else if (question == 4)
+                {
+                    question = 5;
+
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("No, dobře, všichni víme, že člověk je živý. A co další?"));
+                    document.getElementById("q").appendChild(text);
+                }
+                else if (question == 5)
+                {
+                    question = 6;
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("Vyberte odpověď."));
+                    document.getElementById("q").appendChild(text);
+
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("Když svému psovi něco řekneme, bude na to reagovat?"));
+                    document.getElementById("q").appendChild(text);
+
+                    var inputplace = document.createElement("p");
+                    inputplace.id = "inp";
+                    var inputradio = document.createElement("input");
+                    inputradio.type = "radio";
+                    inputradio.id = "ans";
+                    inputradio.name = "ans";
+                    inputplace.appendChild(inputradio);
+                    inputplace.appendChild(document.createTextNode("Ano"));
+                    var inputradio = document.createElement("input");
+                    inputradio.type = "radio";
+                    inputradio.id = "ans";
+                    inputradio.name = "ans";
+                    inputplace.appendChild(inputradio);
+                    inputplace.appendChild(document.createTextNode("Ne"));
+                    document.getElementById("q").appendChild(inputplace);
+                }
+                else if (question == 6)
+                {
+                    question = 7;
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("Vyberte odpověď."));
+                    document.getElementById("q").appendChild(text);
+
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("Pohybují se samovolně kameny?"));
+                    document.getElementById("q").appendChild(text);
+
+                    var inputplace = document.createElement("p");
+                    inputplace.id = "inp";
+                    var inputradio = document.createElement("input");
+                    inputradio.type = "radio";
+                    inputradio.id = "ans";
+                    inputradio.name = "ans";
+                    inputplace.appendChild(inputradio);
+                    inputplace.appendChild(document.createTextNode("Ano"));
+                    var inputradio = document.createElement("input");
+                    inputradio.type = "radio";
+                    inputradio.id = "ans";
+                    inputradio.name = "ans";
+                    inputplace.appendChild(inputradio);
+                    inputplace.appendChild(document.createTextNode("Ne"));
+                    document.getElementById("q").appendChild(inputplace);
+                }
+                else if (question == 7)
+                {
+                    question = 8;
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("Vyberte odpověď."));
+                    document.getElementById("q").appendChild(text);
+
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("Přijímají fialky vodu?"));
+                    document.getElementById("q").appendChild(text);
+
+                    var inputplace = document.createElement("p");
+                    inputplace.id = "inp";
+                    var inputradio = document.createElement("input");
+                    inputradio.type = "radio";
+                    inputradio.id = "ans";
+                    inputradio.name = "ans";
+                    inputplace.appendChild(inputradio);
+                    inputplace.appendChild(document.createTextNode("Ano"));
+                    var inputradio = document.createElement("input");
+                    inputradio.type = "radio";
+                    inputradio.id = "ans";
+                    inputradio.name = "ans";
+                    inputplace.appendChild(inputradio);
+                    inputplace.appendChild(document.createTextNode("Ne"));
+                    document.getElementById("q").appendChild(inputplace);
+                }
+                else if (question == 8)
+                {
+                    question = 9;
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("Vyberte odpověď."));
+                    document.getElementById("q").appendChild(text);
+
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("Pohybuje se hmyz?"));
+                    document.getElementById("q").appendChild(text);
+
+                    var inputplace = document.createElement("p");
+                    inputplace.id = "inp";
+                    var inputradio = document.createElement("input");
+                    inputradio.type = "radio";
+                    inputradio.id = "ans";
+                    inputradio.name = "ans";
+                    inputplace.appendChild(inputradio);
+                    inputplace.appendChild(document.createTextNode("Ano"));
+                    var inputradio = document.createElement("input");
+                    inputradio.type = "radio";
+                    inputradio.id = "ans";
+                    inputradio.name = "ans";
+                    inputplace.appendChild(inputradio);
+                    inputplace.appendChild(document.createTextNode("Ne"));
+                    document.getElementById("q").appendChild(inputplace);
+                }
+                else if (question == 9)
+                {
+                    question = 10;
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("Vyberte odpověď."));
+                    document.getElementById("q").appendChild(text);
+
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("Dýchá telefon?"));
+                    document.getElementById("q").appendChild(text);
+
+                    var inputplace = document.createElement("p");
+                    inputplace.id = "inp";
+                    var inputradio = document.createElement("input");
+                    inputradio.type = "radio";
+                    inputradio.id = "ans";
+                    inputradio.name = "ans";
+                    inputplace.appendChild(inputradio);
+                    inputplace.appendChild(document.createTextNode("Ano"));
+                    var inputradio = document.createElement("input");
+                    inputradio.type = "radio";
+                    inputradio.id = "ans";
+                    inputradio.name = "ans";
+                    inputplace.appendChild(inputradio);
+                    inputplace.appendChild(document.createTextNode("Ne"));
+                    document.getElementById("q").appendChild(inputplace);
+                }
+                else if (question == 10)
+                {
+                    question = 11;
+
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("Přesně tak, například živočichové a rostliny jsou živí, zatímco například nerosty živé nejsou."));
+                    document.getElementById("q").appendChild(text);
+                }
+                else
+                {
+                    var text = document.createElement("p");
+                    text.appendChild(document.createTextNode("Gratuluji! Ukončil jste tuto lekci."));
+                    document.getElementById("q").appendChild(text);
+                }
+            }
+            function Check()
+            {
+                if (question == 1)
+                {
+                }
+                else if (question == 3)
+                {
+                    var ele = document.getElementsByName('ans');
+                    for (i = 0; i < ele.length; i++)
+                    {
+                        if (ele[i].checked)
+                        {
+                            if (i == 0)
+                            {
+                                document.getElementById("c").innerHTML = "Správně.";
+                            }
+                            else
+                            {
+                                document.getElementById("c").innerHTML = "Nesprávně.";
+                            }
+                        }
+                    }
+                }
+                else if (question == 4)
+                {
+                    var ele = document.getElementsByName('ans');
+                    for (i = 0; i < ele.length; i++)
+                    {
+                        if (ele[i].checked)
+                        {
+                            if (i == 0)
+                            {
+                                document.getElementById("c").innerHTML = "Správně.";
+                            }
+                            else
+                            {
+                                document.getElementById("c").innerHTML = "Nesprávně.";
+                            }
+                        }
+                    }
+                }
+                else if (question == 6)
+                {
+                    var ele = document.getElementsByName('ans');
+                    for (i = 0; i < ele.length; i++)
+                    {
+                        if (ele[i].checked)
+                        {
+                            if (i == 0)
+                            {
+                                document.getElementById("c").innerHTML = "Správně.";
+                            }
+                            else
+                            {
+                                document.getElementById("c").innerHTML = "Nesprávně.";
+                            }
+                        }
+                    }
+                }
+                else if (question == 7)
+                {
+                    var ele = document.getElementsByName('ans');
+                    for (i = 0; i < ele.length; i++)
+                    {
+                        if (ele[i].checked)
+                        {
+                            if (i == 1)
+                            {
+                                document.getElementById("c").innerHTML = "Správně.";
+                            }
+                            else
+                            {
+                                document.getElementById("c").innerHTML = "Nesprávně.";
+                            }
+                        }
+                    }
+                }
+                else if (question == 8)
+                {
+                    var ele = document.getElementsByName('ans');
+                    for (i = 0; i < ele.length; i++)
+                    {
+                        if (ele[i].checked)
+                        {
+                            if (i == 0)
+                            {
+                                document.getElementById("c").innerHTML = "Správně.";
+                            }
+                            else
+                            {
+                                document.getElementById("c").innerHTML = "Nesprávně.";
+                            }
+                        }
+                    }
+                }
+                else if (question == 9)
+                {
+                    var ele = document.getElementsByName('ans');
+                    for (i = 0; i < ele.length; i++)
+                    {
+                        if (ele[i].checked)
+                        {
+                            if (i == 0)
+                            {
+                                document.getElementById("c").innerHTML = "Správně.";
+                            }
+                            else
+                            {
+                                document.getElementById("c").innerHTML = "Nesprávně.";
+                            }
+                        }
+                    }
+                }
+                else if (question == 10)
+                {
+                    var ele = document.getElementsByName('ans');
+                    for (i = 0; i < ele.length; i++)
+                    {
+                        if (ele[i].checked)
+                        {
+                            if (i == 1)
+                            {
+                                document.getElementById("c").innerHTML = "Správně.";
+                            }
+                            else
+                            {
+                                document.getElementById("c").innerHTML = "Nesprávně.";
+                            }
+                        }
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>

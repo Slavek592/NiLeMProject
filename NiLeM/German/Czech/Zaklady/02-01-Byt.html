@@ -12,7 +12,7 @@
     </head>
 
     <body>
-        <h1>02-00-Byt</h1>
+        <h1>02-01-Byt</h1>
         <div id="q" class="container">Klikněte na tlačítko "Další" pro začátek.</div>
         <p>
             <button type="button" onclick="ChangeContent()">Další</button>
@@ -38,16 +38,10 @@
                 question ++;
                 if (question == 0)
                 {
-                    PrintLine("Ve všech jazycích je sloveso být výjimečné. Je tomu tak i v němčině.");
-                    PrintLine("Pojďme se na něj tedy podívat podrobněji.");
+                    PrintLine("Opakování - matka moudrosti.");
+                    PrintLine("Zkuste si vzpomenout, jak se časuje sloveso být.");
                 }
                 else if (question == 1)
-                {
-                    PrintLine("Němčina je specifická tím, že se v ní též dají slova skloňovat a časovat.");
-                    PrintLine("Sloveso být se tudíž také mění v závislosti na osobě a čísle podmětu.");
-                    PrintLine("Samotné slovo v infinitivu se řekne sein [zajn].");
-                }
-                else if (question == 2)
                 {
                     PrintLine("Časování slovesa sein (být):");
                     PrintLine("ich bin (já jsem)");
@@ -57,47 +51,40 @@
                     PrintLine("ihr seid (vy jste)");
                     PrintLine("sie/Sie sind (oni jsou / Vy jste)");
                 }
+                else if (question == 2)
+                {
+                    PrintLine("Vyberte odpověď.");
+                    PrintLine("Es ist.");
+                    CreateInputradio(['On jí.', 'Já jsem.', 'Ona jí.', 'Ono je.', 'On je.', 'Ona je.', 'Ono jí.']);
+                }
                 else if (question == 3)
                 {
                     PrintLine("Vyberte odpověď.");
-                    PrintLine("Přeložte \"wir sind\" do češtiny.");
-                    CreateInputradio(['oni jsou', 'já jsem', 'my jste', 'já mám', 'on ví', 'my jsme', 'ona je', 'on je']);
+                    PrintLine("Jsi.");
+                    CreateInputradio(['Es ist.', 'Sie ist.', 'Bin ich?', 'Du ist.', 'Er ist.', 'Du bist.', 'Ihr bist.', 'Ihr seid.']);
                 }
                 else if (question == 4)
                 {
-                    PrintLine("Vyberte odpověď.");
-                    PrintLine("Doplňte:");
-                    PrintLine("ich...");
-                    CreateInputradio(['bin', 'bist', 'wir', 'seid', 'sein']);
+                    PrintLine("Napište odpověď.");
+                    PrintLine("my jsme = wir...");
+                    CreateInputbox();
                 }
                 else if (question == 5)
                 {
-                    PrintLine("Vyberte odpověď.");
-                    PrintLine("Přeložte \"jsme\" do němčiny");
-                    CreateInputradio(['seid', 'sind', 'sein', 'sden']);
+                    PrintLine("Napište odpověď.");
+                    PrintLine("bist = ...");
+                    CreateInputbox();
                 }
                 else if (question == 6)
                 {
-                    PrintLine("Napište odpověď.");
-                    PrintLine("ich...");
-                    CreateInputbox();
+                    PrintLine("Vyberte odpověď.");
+                    PrintLine("Co z toho není správně?");
+                    CreateInputradio(['ich bin', 'sie sind', 'wir seid', 'sie ist', 'es ist']);
                 }
                 else if (question == 7)
                 {
                     PrintLine("Napište odpověď.");
-                    PrintLine("du...");
-                    CreateInputbox();
-                }
-                else if (question == 8)
-                {
-                    PrintLine("Napište odpověď.");
-                    PrintLine("ihr...");
-                    CreateInputbox();
-                }
-                else if (question == 9)
-                {
-                    PrintLine("Napište odpověď.");
-                    PrintLine("er...");
+                    PrintLine("Přeložte větu: \"Ihr seid.\" (s tečkou a velkým písmenem)");
                     CreateInputbox();
                 }
                 else
@@ -110,33 +97,29 @@
                 if (question == 0)
                 {
                 }
+                else if (question == 2)
+                {
+                    OwnCheckRadio("4");
+                }
                 else if (question == 3)
                 {
                     OwnCheckRadio("5");
                 }
                 else if (question == 4)
                 {
-                    OwnCheckRadio("0");
+                    OwnCheckEnter("sind");
                 }
                 else if (question == 5)
                 {
-                    OwnCheckRadio("1");
+                    OwnCheckEnter("jsi");
                 }
                 else if (question == 6)
                 {
-                    OwnCheckEnter("bin");
+                    OwnCheckRadio("2");
                 }
                 else if (question == 7)
                 {
-                    OwnCheckEnter("bist");
-                }
-                else if (question == 8)
-                {
-                    OwnCheckEnter("seid");
-                }
-                else if (question == 9)
-                {
-                    OwnCheckEnter("ist");
+                    OwnCheckEnter("Vy jste.");
                 }
             }
         </script>

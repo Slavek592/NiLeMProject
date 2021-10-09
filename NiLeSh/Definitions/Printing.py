@@ -3,19 +3,21 @@ from . import Translations
 
 
 def print_header(file, length_of_path):
+    link_back = ""
+    for i in range(length_of_path):
+        link_back += "../"
     file.write(
         "<!DOCTYPE html>\n"
         "<html>\n"
         "    <head>\n"
         "        <title>Nikiforov's Learning Machine</title>\n"
         "        <meta charset=\"utf-8\"/>\n"
-    )
-    link_line = "        <link rel=\"stylesheet\" href=\""
-    for i in range(length_of_path):
-        link_line += "../"
-    link_line += "Core/styles.css\">\n"
-    file.write(
-        link_line +
+        "        <link rel=\"stylesheet\" href=\"" + link_back + "Core/styles.css\">\n"
+        "        <link rel=\"icon\" href=\"" + link_back + "Pictures/Physics.jpg\">\n"
+        "        <script src=\"" + link_back + "Core/styler.js\"></script>\n"
+        "        <script>\n"
+        "            Set();\n"
+        "        </script>\n"
         "    </head>\n"
         "\n"
         "    <body>\n"

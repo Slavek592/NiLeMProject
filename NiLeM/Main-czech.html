@@ -11,34 +11,73 @@
     <body>
         <h1>
             Hlavní menu
+        </h1>
+        <h2>Jazyk</h2>
+        <p>Vyberte si jazyk, ve kterém se chcete učit.</p>
+        <p>Přesune Vás to do hlavního menu v tom jazyce</p>
+        <p>
             <button onclick="window.location.href='Main.html';">
-                <img src="Pictures/English-BW.jpg" alt="English" style="width:40px">
+                <p><img src="Pictures/English-BW.jpg" alt="English" style="width:80px"></p>
+                <h3>Angličtina</h3>
             </button>
             <button onclick="window.location.href='Main-czech.html';">
-                <img src="Pictures/Czech.jpg" alt="Czech" style="width:40px">
+                <p><img src="Pictures/Czech.jpg" alt="Czech" style="width:80px"></p>
+                <h3>Čeština</h3>
             </button>
             <button onclick="window.location.href='Main-russian.html';">
-                <img src="Pictures/Russian-BW.jpg" alt="Russian" style="width:40px">
+                <p><img src="Pictures/Russian-BW.jpg" alt="Russian" style="width:80px"></p>
+                <h3>Ruština</h3>
             </button>
             <button onclick="window.location.href='Main-german.html';">
-                <img src="Pictures/German-BW.jpg" alt="German" style="width:40px">
+                <p><img src="Pictures/German-BW.jpg" alt="German" style="width:80px"></p>
+                <h3>Němčina</h3>
             </button>
             <button onclick="window.location.href='Main-french.html';">
-                <img src="Pictures/French-BW.jpg" alt="French" style="width:40px">
+                <p><img src="Pictures/French-BW.jpg" alt="French" style="width:80px"></p>
+                <h3>Francouzština</h3>
             </button>
             <button onclick="window.location.href='Main-spanish.html';">
-                <img src="Pictures/Spanish-BW.jpg" alt="Spanish" style="width:40px">
+                <p><img src="Pictures/Spanish-BW.jpg" alt="Spanish" style="width:80px"></p>
+                <h3>Španělština</h3>
             </button>
+        </p>
+        <h2>Stránka informací</h2>
+        <p>Klikněte na to, abyste našli odpovědi na jakékoli otázky ohledně projektu NiLeM.</p>
+        <p>Přesune Vás to na stránku s informacemi.</p>
+        <p>
             <button onclick="window.location.href='Core/About-czech.html';">
-                <img src="Pictures/About.jpg" alt="About" style="width:40px">
+                <p><img src="Pictures/About.jpg" alt="About" style="width:80px"></p>
+                <h3>Informace</h3>
             </button>
+        </p>
+        <h2>Mód</h2>
+        <p>Klikněte, abyste vybrali barvu, které má NiLeM být.</p>
+        <p>Používá to cookie pro ukládání barvy. Pokud to nefunguje, jsou cookies zakázané.</p>
+        <p>
             <button onclick="Store('dark');">
-                <img src="Pictures/Dark.jpg" alt="Dark" style="width:40px">
+                <p><img src="Pictures/Dark.jpg" alt="Dark" style="width:80px"></p>
+                <h3>Tmavé</h3>
             </button>
             <button onclick="Store('light');;">
-                <img src="Pictures/Light.jpg" alt="Light" style="width:40px">
+                <p><img src="Pictures/Light.jpg" alt="Light" style="width:80px"></p>
+                <h3>Světlé</h3>
             </button>
-        </h1>
+            <button onclick="Store('fire');;">
+                <p><img src="Pictures/Fire.jpg" alt="Fire" style="width:80px"></p>
+                <h3>Oheň</h3>
+            </button>
+            <button onclick="Store('water');;">
+                <p><img src="Pictures/Water.jpg" alt="Water" style="width:80px"></p>
+                <h3>Voda</h3>
+            </button>
+            <button onclick="Store('grass');;">
+                <p><img src="Pictures/Grass.jpg" alt="Grass" style="width:80px"></p>
+                <h3>Tráva</h3>
+            </button>
+        </p>
+        <h2>Předmět</h2>
+        <p>Vyberte si předmět, který se chcete učit.</p>
+        <p>Přesune Vás to do menu v daném předmětu.</p>
         <p>
             <button onclick="window.location.href='Math/Math-czech.html';">
                 <p><img src="Pictures/Math.jpg" alt="Math" style="width:200px"></p>
@@ -111,25 +150,5 @@
                 <h3>Informatika</h3>
             </button>
         </p>
-        <!-- Sources of the pictures: -->
-        <!-- Math: https://maturita.cermat.cz/files/images/obrazky/matematika1.jpg -->
-        <!-- Physics: https://www.journalajr2p.com/index.php/AJR2P -->
-        <!-- Chemistry: https://www.syngeneintl.com/resources/blog/things-you-may-not-know-about-continuous-flow-chemistry/ -->
-        <!-- Biology: https://www.vectorstock.com/royalty-free-vector/germs-set-biology-pandemic-virus-biological-vector-24783092 -->
-        <!-- Geography: https://educationblog.oup.com/secondary/geography/a-different-view-the-purpose-of-geography-an-analysis-of-the-geographical-associations-manifesto -->
-        <!-- History: https://miningglobal.com/sustainability-1/egypt-issues-new-mining-law-regulations -->
-        <!-- English: https://commons.wikimedia.org/wiki/File:English_language.svg -->
-        <!-- German: https://commons.wikimedia.org/wiki/File:Flag_of_Germany_and_Austria.svg -->
-        <!-- Russian: https://www.britannica.com/topic/flag-of-Russia -->
-        <!-- Czech: https://en.wikipedia.org/wiki/Flag_of_the_Czech_Republic -->
-        <!-- Spanish: https://commons.wikimedia.org/wiki/File:Flag_of_Spanish_language_(ES-MX).svg -->
-        <!-- French: https://en.wikipedia.org/wiki/Flag_of_France -->
-        <!-- Dark + Light: https://dribbble.com/shots/7073901-Dark-mode-switch-animation-for-CONNECTIVE -->
-        <!-- These sources were visited at 10th and 11th of July, 2021. -->
-        <!-- Literature: https://www.bayleybulletin.com/wp-content/uploads/2017/07/Amelia-2-900x640.jpg -->
-        <!-- Music: https://www.stickherlady.com/wp-content/uploads/2016/05/MUSICNOTE.jpg -->
-        <!-- Art: https://cdn.britannica.com/87/2087-004-264616BB/Mona-Lisa-oil-wood-panel-Leonardo-da.jpg -->
-        <!-- Informatics: https://uwm.edu/healthsciences/wp-content/uploads/sites/129/2015/07/banner-health-care-informatics-certificate.jpg -->
-        <!-- These sources were visited at 3rd of September, 2021. -->
     </body>
 </html>

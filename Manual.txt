@@ -3,7 +3,7 @@ Welcome to NiLeM (Nikiforov's Learning Machine) project. This project is made to
 make learning of anything (math, chemistry, physics, geography, history...) more
 available. The main result is the NiLeM, but I have also made a NiLeSh, which
 is used to make lessons in NiLeM really quickly. It makes it easy for everyone,
-You do not need to understand HTML, CSS and Javascript.
+You do not need to understand HTML, CSS and JavaScript.
 
 Let me tell something about the NiLeM.
 Who can use it?
@@ -14,7 +14,7 @@ How to use it?
     1. Download the project (or just the NiLeM part). You can do it by clicking 
        on the button "Code" and then "Download zip".
     2. Open the Main.html file in Your browser. You can do it by right clicking
-       ob the file and choosing to open with browser.
+       on the file and choosing to open with browser.
     3. Here You are! Now navigate by intuitive buttons to any of subjects and
        choose any of the lessons.
     4. Enjoy and learn!
@@ -26,7 +26,7 @@ Who can use it?
     following tutorials
 Why to use it?
     Power users - teachers may find it useful, an other way to teach. And anyone
-    else can use it for doing domething good.
+    else can use it for doing something good.
 How to use it?
     Write a program and run it with the engine.
 Where to write program?
@@ -36,12 +36,12 @@ Where to write program?
     And again: WRITE IT TO THE TEXT DOCUMENT.
     70% of people do not understand, what does "text document" mean,
     so let me explain it. It is some file like this. There is only
-    plain text, no meta information. It is opened by TextEditor,
-    nano, vi, vim, edit, micro, or something like that.
+    plain text, no fonts. It is opened by TextEditor, nano, vi, vim, edit,
+    Notepad, or something like that.
     Text document IS NOT:
     JPEG image, PNG image, Microsoft Word, Microsoft Excel,
     Microsoft Powerpoint, Open Document Text, Open Document Spreadsheet,
-    Portable Document Format.
+    Portable Document Format and other formats.
     NO, it is just plain text, it usually has .txt at the end.
     But if You can, You can use .nls or .nilesh, it is better for
     the program.
@@ -54,16 +54,17 @@ What is the syntax?
     run the program from the NiLeMProject directory and it
     will change the NiLeM folder. Less time, more work made.
     You can also change the menu file, just enter "menu"
-    at the place for the name. And then do not use
-    commands for questions, use command "update".
+    at the name line. And then do not use commands for
+    questions, use command "update".
     The 3rd line is always "{".
     Next lines will add some questions to Your quiz.
     See below the list of supported types of questions.
     Question lines must be written as "type//question//answer"
     or something like that. It depends on the type, but
     You always have to use the "//" to split it.
-    End of the questions must be signed as "}" line.
+    End of the questions must be signed by "}" line.
     And then comes the "end" line.
+    For more information look at the examples below.
 Supported languages:
     English (write lowercase: "english")
     Czech (write lowercase: "czech")
@@ -84,6 +85,10 @@ Supported subjects:
     German (write lowercase: "german")
     French (write lowercase: "french")
     Spanish (write lowercase: "spanish")
+    Literature (write lowercase: "literature")
+    Music (write lowercase: "music")
+    Art (write lowercase: "art")
+    Informatics (write lowercase: "informatics")
 Supported types of questions (or other commands):
     enter:
         Gives the question and lets user write his answer.
@@ -99,18 +104,29 @@ Supported types of questions (or other commands):
         It is not a command for questions, use it for updating the menu.
         Use only when the name of file is set as "menu".
         Must be used without anything other: "update"
+    run:
+        It is not a command for questions, use it for running an other Nilesh script.
+        Needs the path and the correct file extension.
+        Must be used: "run//Path/To/TheFile.nls"
 Examples:
-    T4.nls (it is used to make a T4.html file):
+Math-Basics-01-00.nls (it is used to make a 01-00-Adding.html file):
 
 math//english
-Tests/T4
+Basics/01-00-Adding
 {
-enter//15^2//225
-radio//16^(1/4)//1|2|4|16|64//1
+explain//Welcome to adding!\nIn this part You will learn to add.
+explain//Imagine adding dots. Yes, dots.\nHere we have some dots:\n\n.....\n\nAnd here are some dots:\n\n...\n\nTry to count the first dots. 5 dots. And try to count the other ones. 3 dots.\nAnd now let's put them together!\n\n........\n\nAnd now let's count it!\n8 dots.\nCongrats, You have mastered simple adding!
+explain//Let's master it a bit more!
+enter//2+3//5
+enter//1+1//2
+radio//5+4//6|7|8|9|10//3
+enter//7+1//8
+radio//9+0//7|8|9|10|11//2
+enter//5+2//7
 }
 end
 
-    MathMenu.nls (it is used to update the Math.html file):
+MathMenu.nls (it is used to update the Math.html file):
 
 math//english
 menu
@@ -118,3 +134,4 @@ menu
 update
 }
 end
+

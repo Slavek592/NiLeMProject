@@ -1,4 +1,13 @@
-/* The lines below provide You with the dark mode. */
+/*
+Here are the modes.
+If it is a server, You can change the mode in the main menu.
+Otherwise, You will need to change this file.
+Changing the mode:
+1. Comment the lines of the one being used.
+2. Uncomment the lines of the one You want to use.
+*/
+
+/* Dark mode: */
 body {
     background-color: black;
     color: white;
@@ -14,7 +23,7 @@ input {
     border-color: gray;
 }
 
-/* The lines below provide You with the light mode. */
+/* Light mode: */
 /*body {
     background-color: white;
     color: black;
@@ -30,9 +39,51 @@ input {
     border-color: gray;
 }*/
 
-/*
-Changing the mode:
-1. Comment the lines of the one being used.
-2. Uncomment the lines of the one You want to use.
-*/
+/* Fire mode: */
+/*body {
+    background-color: red;
+    color: black;
+}
+button {
+    background-color: #F02F2F;
+    color: black;
+    border-color: #7F0000;
+}
+input {
+    background-color: #F02F2F;
+    color: black;
+    border-color: #7F0000;
+}*/
+
+/* Water mode: */
+/*body {
+    background-color: blue;
+    color: black;
+}
+button {
+    background-color: #2F2FF0;
+    color: black;
+    border-color: #00007F;
+}
+input {
+    background-color: #2F2FF0;
+    color: black;
+    border-color: #00007F;
+}*/
+
+/* Grass mode: */
+/*body {
+    background-color: green;
+    color: black;
+}
+button {
+    background-color: #2FF02F;
+    color: black;
+    border-color: #007F00;
+}
+input {
+    background-color: #2FF02F;
+    color: black;
+    border-color: #007F00;
+}*/
 

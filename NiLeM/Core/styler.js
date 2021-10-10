@@ -45,3 +45,5 @@ function Set()
         document.head.appendChild(style);
     }
 }
+Set();
+

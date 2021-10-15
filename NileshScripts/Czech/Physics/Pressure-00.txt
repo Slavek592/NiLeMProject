@@ -2,7 +2,7 @@ physics//czech
 Tlak/00-Uvod
 {
 explain//Určitě máte představu o tom, čím by tlak mohl být.\n\"To je, když něco na něco tlačí.\"\nNo, to je sice pravda, ale pojďme se na to podívat více fyzicky.
-explain//Řekněme, že jsou 2 tělesa. Jedno je Země a druhé těleso na Zemi leží. Působí na sebe nějakou sílou a "nějak na sebe tlačí".\nJak se pozná, jak velký je tlak?
+explain//Řekněme, že jsou 2 tělesa. Jedno je Země a druhé těleso na Zemi leží. Působí na sebe nějakou sílou a \"nějak na sebe tlačí\".\nJak se pozná, jak velký je tlak?
 radio//Když si na to menší těleso stoupnu a budeme spolu na Zemi působit větší sílou, tlak se logicky...//zvětší|zmenší//0
 explain//Ano, tlak se při zvýšení síly také zvýší. Je síle přímoúměrný.
 radio//A pokud bych do země nepíchal prstem, ale jehlou (zmenším tedy plochu), tlak se...//zvětší|zmenší//0

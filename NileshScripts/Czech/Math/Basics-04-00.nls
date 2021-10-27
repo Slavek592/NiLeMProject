@@ -1,0 +1,14 @@
+math//czech
+Zaklady/04-00-Nasobeni
+{
+explain//Začněme se zabývat násobením.
+explain//Když násobíme, je to jako víckrát sečíst.\nx×y = x+x+x+... a to y-krát.
+explain//5×3=5+5+5=15
+explain//A teď to zkuste sami.
+enter//2×2=2+2=?//4
+radio//4×3=4+4+4=?//8|10|12|14|16//2
+radio//5×2=5+5=?//5|7|8|9|10//4
+radio//6×3=6+6+6=?//6|8|12|15|18|24//4
+enter//3×3=?//9
+}
+end

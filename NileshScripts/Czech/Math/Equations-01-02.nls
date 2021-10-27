@@ -1,0 +1,14 @@
+math//czech
+Rovnice/01-02-Nejjednodussi
+{
+explain//Sčítání a odečítání jsou ekvivalentní úpravy.\nA co násobení a dělení?
+explain//Ekvivalentní úpravou je zároveň i vydělení/vynásobení obou stran rovnice nenulovým číslem.\nDělit nulou nesmíme a při vynásobení nulou vyjde co?\nAno, přesně!\n0=0\nTo Vám nic nedá.
+explain//A teď si to zkuste procvičit.
+radio//Řešte rovnici:\nx÷4=5//x=1|x=9|x=4/5|x=5/4|x=20|x=-1//4
+radio//5x=2//-3|2/5|5/2|3|10//1
+enter//2x=7+3\nx=?//5
+explain//Někdy je potřeba provést i více než jednu úpravu.
+radio//3x-2=4//9|7|6|3|2//4
+enter//Čemu je rovné x?\nx÷6+17=18//6
+}
+end

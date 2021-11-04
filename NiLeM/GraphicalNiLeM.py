@@ -207,9 +207,13 @@ def nilem(superior):
             result.configure(text=Translations.no_checked_answer(language))
             for widget in answer_place.winfo_children():
                 widget.destroy()
+            for widget in question.winfo_children():
+                widget.destroy()
             if question_number["text"] != question_max["text"]:
                 new_question = questions[int(question_number["text"])]
-                question.configure(text=new_question[1])
+                lines = new_question[1].split("\\n")
+                for line in lines:
+                    Label(question, text=line, bg=background_color, fg=text_color).pack()
                 if new_question[0] == "explain":
                     hint.configure(text=Translations.read_info(language))
                 elif new_question[0] == "enter":
@@ -224,7 +228,6 @@ def nilem(superior):
                                     selectcolor=background_color).pack()
                 question_number.configure(text=str(int(question_number["text"]) + 1))
             else:
-                question.configure(text="")
                 hint.configure(text=Translations.congrats(language))
 
         root = Tk()
@@ -271,7 +274,7 @@ def nilem(superior):
         hint = Label(lesson_place, text=Translations.click_on_next(language),
                      bg=background_color, fg=text_color)
         hint.pack()
-        question = Label(lesson_place, text="", bg=background_color, fg=text_color)
+        question = Frame(lesson_place, bg=background_color)
         question.pack()
         answer_place = Frame(lesson_place, bg=background_color)
         answer_place.pack()

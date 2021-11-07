@@ -1,12 +1,17 @@
 #!/usr/bin/python3
 from tkinter import *
-from Definitions import Printing
+from . import Printing
+from . import GraphicalNiLeSh
 
 
 def databases(superior):
-    def database_window(language):
+    def database_window():
         def turn_off():
             way.append(["exit"])
+            root.destroy()
+
+        def to_nilesh():
+            way.append(["nilesh"])
             root.destroy()
 
         root = Tk()
@@ -27,20 +32,30 @@ def databases(superior):
                                          Printing.create_database(action)))
             create_buttons[i].grid(row=i+1, column=1)
         buttons.pack()
-        turn_off_button = Button(root, text="Turn off", command=turn_off)
-        turn_off_button.pack()
+        exit_buttons = Frame(root)
+        turn_off_button = Button(exit_buttons, text="Turn off", command=turn_off)
+        turn_off_button.grid(row=0, column=0)
+        nilesh_button = Button(exit_buttons, text="To NiLeSh", command=to_nilesh)
+        nilesh_button.grid(row=0, column=1)
+        exit_buttons.pack()
         comment = Label(root, text="")
         comment.pack()
         comment.configure(text="Welcome, user!")
         root.mainloop()
 
-    way = [["database", "english"]]
+    way = [["database"]]
     length = 0
     while True:
         if len(way) == length:
-            break
+            return False
         length = len(way)
         if way[len(way) - 1][0] == "database":
-            database_window(way[len(way) - 1][1])
+            database_window()
+        elif way[len(way) - 1][0] == "nilesh":
+            if superior != "nilesh":
+                if GraphicalNiLeSh.nilesh("databases"):
+                    way.append(["database"])
+            else:
+                return True
         elif way[len(way) - 1][0] == "exit":
-            break
+            return False

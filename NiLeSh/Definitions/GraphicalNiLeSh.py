@@ -1,12 +1,12 @@
 #!/usr/bin/python3
 import os
-from Definitions import Runner
+from . import Runner
 from tkinter import *
-import GraphicalDatabases
+from . import GraphicalDatabases
 
 
 def nilesh(superior):
-    def nilesh_window(language):
+    def nilesh_window():
         def walker(location):
             comment.configure(text="")
             back_button.configure(command=lambda action=Runner.get_outer_path(location, 2): walker(action))
@@ -59,18 +59,19 @@ def nilesh(superior):
         comment.configure(text="Welcome, user!")
         root.mainloop()
 
-    way = [["nilesh", "english"]]
+    way = [["nilesh"]]
     length = 0
     while True:
         if len(way) == length:
-            break
+            return False
         length = len(way)
         if way[len(way) - 1][0] == "nilesh":
-            nilesh_window(way[len(way) - 1][1])
+            nilesh_window()
         elif way[len(way) - 1][0] == "databases":
             if superior != "databases":
-                GraphicalDatabases.databases("nilesh")
+                if GraphicalDatabases.databases("nilesh"):
+                    way.append(["nilesh"])
             else:
-                break
+                return True
         elif way[len(way) - 1][0] == "exit":
-            break
+            return False

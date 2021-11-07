@@ -1,4 +1,4 @@
 #!/usr/bin/python3
-import GraphicalDatabases
+from Definitions import GraphicalDatabases
 
 GraphicalDatabases.databases("databases")

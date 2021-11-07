@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 from tkinter import *
-from Definitions import Settings
-from Definitions import ReadDatabase
-from Definitions import Translations
+from . import Settings
+from . import ReadDatabase
+from . import Translations
 import math
 
 
@@ -76,7 +76,7 @@ def nilem(superior):
         languages.pack()
         Label(left, text=Translations.about(language), font=("Lucida Sans", 40),
               bg=background_color, fg=text_color).pack()
-        about_image = PhotoImage(file="Pictures/About.png")
+        about_image = PhotoImage(file="../Pictures/About.png")
         about_button = Button(left, image=about_image, command=lambda: open_info(),
                               bg=background_color, fg=text_color)
         about_button.pack()

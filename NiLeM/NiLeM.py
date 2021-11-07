@@ -1,4 +1,4 @@
 #!/usr/bin/python3
-import GraphicalNiLeM
+from Definitions import GraphicalNiLeM
 
 GraphicalNiLeM.nilem("nilem")

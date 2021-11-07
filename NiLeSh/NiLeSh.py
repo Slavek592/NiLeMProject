@@ -1,4 +1,4 @@
 #!/usr/bin/python3
-import GraphicalNiLeSh
+from Definitions import GraphicalNiLeSh
 
 GraphicalNiLeSh.nilesh("nilesh")

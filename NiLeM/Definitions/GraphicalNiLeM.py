@@ -30,6 +30,7 @@ def nilem(superior):
             root.destroy()
 
         root = Tk()
+        root.attributes("-fullscreen", True)
         mode = Settings.get_mode()
         if mode == "dark":
             root.configure(background="black")
@@ -130,6 +131,7 @@ def nilem(superior):
             root.destroy()
 
         root = Tk()
+        root.attributes("-fullscreen", True)
         mode = Settings.get_mode()
         if mode == "dark":
             root.configure(background="black")
@@ -231,6 +233,7 @@ def nilem(superior):
                 hint.configure(text=Translations.congrats(language))
 
         root = Tk()
+        root.attributes("-fullscreen", True)
         mode = Settings.get_mode()
         if mode == "dark":
             root.configure(background="black")
@@ -314,6 +317,7 @@ def nilem(superior):
             root.destroy()
 
         root = Tk()
+        root.attributes("-fullscreen", True)
         mode = Settings.get_mode()
         if mode == "dark":
             root.configure(background="black")

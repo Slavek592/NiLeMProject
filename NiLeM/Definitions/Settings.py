@@ -8,25 +8,27 @@ def create_database():
                        "Setting TEXT PRIMARY KEY NOT NULL,"
                        "Value TEXT);")
     connection.execute("INSERT INTO Settings "
+                       "VALUES (\"language\", \"english\");")
+    connection.execute("INSERT INTO Settings "
                        "VALUES (\"mode\", \"dark\");")
     connection.commit()
     connection.close()
 
 
-def get_mode():
+def get_setting(setting):
     connection = sqlite3.connect("Data/Local.db")
-    answer = connection.execute("SELECT * FROM Settings WHERE Setting = 'mode';")
-    mode = ""
+    answer = connection.execute("SELECT * FROM Settings WHERE Setting = '" + setting + "';")
+    result = ""
     for row in answer:
-        mode = row[1]
+        result = row[1]
     connection.close()
-    return mode
+    return result
 
 
-def change_mode(new_mode):
+def change_setting(setting, new_mode):
     connection = sqlite3.connect("Data/Local.db")
     connection.execute("UPDATE Settings "
                        "SET Value = '" + new_mode + "' "
-                       "WHERE Setting = 'mode';")
+                       "WHERE Setting = '" + setting + "';")
     connection.commit()
     connection.close()

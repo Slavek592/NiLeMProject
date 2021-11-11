@@ -4,7 +4,7 @@ import os
 
 
 def create_database(language):
-    connection = sqlite3.connect("NiLeM/Databases/" + language.capitalize() + ".db")
+    connection = sqlite3.connect("Data/" + language.capitalize() + ".db")
     connection.execute("CREATE TABLE Lessons ("
                        "ID INT PRIMARY KEY NOT NULL,"
                        "Subject CHAR(12) NOT NULL,"
@@ -31,13 +31,13 @@ def create_database(language):
 
 
 def delete_database(language):
-    os.remove("NiLeM/Databases/" + language.capitalize() + ".db")
+    os.remove("Data/" + language.capitalize() + ".db")
 
 
 def add_lesson(language, subject, name):
     name = name.replace("\\\"", "").replace("\"", "")
     try:
-        connection = sqlite3.connect("NiLeM/Databases/" + language.capitalize() + ".db")
+        connection = sqlite3.connect("Data/" + language.capitalize() + ".db")
         result = connection.execute("SELECT MAX(ID) FROM Lessons;")
         new_id = 0
         try:
@@ -57,7 +57,7 @@ def add_lesson(language, subject, name):
 def add_enter(language, lesson_id, number, question, answer):
     question = question.replace("\\\"", "").replace("\"", "")
     answer = answer.replace("\\\"", "").replace("\"", "")
-    connection = sqlite3.connect("NiLeM/Databases/" + language.capitalize() + ".db")
+    connection = sqlite3.connect("Data/" + language.capitalize() + ".db")
     connection.execute("INSERT INTO Enter (LessonID, QuestionNumber, Question, Answer)"
                        "VALUES (" + str(lesson_id) + ", " + str(number)
                        + ", \"" + question + "\", \"" + answer + "\");")
@@ -69,7 +69,7 @@ def add_radio(language, lesson_id, number, question, answers, answer):
     question = question.replace("\\\"", "").replace("\"", "")
     answers = answers.replace("\\\"", "").replace("\"", "")
     answer = answer.replace("\\\"", "").replace("\"", "")
-    connection = sqlite3.connect("NiLeM/Databases/" + language.capitalize() + ".db")
+    connection = sqlite3.connect("Data/" + language.capitalize() + ".db")
     connection.execute("INSERT INTO Radio (LessonID, QuestionNumber, Question, Answers, Answer)"
                        "VALUES (" + str(lesson_id) + ", " + str(number)
                        + ", \"" + question + "\", \"" + answers + "\", " + answer + ");")
@@ -79,7 +79,7 @@ def add_radio(language, lesson_id, number, question, answers, answer):
 
 def add_explain(language, lesson_id, number, string):
     string = string.replace("\\\"", "").replace("\"", "")
-    connection = sqlite3.connect("NiLeM/Databases/" + language.capitalize() + ".db")
+    connection = sqlite3.connect("Data/" + language.capitalize() + ".db")
     connection.execute("INSERT INTO Explain (LessonID, QuestionNumber, String)"
                        "VALUES (" + str(lesson_id) + ", " + str(number) + ", \"" + string + "\");")
     connection.commit()

@@ -3,7 +3,7 @@ import sqlite3
 
 
 def get_subject_lessons(subject, language):
-    connection = sqlite3.connect("Databases/" + language.capitalize() + ".db")
+    connection = sqlite3.connect("Data/" + language.capitalize() + ".db")
     answer = connection.execute("SELECT * FROM Lessons WHERE Subject = \"" + subject.capitalize() + "\";")
     lessons = []
     lesson_ids = []
@@ -15,7 +15,7 @@ def get_subject_lessons(subject, language):
 
 
 def get_lesson_questions(language, lesson_id):
-    connection = sqlite3.connect("Databases/" + language.capitalize() + ".db")
+    connection = sqlite3.connect("Data/" + language.capitalize() + ".db")
     enter_answer = connection.execute("SELECT * FROM Enter WHERE LessonID = " + str(lesson_id) + ";")
     radio_answer = connection.execute("SELECT * FROM Radio WHERE LessonID = " + str(lesson_id) + ";")
     explain_answer = connection.execute("SELECT * FROM Explain WHERE LessonID = " + str(lesson_id) + ";")

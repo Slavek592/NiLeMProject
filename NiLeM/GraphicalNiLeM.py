@@ -67,12 +67,10 @@ def lesson(self, subject, lesson_id, lesson_name):
     def check_action():
         actual_question = questions[int(question_number["text"])-1]
         if actual_question[0] == "enter":
-            for widget in answer_place.winfo_children():
-                if widget.get() == actual_question[2]:
-                    result.configure(text=Translations.good(self.language))
-                else:
-                    result.configure(text=Translations.bad(self.language))
-                break
+            if answer_place.winfo_children()[0].get() == actual_question[2]:
+                result.configure(text=Translations.good(self.language))
+            else:
+                result.configure(text=Translations.bad(self.language))
         elif actual_question[0] == "radio":
             if var.get() == actual_question[3]:
                 result.configure(text=Translations.good(self.language))

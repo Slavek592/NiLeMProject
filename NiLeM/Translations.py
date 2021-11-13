@@ -680,3 +680,123 @@ def about_string(language, part):
             return "Licence: GNU GPL3 (gratuit à utiliser et à redistribuer)"
         elif language == "spanish":
             return "Licencia: GNU GPL3 (gratis para usar y redistribuir)"
+
+
+def name(language):
+    if language == "english":
+        return "Name"
+    elif language == "czech":
+        return "Jméno"
+    elif language == "russian":
+        return "Имя"
+    elif language == "german":
+        return "Name"
+    elif language == "french":
+        return "Nom"
+    elif language == "spanish":
+        return "Nombre"
+
+
+def word_set(language):
+    if language == "english":
+        return "Set"
+    elif language == "czech":
+        return "Nastavit"
+    elif language == "russian":
+        return "Настроить"
+    elif language == "german":
+        return "Setzen"
+    elif language == "french":
+        return "Régler"
+    elif language == "spanish":
+        return "Colocar"
+
+
+def questions(language):
+    if language == "english":
+        return "Questions"
+    elif language == "czech":
+        return "Otázky"
+    elif language == "russian":
+        return "Вопросы"
+    elif language == "german":
+        return "Fragen"
+    elif language == "french":
+        return "Questions"
+    elif language == "spanish":
+        return "Preguntas"
+
+
+def enter_word(language):
+    if language == "english":
+        return "Enter"
+    elif language == "czech":
+        return "Napsat"
+    elif language == "russian":
+        return "Ввести"
+    elif language == "german":
+        return "Eingeben"
+    elif language == "french":
+        return "Entrer"
+    elif language == "spanish":
+        return "Entrar"
+
+
+def radio_word(language):
+    if language == "english":
+        return "Radio"
+    elif language == "czech":
+        return "Vybrat"
+    elif language == "russian":
+        return "Выбрать"
+    elif language == "german":
+        return "Wählen"
+    elif language == "french":
+        return "Choisir"
+    elif language == "spanish":
+        return "Escoger"
+
+
+def explain_word(language):
+    if language == "english":
+        return "Explain"
+    elif language == "czech":
+        return "Vysvětlit"
+    elif language == "russian":
+        return "Объяснить"
+    elif language == "german":
+        return "Erklären"
+    elif language == "french":
+        return "Explique"
+    elif language == "spanish":
+        return "Explicar"
+
+
+def enter_question(language):
+    if language == "english":
+        return "Enter question."
+    elif language == "czech":
+        return "Napište otázku."
+    elif language == "russian":
+        return "Напишите вопрос."
+    elif language == "german":
+        return "Frage eingeben."
+    elif language == "french":
+        return "Entrer la question."
+    elif language == "spanish":
+        return "Ingrese la pregunta."
+
+
+def new_question(language):
+    if language == "english":
+        return "New question"
+    elif language == "czech":
+        return "Nová otázka"
+    elif language == "russian":
+        return "Новый вопрос"
+    elif language == "german":
+        return "Neue Frage"
+    elif language == "french":
+        return "Nouvelle question"
+    elif language == "spanish":
+        return "Nueva pregunta"

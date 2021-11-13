@@ -4,6 +4,7 @@ from . import Runner
 from tkinter import *
 from . import Translations
 from . import Printing
+from . import Settings
 
 
 def nilesh_main(self):
@@ -19,6 +20,9 @@ def nilesh_main(self):
                               command=lambda: self.nilesh_databases_worker(),
                               bg=self.background_color, fg=self.text_color)
     databases_button.grid(row=0, column=1)
+    ide_button = Button(nilesh_buttons, text="IDE", command=lambda: self.ide(),
+                        bg=self.background_color, fg=self.text_color)
+    ide_button.grid(row=0, column=2)
     nilesh_buttons.pack()
     exit_buttons = Frame(self.root, bg=self.background_color)
     turn_off_button = Button(exit_buttons, text=Translations.turn_off(self.language),
@@ -94,6 +98,10 @@ def nilesh_databases_worker(self):
           fg=self.text_color).grid(row=0, column=0)
     Label(buttons, text="Create", bg=self.background_color,
           fg=self.text_color).grid(row=0, column=1)
+    Button(buttons, text="Local", command=lambda: Printing.delete_database("local"),
+           bg=self.background_color, fg=self.text_color).grid(row=1, column=0)
+    Button(buttons, text="Local", command=lambda: Settings.create_database(),
+           bg=self.background_color, fg=self.text_color).grid(row=1, column=1)
     languages = ["english", "czech", "russian", "german", "french", "spanish"]
     delete_buttons = []
     create_buttons = []
@@ -102,12 +110,12 @@ def nilesh_databases_worker(self):
                                      command=lambda action=languages[i].capitalize():
                                      Printing.delete_database(action),
                                      bg=self.background_color, fg=self.text_color))
-        delete_buttons[i].grid(row=i + 1, column=0)
+        delete_buttons[i].grid(row=i + 2, column=0)
         create_buttons.append(Button(buttons, text=languages[i].capitalize(),
                                      command=lambda action=languages[i].capitalize():
                                      Printing.create_database(action),
                                      bg=self.background_color, fg=self.text_color))
-        create_buttons[i].grid(row=i + 1, column=1)
+        create_buttons[i].grid(row=i + 2, column=1)
     buttons.pack()
     exit_buttons = Frame(self.root, bg=self.background_color)
     turn_off_button = Button(exit_buttons, text="Turn off", command=lambda: self.turn_off(),

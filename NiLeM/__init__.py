@@ -48,3 +48,4 @@ class NiLeM:
     from .GraphicalNiLeM import nilem_menu, subject_menu, lesson
     from .GraphicalMain import main_menu, info, change_mode, change_language
     from .GraphicalNiLeSh import nilesh_main, nilesh_file_explorer, nilesh_databases_worker
+    from .GraphicalIDE import ide

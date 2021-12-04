@@ -110,12 +110,12 @@ def lesson(self, subject, lesson_id, lesson_name):
     questions = ReadDatabase.get_lesson_questions(self.language, lesson_id)
     lesson_place = Frame(self.root, bg=self.background_color)
     question_data = Frame(lesson_place, bg=self.background_color)
-    Label(question_data, text="Your question:", bg=self.background_color,
+    Label(question_data, text=Translations.your_question(self.language), bg=self.background_color,
           fg=self.text_color).grid(row=0, column=0)
     question_number = Label(question_data, text="0", bg=self.background_color,
                             fg=self.text_color)
     question_number.grid(row=0, column=1)
-    Label(question_data, text="Total questions:", bg=self.background_color,
+    Label(question_data, text=Translations.total_questions(self.language), bg=self.background_color,
           fg=self.text_color).grid(row=1, column=0)
     question_max = Label(question_data, text=str(len(questions)),
                          bg=self.background_color, fg=self.text_color)

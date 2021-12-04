@@ -800,3 +800,48 @@ def new_question(language):
         return "Nouvelle question"
     elif language == "spanish":
         return "Nueva pregunta"
+
+
+def save_to_database(language):
+    if language == "english":
+        return "Save to database"
+    elif language == "czech":
+        return "Uložit do databáze"
+    elif language == "russian":
+        return "Сохранить в базу данных"
+    elif language == "german":
+        return "In Datenbank speichern"
+    elif language == "french":
+        return "Enregistrer dans la base de données"
+    elif language == "spanish":
+        return "Guardar en la base de datos"
+
+
+def your_question(language):
+    if language == "english":
+        return "Your question:"
+    elif language == "czech":
+        return "Vaše otázka:"
+    elif language == "russian":
+        return "Ваш вопрос:"
+    elif language == "german":
+        return "Ihre Frage:"
+    elif language == "french":
+        return "Votre question :"
+    elif language == "spanish":
+        return "Tu pregunta:"
+
+
+def total_questions(language):
+    if language == "english":
+        return "Total questions:"
+    elif language == "czech":
+        return "Celkem otázek:"
+    elif language == "russian":
+        return "Всего вопросов:"
+    elif language == "german":
+        return "Fragen insgesamt:"
+    elif language == "french":
+        return "Nombre total de questions :"
+    elif language == "spanish":
+        return "Total de preguntas:"

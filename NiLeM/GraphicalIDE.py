@@ -195,7 +195,7 @@ def ide(self):
     Button(right, text=Translations.new_question(self.language),
            command=lambda: add_question(),
            bg=self.background_color, fg=self.text_color).pack()
-    Button(right, text="Save to database",
+    Button(right, text=Translations.save_to_database(self.language),
            command=lambda: save_to_database(),
            bg=self.background_color, fg=self.text_color).pack()
     written = BooleanVar()

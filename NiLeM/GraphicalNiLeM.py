@@ -65,7 +65,7 @@ def subject_menu(self, subject):
 
 def lesson(self, subject, lesson_id, lesson_name):
     def check_action():
-        if question_number["text"] != question_max["text"]:
+        if hint["text"] != Translations.congrats(self.language):
             actual_question = questions[int(question_number["text"])-1]
             if actual_question[0] == "enter":
                 if answer_place.winfo_children()[0].get() == actual_question[2]:

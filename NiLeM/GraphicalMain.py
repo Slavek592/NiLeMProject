@@ -89,7 +89,8 @@ def main_menu(self):
 
 
 def change_mode(self, mode):
-    Settings.change_setting("mode", mode)
+    if mode != "error":
+        Settings.change_setting("mode", mode)
     if mode == "dark":
         self.root.configure(background="black")
         self.text_color = "#fff"

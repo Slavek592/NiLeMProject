@@ -8,7 +8,7 @@ class NiLeM:
     def __init__(self):
         self.language = Settings.get_setting("language")
         self.root = Tk()
-        self.root.iconphoto(False, PhotoImage("Cipher.jpg"))
+        self.root.iconphoto(False, PhotoImage("Pictures/Physics.png"))
         language_list = ["english", "czech", "russian", "german", "french", "spanish"]
         self.language_images = []
         for i in range(len(language_list)):

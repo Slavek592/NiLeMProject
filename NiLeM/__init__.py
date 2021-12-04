@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 from tkinter import *
 from . import Settings
-from . import Translations
 
 
 class NiLeM:

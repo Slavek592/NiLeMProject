@@ -12,11 +12,11 @@ def nilesh_main(self):
     Label(self.root, text="NiLeSh", font=("Lucida Sans", 60),
           bg=self.background_color, fg=self.text_color).pack()
     nilesh_buttons = Frame(self.root, bg=self.background_color)
-    explorer_button = Button(nilesh_buttons, text="File runner",
+    explorer_button = Button(nilesh_buttons, text=Translations.file_runner(self.language),
                              command=lambda: self.nilesh_file_explorer(),
                              bg=self.background_color, fg=self.text_color)
     explorer_button.grid(row=0, column=0)
-    databases_button = Button(nilesh_buttons, text="Databases",
+    databases_button = Button(nilesh_buttons, text=Translations.databases(self.language),
                               command=lambda: self.nilesh_databases_worker(),
                               bg=self.background_color, fg=self.text_color)
     databases_button.grid(row=0, column=1)
@@ -94,31 +94,34 @@ def nilesh_databases_worker(self):
     Label(self.root, text="NiLeSh", font=("Lucida Sans", 60),
           bg=self.background_color, fg=self.text_color).pack()
     buttons = Frame(self.root, bg=self.background_color)
-    Label(buttons, text="Delete", bg=self.background_color,
+    Label(buttons, text=Translations.delete(self.language), bg=self.background_color,
           fg=self.text_color).grid(row=0, column=0)
-    Label(buttons, text="Create", bg=self.background_color,
+    Label(buttons, text=Translations.create(self.language), bg=self.background_color,
           fg=self.text_color).grid(row=0, column=1)
-    Button(buttons, text="Local", command=lambda: Printing.delete_database("local"),
+    Button(buttons, text=Translations.local(self.language),
+           command=lambda: Printing.delete_database("local"),
            bg=self.background_color, fg=self.text_color).grid(row=1, column=0)
-    Button(buttons, text="Local", command=lambda: Settings.create_database(),
+    Button(buttons, text=Translations.local(self.language),
+           command=lambda: Settings.create_database(),
            bg=self.background_color, fg=self.text_color).grid(row=1, column=1)
     languages = ["english", "czech", "russian", "german", "french", "spanish"]
     delete_buttons = []
     create_buttons = []
     for i in range(len(languages)):
-        delete_buttons.append(Button(buttons, text=languages[i].capitalize(),
+        delete_buttons.append(Button(buttons, text=Translations.subject_name(languages[i], self.language),
                                      command=lambda action=languages[i].capitalize():
                                      Printing.delete_database(action),
                                      bg=self.background_color, fg=self.text_color))
         delete_buttons[i].grid(row=i + 2, column=0)
-        create_buttons.append(Button(buttons, text=languages[i].capitalize(),
+        create_buttons.append(Button(buttons, text=Translations.subject_name(languages[i], self.language),
                                      command=lambda action=languages[i].capitalize():
                                      Printing.create_database(action),
                                      bg=self.background_color, fg=self.text_color))
         create_buttons[i].grid(row=i + 2, column=1)
     buttons.pack()
     exit_buttons = Frame(self.root, bg=self.background_color)
-    turn_off_button = Button(exit_buttons, text="Turn off", command=lambda: self.turn_off(),
+    turn_off_button = Button(exit_buttons, text=Translations.turn_off(self.language),
+                             command=lambda: self.turn_off(),
                              bg=self.background_color, fg=self.text_color)
     turn_off_button.grid(row=0, column=0)
     back_button = Button(exit_buttons, text=Translations.to_main(self.language),

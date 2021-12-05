@@ -39,10 +39,15 @@ def nilesh_main(self):
 def nilesh_file_explorer(self):
     def walker(location):
         comment.configure(text="")
-        out_button.configure(command=lambda action=Runner.get_outer_path(location, 2): walker(action))
+        if Runner.get_outer_path(location, 2) != "":
+            out_button.configure(command=lambda action=Runner.get_outer_path(location, 2):
+                                 walker(action))
+        else:
+            out_button.configure(command=lambda: comment.configure(text="Can not exit."))
         for widget in frame.winfo_children():
             widget.destroy()
-        directories = [f for f in os.listdir(location) if not os.path.isfile(os.path.join(location, f))]
+        directories = [f for f in os.listdir(location) if not
+                       os.path.isfile(os.path.join(location, f))]
         i = 0
         for directory in directories:
             Button(frame, text=directory + "/",
@@ -56,7 +61,6 @@ def nilesh_file_explorer(self):
                    command=lambda action=location + file: interactive_run(action),
                    bg=self.background_color, fg=self.text_color).grid(row=i, column=1)
             i += 1
-        comment.configure(text="Entered into")
 
     def interactive_run(file_name):
         comment.configure(text="")
@@ -86,7 +90,6 @@ def nilesh_file_explorer(self):
     comment = Label(self.root, text="", bg=self.background_color, fg=self.text_color)
     comment.pack()
     walker("NileshScripts/")
-    comment.configure(text="Welcome, user!")
 
 
 def nilesh_databases_worker(self):

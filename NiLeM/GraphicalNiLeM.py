@@ -111,6 +111,7 @@ def lesson(self, subject, lesson_id, lesson_name):
         file_name = asksaveasfile(initialfile=lesson_name+".html",
                                   defaultextension=".html",
                                   filetypes=[("All Files", "*.*"),
+                                             ("Text Documents", "*.txt"),
                                              ("HTML Documents", "*.html")]).name
         Exporting.print_header(file_name)
         Exporting.print_start_of_body(file_name, lesson_name, self.language)
@@ -172,7 +173,7 @@ def lesson(self, subject, lesson_id, lesson_name):
     lesson_place.pack()
     var = IntVar()
     export_buttons = Frame(self.root, bg=self.background_color)
-    export_lesson_button = Button(export_buttons, text="Save lesson",
+    export_lesson_button = Button(export_buttons, text=Translations.export_lesson(self.language),
                                   command=lambda: export_lesson(),
                                   bg=self.background_color, fg=self.text_color)
     export_lesson_button.grid(row=0, column=0)

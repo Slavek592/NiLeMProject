@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 from tkinter import *
+from tkinter.filedialog import asksaveasfile
 from . import Translations
 import math
 from . import Printing
@@ -86,7 +87,7 @@ def ide(self):
             answers.append(entry.get())
         for widget in instruments.winfo_children():
             widget.destroy()
-        questions[len(questions) - 1].append(answers)
+        questions[len(questions) - 1].append("|".join(answers))
         Entry(instruments, bg=self.background_color, fg=self.text_color).pack()
         Label(instruments, text=Translations.enter_answer(self.language),
               bg=self.background_color, fg=self.text_color).pack()
@@ -105,7 +106,8 @@ def ide(self):
         question_number.set(question_number.get() + 1)
 
     def save_to_database():
-        if not written.get():
+        if (not written.get()) and question_done.get() and (selected_subject_english.get() != "none")\
+                and (selected_language_english.get() != "none"):
             written.set(True)
             language = selected_language_english.get()
             subject = selected_subject_english.get()
@@ -117,13 +119,29 @@ def ide(self):
                 elif question[0] == "enter":
                     Printing.add_enter(language, new_lesson_id, j, question[1], question[2])
                 elif question[0] == "radio":
-                    answers = ""
-                    for k in range(len(question[2])):
-                        if k != 0:
-                            answers += "|"
-                        answers += question[2][k]
                     Printing.add_radio(language, new_lesson_id, j,
-                                       question[1], answers, question[3])
+                                       question[1], question[2], question[3])
+
+    def export_lesson_script():
+        if question_done.get() and (selected_subject_english.get() != "none")\
+                and (selected_language_english.get() != "none"):
+            file_name = asksaveasfile(initialfile=selected_name.get() + ".nls",
+                                      defaultextension=".nls",
+                                      filetypes=[("All Files", "*.*"),
+                                                 ("Text Documents", "*.txt"),
+                                                 ("NiLeSh Documents", "*.nls")]).name
+            file = open(file_name, "w")
+            file.write(
+                selected_subject_english.get() + "//" + selected_language_english.get() + "\n" +
+                selected_name.get() + "\n"
+                "{\n"
+            )
+            for question_to_export in questions:
+                file.write("//".join(question_to_export) + "\n")
+            file.write(
+                "}\n"
+                "end\n"
+            )
 
     self.erase()
     Label(self.root, text="IDE", font=("Lucida Sans", 60),
@@ -197,6 +215,9 @@ def ide(self):
            bg=self.background_color, fg=self.text_color).pack()
     Button(right, text=Translations.save_to_database(self.language),
            command=lambda: save_to_database(),
+           bg=self.background_color, fg=self.text_color).pack()
+    Button(right, text=Translations.export_lesson(self.language),
+           command=lambda: export_lesson_script(),
            bg=self.background_color, fg=self.text_color).pack()
     written = BooleanVar()
     written.set(False)

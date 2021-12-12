@@ -179,3 +179,18 @@ def file_runner(language):
         return "Coureur de fichiers"
     elif language == "spanish":
         return "Corredor de archivos"
+
+
+def export_lesson(language):
+    if language == "english":
+        return "Export lesson"
+    elif language == "czech":
+        return "Exportovat lekci"
+    elif language == "russian":
+        return "Экспорт урока"
+    elif language == "german":
+        return "Lektion exportieren"
+    elif language == "french":
+        return "Exporter le cours"
+    elif language == "spanish":
+        return "Exportar lección"

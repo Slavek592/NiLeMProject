@@ -133,6 +133,34 @@ def lesson(self, subject, lesson_id, lesson_name):
         Exporting.print_end_of_body(file_name)
         Exporting.delete_storing_files(file_name)
 
+    def export_text():
+        file_name = asksaveasfile(initialfile=lesson_name + ".txt",
+                                  defaultextension=".txt",
+                                  filetypes=[("All Files", "*.*"),
+                                             ("Text Documents", "*.txt")]).name
+        file = open(file_name, "w")
+        file.write(
+            lesson_name + "\n\n"
+        )
+        for i in range(len(questions)):
+            file.write(
+                str(i + 1) + ":\n"
+            )
+            if questions[i][0] == "explain":
+                file.write(
+                    questions[i][1] + "\n\n"
+                )
+            elif questions[i][0] == "enter":
+                file.write(
+                    questions[i][1] + "\n" +
+                    questions[i][2] + "\n\n"
+                )
+            elif questions[i][0] == "radio":
+                file.write(
+                    questions[i][1] + "\n" +
+                    questions[i][2].split("|")[int(questions[i][3])] + "\n\n"
+                )
+
     self.erase()
     Label(self.root, text=lesson_name.capitalize(), font=("Lucida Sans", 60),
           bg=self.background_color, fg=self.text_color).pack()
@@ -176,7 +204,11 @@ def lesson(self, subject, lesson_id, lesson_name):
     export_lesson_button = Button(export_buttons, text=Translations.export_lesson(self.language),
                                   command=lambda: export_lesson(),
                                   bg=self.background_color, fg=self.text_color)
+    export_text_button = Button(export_buttons, text=Translations.export_text(self.language),
+                                command=lambda: export_text(),
+                                bg=self.background_color, fg=self.text_color)
     export_lesson_button.grid(row=0, column=0)
+    export_text_button.grid(row=0, column=1)
     export_buttons.pack()
     exit_buttons = Frame(self.root, bg=self.background_color)
     turn_off_button = Button(exit_buttons, text=Translations.turn_off(self.language),

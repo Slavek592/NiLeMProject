@@ -194,3 +194,18 @@ def export_lesson(language):
         return "Exporter le cours"
     elif language == "spanish":
         return "Exportar lección"
+
+
+def export_text(language):
+    if language == "english":
+        return "Export as plain text"
+    elif language == "czech":
+        return "Exportovat jako prostý text"
+    elif language == "russian":
+        return "Экспорт в виде обычного текста"
+    elif language == "german":
+        return "Als Klartext exportieren"
+    elif language == "french":
+        return "Exporter en texte brut"
+    elif language == "spanish":
+        return "Exportar como texto sin formato"

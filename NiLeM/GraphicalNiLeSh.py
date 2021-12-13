@@ -23,6 +23,10 @@ def nilesh_main(self):
     ide_button = Button(nilesh_buttons, text="IDE", command=lambda: self.ide(),
                         bg=self.background_color, fg=self.text_color)
     ide_button.grid(row=0, column=2)
+    editor_button = Button(nilesh_buttons, text="Editor", command=lambda:
+                           self.editor_main_menu(),
+                           bg=self.background_color, fg=self.text_color)
+    editor_button.grid(row=0, column=3)
     nilesh_buttons.pack()
     exit_buttons = Frame(self.root, bg=self.background_color)
     turn_off_button = Button(exit_buttons, text=Translations.turn_off(self.language),

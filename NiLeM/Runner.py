@@ -36,6 +36,29 @@ def run_file(file_name, mode):
         return False
 
 
+def run_strings(strings, mode):
+    args = [True, 0, "", "", "", 1, 0, False, -1]
+    #   Arguments:
+    #   [NoError, TypeOfExecutedLine,
+    #   Subject, Language, FileName,
+    #   Line, NumberOfQuestions, End,
+    #   LessonNumber]
+    for line in strings:
+        args = read_line(mode, line, args)
+        if not args[0]:
+            return False
+        elif args[7]:
+            if mode == "check":
+                return True
+            else:
+                return args[8]
+        else:
+            args[5] += 1
+    if not args[7]:
+        Errors.missing_end_error()
+        return False
+
+
 def read_line(mode, line, args):
     if line in ["\n", " \n"]:
         return args

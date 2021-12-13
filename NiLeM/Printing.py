@@ -84,3 +84,14 @@ def add_explain(language, lesson_id, number, string):
                        "VALUES (" + str(lesson_id) + ", " + str(number) + ", \"" + string + "\");")
     connection.commit()
     connection.close()
+
+
+def delete_lesson(language, lesson_id):
+    if lesson_id != -1:
+        connection = sqlite3.connect("Data/" + language.capitalize() + ".db")
+        connection.execute("DELETE FROM Lessons WHERE ID = " + str(lesson_id) + "\n")
+        connection.execute("DELETE FROM Explain WHERE LessonID = " + str(lesson_id) + "\n")
+        connection.execute("DELETE FROM Enter WHERE LessonID = " + str(lesson_id) + "\n")
+        connection.execute("DELETE FROM Radio WHERE LessonID = " + str(lesson_id) + "\n")
+        connection.commit()
+        connection.close()

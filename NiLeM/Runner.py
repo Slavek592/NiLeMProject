@@ -141,36 +141,6 @@ def read_line(mode, line, args):
     return args
 
 
-def run_from_console():
-    while True:
-        args = [True, 0, "", "", "", 1, 0, False, 0, ""]
-        while True:
-            args = read_line("execute", str(input("NiLeSh# ")), args)
-            if args[0] == "False":
-                return
-            elif args[7]:
-                print("Your code was executed.")
-                break
-            else:
-                args[5] += 1
-        if y_or_n("Do You want to end?"):
-            break
-
-
-def y_or_n(string):
-    while True:
-        print(string)
-        answer = str(input("y/n "))
-        if answer in ["y", "n", "Y", "N", "yes", "no", "Yes", "No"]:
-            break
-        else:
-            print("Unknown answer.")
-    if answer in ["y", "Y", "yes", "Yes"]:
-        return True
-    else:
-        return False
-
-
 def get_outer_path(file_name, steps):
     path = file_name.split("/")
     result = ""

@@ -209,3 +209,48 @@ def export_text(language):
         return "Exporter en texte brut"
     elif language == "spanish":
         return "Exportar como texto sin formato"
+
+
+def save_and_exit(language):
+    if language == "english":
+        return "Save and exit"
+    elif language == "czech":
+        return "Uložit a odejít"
+    elif language == "russian":
+        return "Сохранить и выйти"
+    elif language == "german":
+        return "Speichern und schließen"
+    elif language == "french":
+        return "Sauvegarder et quitter"
+    elif language == "spanish":
+        return "Guardar y Salir"
+
+
+def delete_and_exit(language):
+    if language == "english":
+        return "Delete and exit"
+    elif language == "czech":
+        return "Smazat a odejít"
+    elif language == "russian":
+        return "Удалить и выйти"
+    elif language == "german":
+        return "Löschen und schließen"
+    elif language == "french":
+        return "Supprimer et quitter"
+    elif language == "spanish":
+        return "Eliminar y salir"
+
+
+def new(language):
+    if language == "english":
+        return "New"
+    elif language == "czech":
+        return "Nová"
+    elif language == "russian":
+        return "Новый"
+    elif language == "german":
+        return "Neu"
+    elif language == "french":
+        return "Nouveau"
+    elif language == "spanish":
+        return "Nuevo"

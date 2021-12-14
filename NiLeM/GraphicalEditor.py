@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 from tkinter import *
+from tkinter.filedialog import asksaveasfile
 import math
 from . import Translations
 from . import ReadDatabase
@@ -9,7 +10,7 @@ from . import Runner
 
 def editor_main_menu(self):
     self.erase()
-    Label(self.root, text="Editor", font=("Lucida Sans", 60),
+    Label(self.root, text=Translations.editor(self.language), font=("Lucida Sans", 60),
           bg=self.background_color, fg=self.text_color).pack()
     subjects = Frame(self.root, bg=self.background_color)
     subject_list = ["math", "physics", "chemistry", "biology", "geography", "history",
@@ -37,7 +38,7 @@ def editor_main_menu(self):
 
 def editor_subject_menu(self, subject):
     self.erase()
-    Label(self.root, text="Editor", font=("Lucida Sans", 60),
+    Label(self.root, text=Translations.editor(self.language), font=("Lucida Sans", 60),
           bg=self.background_color, fg=self.text_color).pack()
     [lesson_list, lesson_ids] = ReadDatabase.get_subject_lessons(subject, self.language)
     lesson_buttons = []
@@ -51,9 +52,8 @@ def editor_subject_menu(self, subject):
                                      bg=self.background_color, fg=self.text_color))
         lesson_buttons[i].grid(row=math.floor(i / 4), column=i % 4)
     i += 1
-    lesson_buttons.append(Button(lessons, text="New",
-                                 command=lambda:
-                                 self.editor(subject, -1, ""),
+    lesson_buttons.append(Button(lessons, text=Translations.new(self.language),
+                                 command=lambda: self.editor(subject, -1, ""),
                                  bg=self.background_color, fg=self.text_color))
     lesson_buttons[i].grid(row=math.floor(i / 4), column=i % 4)
     lessons.pack()
@@ -81,8 +81,19 @@ def editor(self, subject, lesson_id, lesson_name):
         Printing.delete_lesson(self.language, lesson_id)
         self.editor_subject_menu(subject)
 
+    def export_content():
+        strings = field.get(1.0, "end").split("\n")
+        if Runner.run_strings(strings, "check"):
+            file_name = asksaveasfile(initialfile=lesson_name + ".nls",
+                                      defaultextension=".nls",
+                                      filetypes=[("All Files", "*.*"),
+                                                 ("Text Documents", "*.txt"),
+                                                 ("NiLeSh Documents", "*.nls")]).name
+            file = open(file_name, "w")
+            file.write(field.get(1.0, "end"))
+
     self.erase()
-    Label(self.root, text="Editor", font=("Lucida Sans", 60),
+    Label(self.root, text=Translations.editor(self.language), font=("Lucida Sans", 60),
           bg=self.background_color, fg=self.text_color).pack()
     questions = ReadDatabase.get_lesson_questions(self.language, lesson_id)
     for question in range(len(questions)):
@@ -97,16 +108,20 @@ def editor(self, subject, lesson_id, lesson_name):
                      "{\n")
         for question in range(len(questions)):
             field.insert(END, "//".join(questions[question]) + "\n")
-        field.insert(END, "{\nend\n")
+        field.insert(END, "}\nend\n")
     save_buttons = Frame(self.root, bg=self.background_color)
-    save_button = Button(save_buttons, text="Save & Exit",
+    save_button = Button(save_buttons, text=Translations.save_and_exit(self.language),
                          command=lambda: save(),
                          bg=self.background_color, fg=self.text_color)
     save_button.grid(row=0, column=0)
-    delete_button = Button(save_buttons, text="Delete & Exit",
+    delete_button = Button(save_buttons, text=Translations.delete_and_exit(self.language),
                            command=lambda: delete(),
                            bg=self.background_color, fg=self.text_color)
     delete_button.grid(row=0, column=1)
+    export_button = Button(save_buttons, text=Translations.export_lesson(self.language),
+                           command=lambda: export_content(),
+                           bg=self.background_color, fg=self.text_color)
+    export_button.grid(row=0, column=2)
     save_buttons.pack()
     exit_buttons = Frame(self.root, bg=self.background_color)
     turn_off_button = Button(exit_buttons, text=Translations.turn_off(self.language),

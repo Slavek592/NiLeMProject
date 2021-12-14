@@ -134,3 +134,18 @@ def delete(language):
         return "Effacer"
     elif language == "spanish":
         return "Borrar"
+
+
+def editor(language):
+    if language == "english":
+        return "Editor"
+    elif language == "czech":
+        return "Editor"
+    elif language == "russian":
+        return "Редактор"
+    elif language == "german":
+        return "Editor"
+    elif language == "french":
+        return "Éditeur"
+    elif language == "spanish":
+        return "Editor"

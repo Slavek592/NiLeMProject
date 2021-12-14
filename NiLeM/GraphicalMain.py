@@ -108,7 +108,7 @@ def change_mode(self, mode):
         self.text_color = "#000"
         self.background_color = "#00f"
     elif mode == "grass":
-        self.root.configure(background="green")
+        self.root.configure(background="#0f0")
         self.text_color = "#000"
         self.background_color = "#0f0"
     self.main_menu()

@@ -254,3 +254,18 @@ def new(language):
         return "Nouveau"
     elif language == "spanish":
         return "Nuevo"
+
+
+def show_correct(language):
+    if language == "english":
+        return "Show correct answer"
+    elif language == "czech":
+        return "Ukázat správnou odpověď"
+    elif language == "russian":
+        return "Показать правильный ответ"
+    elif language == "german":
+        return "Richtige Antwort anzeigen"
+    elif language == "french":
+        return "Afficher la bonne réponse"
+    elif language == "spanish":
+        return "Mostrar respuesta correcta"

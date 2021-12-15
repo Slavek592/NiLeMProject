@@ -67,7 +67,8 @@ def subject_menu(self, subject):
 
 def lesson(self, subject, lesson_id, lesson_name):
     def check_action():
-        if hint["text"] != Translations.congrats(self.language):
+        if (hint["text"] != Translations.congrats(self.language))\
+                and (question_number["text"] != "0"):
             actual_question = questions[int(question_number["text"])-1]
             if actual_question[0] == "enter":
                 if answer_place.winfo_children()[0].get() == actual_question[2]:
@@ -161,6 +162,15 @@ def lesson(self, subject, lesson_id, lesson_name):
                     questions[i][2].split("|")[int(questions[i][3])] + "\n\n"
                 )
 
+    def show_correct_answer():
+        if (hint["text"] != Translations.congrats(self.language))\
+                and (question_number["text"] != "0"):
+            actual_question = questions[int(question_number["text"])-1]
+            if actual_question[0] == "enter":
+                result.configure(text=actual_question[2])
+            elif actual_question[0] == "radio":
+                result.configure(text=actual_question[2].split("|")[int(actual_question[3])])
+
     self.erase()
     Label(self.root, text=lesson_name.capitalize(), font=("Lucida Sans", 60),
           bg=self.background_color, fg=self.text_color).pack()
@@ -193,10 +203,14 @@ def lesson(self, subject, lesson_id, lesson_name):
                           command=lambda: check_action(),
                           bg=self.background_color, fg=self.text_color)
     check_button.grid(row=0, column=0)
+    show_button = Button(buttons, text=Translations.show_correct(self.language),
+                         command=lambda: show_correct_answer(),
+                         bg=self.background_color, fg=self.text_color)
+    show_button.grid(row=0, column=1)
     next_button = Button(buttons, text=Translations.button_next(self.language),
                          command=lambda: next_action(),
                          bg=self.background_color, fg=self.text_color)
-    next_button.grid(row=0, column=1)
+    next_button.grid(row=0, column=2)
     buttons.pack()
     lesson_place.pack()
     var = IntVar()

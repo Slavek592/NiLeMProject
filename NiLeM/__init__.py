@@ -18,6 +18,7 @@ class NiLeM:
             self.language_bw_images.append(
                 PhotoImage(file="Pictures/" + language_list[i].capitalize() + "-BW.png"))
         self.about_image = PhotoImage(file="Pictures/About.png")
+        self.settings_image = PhotoImage(file="Pictures/Settings.png")
         mode_list = ["dark", "light", "fire", "water", "grass"]
         self.mode_images = []
         for i in range(len(mode_list)):
@@ -35,7 +36,8 @@ class NiLeM:
         self.root.configure(background="black")
         self.text_color = "#fff"
         self.background_color = "#000"
-        self.change_mode(Settings.get_setting("mode"))
+        self.set_mode(Settings.get_setting("mode"))
+        self.main_menu()
         self.root.mainloop()
 
     def turn_off(self):
@@ -46,7 +48,7 @@ class NiLeM:
             widget.destroy()
 
     from .GraphicalNiLeM import nilem_menu, subject_menu, lesson
-    from .GraphicalMain import main_menu, info, change_mode, change_language
+    from .GraphicalMain import main_menu, info, change_mode, change_language, settings, set_mode
     from .GraphicalNiLeSh import nilesh_main, nilesh_file_explorer, nilesh_databases_worker
     from .GraphicalIDE import ide
     from .GraphicalEditor import editor_main_menu, editor_subject_menu, editor

@@ -48,17 +48,17 @@ def languages(language):
 
 def about(language):
     if language == "english":
-        return "About page"
+        return "About"
     elif language == "czech":
-        return "Stránka informací"
+        return "Informace"
     elif language == "russian":
-        return "Инфо. страница"
+        return "Информация"
     elif language == "german":
-        return "Informationsseite"
+        return "Informations"
     elif language == "french":
         return "Informations"
     elif language == "spanish":
-        return "Página de info."
+        return "Informaciones"
 
 
 def mode(language):
@@ -149,3 +149,18 @@ def editor(language):
         return "Éditeur"
     elif language == "spanish":
         return "Editor"
+
+
+def settings(language):
+    if language == "english":
+        return "Settings"
+    elif language == "czech":
+        return "Nastavení"
+    elif language == "russian":
+        return "Настройки"
+    elif language == "german":
+        return "Einstellungen"
+    elif language == "french":
+        return "Réglages"
+    elif language == "spanish":
+        return "Ajustes"

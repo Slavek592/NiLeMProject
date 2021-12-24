@@ -30,9 +30,49 @@ def main_menu(self):
     main_part = Frame(self.root, bg=self.background_color)
     left = Frame(main_part, bg=self.background_color)
     right = Frame(main_part, bg=self.background_color)
-    Label(left, text=Translations.languages(self.language), font=("Lucida Sans", 40),
+    Label(left, text=Translations.settings(self.language), font=("Lucida Sans", 40),
           bg=self.background_color, fg=self.text_color).pack()
-    languages = Frame(left, bg=self.background_color)
+    settings_button = Button(
+        left, image=self.settings_image, command=lambda: self.settings(),
+        bg=self.background_color, fg=self.text_color)
+    settings_button.pack()
+    Label(left, text=Translations.about(self.language), font=("Lucida Sans", 40),
+          bg=self.background_color, fg=self.text_color).pack()
+    about_button = Button(left, image=self.about_image, command=lambda: self.info(),
+                          bg=self.background_color, fg=self.text_color)
+    about_button.pack()
+    Label(right, text="NiLeM", font=("Lucida Sans", 40),
+          bg=self.background_color, fg=self.text_color).pack()
+    nilem_button = Button(right, image=self.subject_images[1],
+                          command=lambda: self.nilem_menu(),
+                          bg=self.background_color, fg=self.text_color)
+    nilem_button.pack()
+    Label(right, text="NiLeSh", font=("Lucida Sans", 40),
+          bg=self.background_color, fg=self.text_color).pack()
+    nilesh_button = Button(right, image=self.subject_images[15],
+                           command=lambda: self.nilesh_main(),
+                           bg=self.background_color, fg=self.text_color)
+    nilesh_button.pack()
+    left.grid(row=0, column=0)
+    right.grid(row=0, column=1)
+    main_part.columnconfigure(0, minsize=350)
+    main_part.columnconfigure(1, minsize=350)
+    main_part.pack()
+    exit_buttons = Frame(self.root, bg=self.background_color)
+    turn_off_button = Button(exit_buttons, text=Translations.turn_off(self.language),
+                             command=lambda: self.turn_off(),
+                             bg=self.background_color, fg=self.text_color)
+    turn_off_button.grid(row=0, column=0)
+    exit_buttons.pack()
+
+
+def settings(self):
+    self.erase()
+    Label(self.root, text="Settings", font=("Lucida Sans", 60),
+          bg=self.background_color, fg=self.text_color).pack()
+    Label(self.root, text=Translations.languages(self.language), font=("Lucida Sans", 40),
+          bg=self.background_color, fg=self.text_color).pack()
+    languages = Frame(self.root, bg=self.background_color)
     language_list = ["english", "czech", "russian", "german", "french", "spanish"]
     language_buttons = []
     for i in range(len(language_list)):
@@ -48,14 +88,9 @@ def main_menu(self):
                                            bg=self.background_color, fg=self.text_color))
         language_buttons[i].grid(row=0, column=i)
     languages.pack()
-    Label(left, text=Translations.about(self.language), font=("Lucida Sans", 40),
+    Label(self.root, text=Translations.mode(self.language), font=("Lucida Sans", 40),
           bg=self.background_color, fg=self.text_color).pack()
-    about_button = Button(left, image=self.about_image, command=lambda: self.info(),
-                          bg=self.background_color, fg=self.text_color)
-    about_button.pack()
-    Label(left, text=Translations.mode(self.language), font=("Lucida Sans", 40),
-          bg=self.background_color, fg=self.text_color).pack()
-    modes = Frame(left, bg=self.background_color)
+    modes = Frame(self.root, bg=self.background_color)
     mode_list = ["dark", "light", "fire", "water", "grass"]
     mode_buttons = []
     for i in range(len(mode_list)):
@@ -65,32 +100,26 @@ def main_menu(self):
                                    bg=self.background_color, fg=self.text_color))
         mode_buttons[i].grid(row=0, column=i)
     modes.pack()
-    Label(right, text="NiLeM", font=("Lucida Sans", 40),
-          bg=self.background_color, fg=self.text_color).pack()
-    nilem_button = Button(right, image=self.subject_images[1],
-                          command=lambda: self.nilem_menu(),
-                          bg=self.background_color, fg=self.text_color)
-    nilem_button.pack()
-    Label(right, text="NiLeSh", font=("Lucida Sans", 40),
-          bg=self.background_color, fg=self.text_color).pack()
-    nilesh_button = Button(right, image=self.subject_images[15],
-                           command=lambda: self.nilesh_main(),
-                           bg=self.background_color, fg=self.text_color)
-    nilesh_button.pack()
-    left.grid(row=0, column=0)
-    right.grid(row=0, column=1)
-    main_part.pack()
     exit_buttons = Frame(self.root, bg=self.background_color)
     turn_off_button = Button(exit_buttons, text=Translations.turn_off(self.language),
                              command=lambda: self.turn_off(),
                              bg=self.background_color, fg=self.text_color)
     turn_off_button.grid(row=0, column=0)
+    back_button = Button(exit_buttons, text=Translations.to_main(self.language),
+                         command=lambda: self.main_menu(),
+                         bg=self.background_color, fg=self.text_color)
+    back_button.grid(row=0, column=1)
     exit_buttons.pack()
 
 
 def change_mode(self, mode):
     if mode != "error":
         Settings.change_setting("mode", mode)
+    self.set_mode(mode)
+    self.settings()
+
+
+def set_mode(self, mode):
     if mode == "dark":
         self.root.configure(background="black")
         self.text_color = "#fff"
@@ -111,10 +140,9 @@ def change_mode(self, mode):
         self.root.configure(background="#0f0")
         self.text_color = "#000"
         self.background_color = "#0f0"
-    self.main_menu()
 
 
 def change_language(self, language):
     self.language = language
     Settings.change_setting("language", language)
-    self.main_menu()
+    self.settings()

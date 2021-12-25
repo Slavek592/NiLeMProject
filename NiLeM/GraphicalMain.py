@@ -2,6 +2,8 @@
 from tkinter import *
 from . import Settings
 from . import Translations
+from . import Other
+from . import Updating
 
 
 def info(self):
@@ -77,15 +79,13 @@ def settings(self):
     language_buttons = []
     for i in range(len(language_list)):
         if language_list[i] == self.language:
-            language_buttons.append(Button(languages, image=self.language_images[i],
-                                           command=lambda action=language_list[i]:
-                                           self.change_language(action),
-                                           bg=self.background_color, fg=self.text_color))
+            language_buttons.append(Button(
+                languages, image=self.language_images[i], command=lambda action=language_list[i]:
+                self.change_language(action), bg=self.background_color, fg=self.text_color))
         else:
-            language_buttons.append(Button(languages, image=self.language_bw_images[i],
-                                           command=lambda action=language_list[i]:
-                                           self.change_language(action),
-                                           bg=self.background_color, fg=self.text_color))
+            language_buttons.append(Button(
+                languages, image=self.language_bw_images[i], command=lambda action=language_list[i]:
+                self.change_language(action), bg=self.background_color, fg=self.text_color))
         language_buttons[i].grid(row=0, column=i)
     languages.pack()
     Label(self.root, text=Translations.mode(self.language), font=("Lucida Sans", 40),
@@ -94,12 +94,30 @@ def settings(self):
     mode_list = ["dark", "light", "fire", "water", "grass"]
     mode_buttons = []
     for i in range(len(mode_list)):
-        mode_buttons.append(Button(modes, image=self.mode_images[i],
-                                   command=lambda action=mode_list[i]:
-                                   self.change_mode(action),
-                                   bg=self.background_color, fg=self.text_color))
+        mode_buttons.append(Button(
+            modes, image=self.mode_images[i], command=lambda action=mode_list[i]:
+            self.change_mode(action), bg=self.background_color, fg=self.text_color))
         mode_buttons[i].grid(row=0, column=i)
     modes.pack()
+    Label(self.root, text=Translations.update(self.language), font=("Lucida Sans", 40),
+          bg=self.background_color, fg=self.text_color).pack()
+    updates = Frame(self.root, bg=self.background_color)
+    language_update = Frame(updates, bg=self.background_color)
+    Label(language_update, text=Translations.languages(self.language), font=("Lucida Sans", 25),
+          bg=self.background_color, fg=self.text_color).pack()
+    Button(language_update, image=self.language_images[Other.get_language_number(self.language)],
+           command=lambda: Updating.update(self.language), bg=self.background_color,
+           fg=self.text_color).pack()
+    complete_update = Frame(updates, bg=self.background_color)
+    Label(complete_update, text=Translations.all_languages(self.language), font=("Lucida Sans", 25),
+          bg=self.background_color, fg=self.text_color).pack()
+    Button(complete_update, image=self.database_image, command=lambda:
+           Updating.complete_update(), bg=self.background_color, fg=self.text_color).pack()
+    language_update.grid(row=0, column=0)
+    complete_update.grid(row=0, column=1)
+    updates.columnconfigure(0, minsize=250)
+    updates.columnconfigure(1, minsize=250)
+    updates.pack()
     exit_buttons = Frame(self.root, bg=self.background_color)
     turn_off_button = Button(exit_buttons, text=Translations.turn_off(self.language),
                              command=lambda: self.turn_off(),

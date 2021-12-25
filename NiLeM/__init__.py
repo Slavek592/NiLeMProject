@@ -19,6 +19,7 @@ class NiLeM:
                 PhotoImage(file="Pictures/" + language_list[i].capitalize() + "-BW.png"))
         self.about_image = PhotoImage(file="Pictures/About.png")
         self.settings_image = PhotoImage(file="Pictures/Settings.png")
+        self.database_image = PhotoImage(file="Pictures/Database.png")
         mode_list = ["dark", "light", "fire", "water", "grass"]
         self.mode_images = []
         for i in range(len(mode_list)):

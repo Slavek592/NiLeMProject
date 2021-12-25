@@ -164,3 +164,33 @@ def settings(language):
         return "Réglages"
     elif language == "spanish":
         return "Ajustes"
+
+
+def update(language):
+    if language == "english":
+        return "Update"
+    elif language == "czech":
+        return "Aktualizovat"
+    elif language == "russian":
+        return "Обновить"
+    elif language == "german":
+        return "Aktualisieren"
+    elif language == "french":
+        return "Mettre à jour"
+    elif language == "spanish":
+        return "Actualizar"
+
+
+def all_languages(language):
+    if language == "english":
+        return "All languages"
+    elif language == "czech":
+        return "Všechny jazyky"
+    elif language == "russian":
+        return "Все языки"
+    elif language == "german":
+        return "Alle Sprachen"
+    elif language == "french":
+        return "Toutes les langues"
+    elif language == "spanish":
+        return "Todos los idiomas"

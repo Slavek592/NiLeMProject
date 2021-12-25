@@ -47,7 +47,8 @@ def nilesh_file_explorer(self):
             out_button.configure(command=lambda action=Runner.get_outer_path(location, 2):
                                  walker(action))
         else:
-            out_button.configure(command=lambda: comment.configure(text="Can not exit."))
+            out_button.configure(command=lambda: comment.configure(
+                text=Translations.can_not_exit(self.language)))
         for widget in frame.winfo_children():
             widget.destroy()
         directories = [f for f in os.listdir(location) if not
@@ -69,9 +70,9 @@ def nilesh_file_explorer(self):
     def interactive_run(file_name):
         comment.configure(text="")
         if Runner.run_from_file(file_name):
-            comment.configure(text="Done")
+            comment.configure(text=Translations.done(self.language))
         else:
-            comment.configure(text="Error")
+            comment.configure(text=Translations.error(self.language))
 
     self.erase()
     Label(self.root, text="NiLeSh", font=("Lucida Sans", 60),
@@ -115,15 +116,15 @@ def nilesh_databases_worker(self):
     delete_buttons = []
     create_buttons = []
     for i in range(len(languages)):
-        delete_buttons.append(Button(buttons, text=Translations.subject_name(languages[i], self.language),
-                                     command=lambda action=languages[i].capitalize():
-                                     Printing.delete_database(action),
-                                     bg=self.background_color, fg=self.text_color))
+        delete_buttons.append(
+            Button(buttons, text=Translations.subject_name(languages[i], self.language),
+                   command=lambda action=languages[i].capitalize():
+                   Printing.delete_database(action), bg=self.background_color, fg=self.text_color))
         delete_buttons[i].grid(row=i + 2, column=0)
-        create_buttons.append(Button(buttons, text=Translations.subject_name(languages[i], self.language),
-                                     command=lambda action=languages[i].capitalize():
-                                     Printing.create_database(action),
-                                     bg=self.background_color, fg=self.text_color))
+        create_buttons.append(
+            Button(buttons, text=Translations.subject_name(languages[i], self.language),
+                   command=lambda action=languages[i].capitalize():
+                   Printing.create_database(action), bg=self.background_color, fg=self.text_color))
         create_buttons[i].grid(row=i + 2, column=1)
     buttons.pack()
     exit_buttons = Frame(self.root, bg=self.background_color)

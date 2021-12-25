@@ -59,3 +59,48 @@ def congrats(language):
         return "Félicitations ! Vous avez terminé cette leçon."
     elif language == "spanish":
         return "Enhorabuena Has terminado esta lección."
+
+
+def done(language):
+    if language == "english":
+        return "Done."
+    elif language == "czech":
+        return "Hotovo."
+    elif language == "russian":
+        return "Сделано."
+    elif language == "german":
+        return "Vollbracht."
+    elif language == "french":
+        return "C'est fait."
+    elif language == "spanish":
+        return "Se hace."
+
+
+def error(language):
+    if language == "english":
+        return "There was an error."
+    elif language == "czech":
+        return "Nastala chyba."
+    elif language == "russian":
+        return "Произошла ошибка."
+    elif language == "german":
+        return "Es gab einen Fehler."
+    elif language == "french":
+        return "Il y avait une erreur."
+    elif language == "spanish":
+        return "Hubo un error."
+
+
+def can_not_exit(language):
+    if language == "english":
+        return "I can not exit this directory."
+    elif language == "czech":
+        return "Nemohu opustit tuto složku."
+    elif language == "russian":
+        return "Не могу выйти из этой папки."
+    elif language == "german":
+        return "Ich kann diesen Ordner nicht verlassen."
+    elif language == "french":
+        return "Je ne peux pas quitter ce dossier."
+    elif language == "spanish":
+        return "No puedo salir de esta carpeta."

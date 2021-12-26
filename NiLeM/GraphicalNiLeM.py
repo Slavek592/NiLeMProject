@@ -58,7 +58,7 @@ def subject_menu(self, subject):
                              command=lambda: self.turn_off(),
                              bg=self.background_color, fg=self.text_color)
     turn_off_button.grid(row=0, column=0)
-    back_button = Button(exit_buttons, text=Translations.to_main(self.language),
+    back_button = Button(exit_buttons, text=Translations.to_nilem(self.language),
                          command=lambda: self.nilem_menu(),
                          bg=self.background_color, fg=self.text_color)
     back_button.grid(row=0, column=1)

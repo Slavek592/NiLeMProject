@@ -31,6 +31,66 @@ def to_main(language):
         return "Volver al menú principal"
 
 
+def to_nilem(language):
+    if language == "english":
+        return "Back to NiLeM menu"
+    elif language == "czech":
+        return "Zpátky na NiLeM menu"
+    elif language == "russian":
+        return "Обратно на меню NiLeM"
+    elif language == "german":
+        return "Zurück zum NiLeM-Menü"
+    elif language == "french":
+        return "Retour au menu NiLeM"
+    elif language == "spanish":
+        return "Volver al menú NiLeM"
+
+
+def to_nilesh(language):
+    if language == "english":
+        return "Back to NiLeSh menu"
+    elif language == "czech":
+        return "Zpátky na NiLeSh menu"
+    elif language == "russian":
+        return "Обратно на меню NiLeSh"
+    elif language == "german":
+        return "Zurück zum NiLeSh-Menü"
+    elif language == "french":
+        return "Retour au menu NiLeSh"
+    elif language == "spanish":
+        return "Volver al menú NiLeSh"
+
+
+def to_editor(language):
+    if language == "english":
+        return "Back to editor menu"
+    elif language == "czech":
+        return "Zpátky na menu editoru"
+    elif language == "russian":
+        return "Вернуться в меню редактора"
+    elif language == "german":
+        return "Zurück zum Editor-Menü"
+    elif language == "french":
+        return "Retour au menu de l'éditeur"
+    elif language == "spanish":
+        return "Volver al menú del editor"
+
+
+def to_info(language):
+    if language == "english":
+        return "Back to info menu"
+    elif language == "czech":
+        return "Zpátky na menu informací"
+    elif language == "russian":
+        return "Вернуться в информационное меню"
+    elif language == "german":
+        return "Zurück zum Infomenü"
+    elif language == "french":
+        return "Retour au menu d'informations"
+    elif language == "spanish":
+        return "Volver al menú de información"
+
+
 def button_next(language):
     if language == "english":
         return "Next"
@@ -269,3 +329,33 @@ def show_correct(language):
         return "Afficher la bonne réponse"
     elif language == "spanish":
         return "Mostrar respuesta correcta"
+
+
+def manual(language):
+    if language == "english":
+        return "Manual"
+    elif language == "czech":
+        return "Manuál"
+    elif language == "russian":
+        return "Руководство"
+    elif language == "german":
+        return "Handbuch"
+    elif language == "french":
+        return "Manuel"
+    elif language == "spanish":
+        return "Manual"
+
+
+def sources(language):
+    if language == "english":
+        return "Sources"
+    elif language == "czech":
+        return "Zdroje"
+    elif language == "russian":
+        return "Источники"
+    elif language == "german":
+        return "Quellen"
+    elif language == "french":
+        return "Sources"
+    elif language == "spanish":
+        return "Fuentes"

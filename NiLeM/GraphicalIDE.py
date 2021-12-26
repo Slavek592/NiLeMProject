@@ -106,9 +106,8 @@ def ide(self):
         question_number.set(question_number.get() + 1)
 
     def save_to_database():
-        if (not written.get()) and question_done.get() and (selected_subject_english.get() != "none")\
+        if question_done.get() and (selected_subject_english.get() != "none")\
                 and (selected_language_english.get() != "none"):
-            written.set(True)
             language = selected_language_english.get()
             subject = selected_subject_english.get()
             new_lesson_id = Printing.add_lesson(language, subject, selected_name.get())
@@ -121,6 +120,7 @@ def ide(self):
                 elif question[0] == "radio":
                     Printing.add_radio(language, new_lesson_id, j,
                                        question[1], question[2], question[3])
+            self.nilesh_main()
 
     def export_lesson_script():
         if question_done.get() and (selected_subject_english.get() != "none")\
@@ -213,14 +213,12 @@ def ide(self):
     Button(right, text=Translations.new_question(self.language),
            command=lambda: add_question(),
            bg=self.background_color, fg=self.text_color).pack()
-    Button(right, text=Translations.save_to_database(self.language),
+    Button(right, text=Translations.save_and_exit(self.language),
            command=lambda: save_to_database(),
            bg=self.background_color, fg=self.text_color).pack()
     Button(right, text=Translations.export_lesson(self.language),
            command=lambda: export_lesson_script(),
            bg=self.background_color, fg=self.text_color).pack()
-    written = BooleanVar()
-    written.set(False)
     left.grid(row=0, column=0)
     right.grid(row=0, column=1)
     main_part.pack()
@@ -229,7 +227,7 @@ def ide(self):
                              command=lambda: self.turn_off(),
                              bg=self.background_color, fg=self.text_color)
     turn_off_button.grid(row=0, column=0)
-    back_button = Button(exit_buttons, text=Translations.to_main(self.language),
+    back_button = Button(exit_buttons, text=Translations.to_nilesh(self.language),
                          command=lambda: self.nilesh_main(),
                          bg=self.background_color, fg=self.text_color)
     back_button.grid(row=0, column=1)

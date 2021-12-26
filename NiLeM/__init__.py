@@ -49,7 +49,8 @@ class NiLeM:
             widget.destroy()
 
     from .GraphicalNiLeM import nilem_menu, subject_menu, lesson
-    from .GraphicalMain import main_menu, info, change_mode, change_language, settings, set_mode
+    from .GraphicalMain import main_menu, info, change_mode, change_language, settings,\
+        set_mode, show_pdf
     from .GraphicalNiLeSh import nilesh_main, nilesh_file_explorer, nilesh_databases_worker
     from .GraphicalIDE import ide
     from .GraphicalEditor import editor_main_menu, editor_subject_menu, editor

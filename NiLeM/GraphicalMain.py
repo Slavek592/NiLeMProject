@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 from tkinter import *
+from tkPDFViewer.tkPDFViewer import *
 from . import Settings
 from . import Translations
 from . import Other
@@ -13,6 +14,16 @@ def info(self):
     for i in range(4):
         Label(self.root, text=Translations.about_string(self.language, i),
               bg=self.background_color, fg=self.text_color).pack()
+    info_buttons = Frame(self.root, bg=self.background_color)
+    manual_button = Button(info_buttons, text="Manual",
+                           command=lambda: self.show_pdf("Manual.pdf"),
+                           bg=self.background_color, fg=self.text_color)
+    manual_button.grid(row=0, column=0)
+    sources_button = Button(info_buttons, text="Sources",
+                            command=lambda: self.show_pdf("Sources.pdf"),
+                            bg=self.background_color, fg=self.text_color)
+    sources_button.grid(row=0, column=1)
+    info_buttons.pack()
     exit_buttons = Frame(self.root, bg=self.background_color)
     turn_off_button = Button(exit_buttons, text=Translations.turn_off(self.language),
                              command=lambda: self.turn_off(),
@@ -164,3 +175,20 @@ def change_language(self, language):
     self.language = language
     Settings.change_setting("language", language)
     self.settings()
+
+
+def show_pdf(self, name):
+    self.erase()
+    v1 = ShowPdf()
+    v2 = v1.pdf_view(self.root, pdf_location="Info/" + name, width=74, height=100)
+    v2.pack()
+    exit_buttons = Frame(self.root, bg=self.background_color)
+    turn_off_button = Button(exit_buttons, text=Translations.turn_off(self.language),
+                             command=lambda: self.turn_off(),
+                             bg=self.background_color, fg=self.text_color)
+    turn_off_button.grid(row=0, column=0)
+    back_button = Button(exit_buttons, text=Translations.to_main(self.language),
+                         command=lambda: self.info(),
+                         bg=self.background_color, fg=self.text_color)
+    back_button.grid(row=1, column=0)
+    exit_buttons.place(relx=0.75, rely=0.5)

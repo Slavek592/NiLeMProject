@@ -1,274 +1,97 @@
 #!/usr/bin/python3
-from . import Translations
+import sqlite3
+import os
 
 
-def print_header(file, length_of_path):
-    link_back = ""
-    for i in range(length_of_path):
-        link_back += "../"
-    file.write(
-        "<!DOCTYPE html>\n"
-        "<html>\n"
-        "    <head>\n"
-        "        <title>Nikiforov's Learning Machine</title>\n"
-        "        <meta charset=\"utf-8\"/>\n"
-        "        <link rel=\"stylesheet\" href=\"" + link_back + "Core/styles.css\">\n"
-        "        <link rel=\"icon\" href=\"" + link_back + "Pictures/Physics.jpg\">\n"
-        "        <script src=\"" + link_back + "Core/styler.js\"></script>\n"
-        "    </head>\n"
-        "\n"
-        "    <body>\n"
-    )
+def create_database(language):
+    connection = sqlite3.connect("NiLeM/Data/" + language.capitalize() + ".db")
+    connection.execute("CREATE TABLE Lessons ("
+                       "ID INT PRIMARY KEY NOT NULL,"
+                       "Subject CHAR(12) NOT NULL,"
+                       "Name TEXT NOT NULL);")
+    connection.execute("CREATE TABLE Explain ("
+                       "LessonID REFERENCES Lessons(ID),"
+                       "QuestionNumber INT,"
+                       "String TEXT,"
+                       "PRIMARY KEY(LessonID, QuestionNumber));")
+    connection.execute("CREATE TABLE Enter ("
+                       "LessonID REFERENCES Lessons(ID),"
+                       "QuestionNumber INT,"
+                       "Question TEXT,"
+                       "Answer TEXT,"
+                       "PRIMARY KEY(LessonID, QuestionNumber));")
+    connection.execute("CREATE TABLE Radio ("
+                       "LessonID REFERENCES Lessons(ID),"
+                       "QuestionNumber INT,"
+                       "Question TEXT,"
+                       "Answers TEXT,"
+                       "Answer INT,"
+                       "PRIMARY KEY(LessonID, QuestionNumber));")
+    connection.close()
 
 
-def print_start_of_body(file, name, language, subject, length_of_path, case):
-    if case == "menu":
-        file.write(
-            "        <h1>" + Translations.subject_name(subject, language) + "</h1>\n"
-        )
-    else:
-        file.write(
-            "        <h1>" + name + "</h1>\n"
-        )
-    if case == "menu":
-        file.write(
-            "        <p><a href=\"../Main" + Translations.file_language(language) +
-            ".html\">" + Translations.to_main(language) + "</a></p>\n"
-        )
-    else:
-        file.write(
-            "        <div id=\"q\" class=\"container\">"
-            + Translations.click_on_next(language) + "</div>\n"
-            "        <p>\n"
-            "            <button type=\"button\" onclick=\"ChangeContent()\">"
-            + Translations.button_next(language) + "</button>\n"
-            "            <button type=\"button\" onclick=\"Check()\">"
-            + Translations.button_check(language) + "</button>\n"
-            "        </p>\n"
-            "        <p id=\"c\">" + Translations.no_checked_answer(language) + "</p>\n"
-        )
-        file.write("        <p><a href=\"")
-        for i in range(length_of_path):
-            file.write("../")
-        file.write(
-            subject.capitalize() + Translations.file_language(language) + ".html\">" +
-            Translations.on_subject_menu(subject, language) + "</a></p>\n"
-        )
+def delete_database(language):
+    os.remove("NiLeM/Data/" + language.capitalize() + ".db")
 
 
-def print_start_of_script(file, length_of_path, language):
-    link_line = "        <script src=\""
-    for i in range(length_of_path):
-        link_line += "../"
-    link_line += "Core/default.js\"></script>\n"
-    file.write(
-        link_line +
-        "        <script>\n"
-        "            question = -1;\n"
-        "            function OwnCheckEnter(correct_answer)\n"
-        "            {\n"
-        "                CheckEnter(\"" + Translations.good(language) + "\", \""
-        + Translations.bad(language) + "\", correct_answer)\n"
-        "            }\n"
-        "            function OwnCheckRadio(correct_answer)\n"
-        "            {\n"
-        "                CheckRadio(\"" + Translations.good(language) + "\", \""
-        + Translations.bad(language) + "\", correct_answer)\n"
-        "            }\n"
-    )
+def add_lesson(language, subject, name):
+    name = name.replace("\\\"", "").replace("\"", "")
+    try:
+        connection = sqlite3.connect("NiLeM/Data/" + language.capitalize() + ".db")
+        result = connection.execute("SELECT MAX(ID) FROM Lessons;")
+        new_id = 0
+        try:
+            for row in result:
+                new_id = int(row[0]) + 1
+        except TypeError:
+            new_id = 0
+        connection.execute("INSERT INTO Lessons (ID, Subject, Name)"
+                           "VALUES (" + str(new_id) + ", \"" + subject.capitalize() + "\", \"" + name + "\");")
+        connection.commit()
+        connection.close()
+        return new_id
+    except sqlite3.OperationalError:
+        return -1
 
 
-def print_end_of_script(file):
-    file.write(
-        "        </script>\n"
-    )
+def add_enter(language, lesson_id, number, question, answer):
+    question = question.replace("\\\"", "").replace("\"", "")
+    answer = answer.replace("\\\"", "").replace("\"", "")
+    connection = sqlite3.connect("NiLeM/Data/" + language.capitalize() + ".db")
+    connection.execute("INSERT INTO Enter (LessonID, QuestionNumber, Question, Answer)"
+                       "VALUES (" + str(lesson_id) + ", " + str(number)
+                       + ", \"" + question + "\", \"" + answer + "\");")
+    connection.commit()
+    connection.close()
 
 
-def print_end_of_body(file):
-    file.write(
-        "    </body>\n"
-        "</html>\n"
-    )
+def add_radio(language, lesson_id, number, question, answers, answer):
+    question = question.replace("\\\"", "").replace("\"", "")
+    answers = answers.replace("\\\"", "").replace("\"", "")
+    answer = answer.replace("\\\"", "").replace("\"", "")
+    connection = sqlite3.connect("NiLeM/Data/" + language.capitalize() + ".db")
+    connection.execute("INSERT INTO Radio (LessonID, QuestionNumber, Question, Answers, Answer)"
+                       "VALUES (" + str(lesson_id) + ", " + str(number)
+                       + ", \"" + question + "\", \"" + answers + "\", " + answer + ");")
+    connection.commit()
+    connection.close()
 
 
-def create_storing_files(file_name, language):
-    file = open(file_name + ".change", "w")
-    file.write(
-        "            function ChangeContent()\n"
-        "            {\n"
-        "                document.getElementById(\"q\").innerHTML = \"\";\n"
-        "                document.getElementById(\"c\").innerHTML = \""
-        + Translations.no_checked_answer(language) + "\";\n"
-        "                question ++;\n"
-    )
-    file.close()
-    file = open(file_name + ".check", "w")
-    file.write(
-        "            function Check()\n"
-        "            {\n"
-    )
-    file.close()
+def add_explain(language, lesson_id, number, string):
+    string = string.replace("\\\"", "").replace("\"", "")
+    connection = sqlite3.connect("NiLeM/Data/" + language.capitalize() + ".db")
+    connection.execute("INSERT INTO Explain (LessonID, QuestionNumber, String)"
+                       "VALUES (" + str(lesson_id) + ", " + str(number) + ", \"" + string + "\");")
+    connection.commit()
+    connection.close()
 
 
-def add_closings_to_storing_files(file_name, language):
-    file = open(file_name + ".change", "a")
-    file.write(
-        "                else\n"
-        "                {\n"
-        "                    PrintLine(\"" + Translations.congrats(language) + "\");\n"
-        "                }\n"
-        "            }\n"
-    )
-    file.close()
-    file = open(file_name + ".check", "a")
-    file.write(
-        "            }\n"
-    )
-    file.close()
-
-
-def store_enter(file_name, question, answer, question_number, language):
-    texts = question.split("\\n")
-    file = open(file_name + ".change", "a")
-    if question_number == 0:
-        file.write(
-            "                if (question == 0)\n"
-        )
-    else:
-        file.write(
-            "                else if (question == " + str(question_number) + ")\n"
-        )
-    file.write(
-        "                {\n"
-        "                    PrintLine(\"" + Translations.enter_answer(language) + "\");\n"
-    )
-    for text in texts:
-        file.write(
-            "                    PrintLine(\"" + text + "\");\n"
-        )
-    file.write(
-        "                    CreateInputbox();\n"
-        "                }\n"
-    )
-    file.close()
-    file = open(file_name + ".check", "a")
-    if question_number == 0:
-        file.write(
-            "                if (question == 0)\n"
-        )
-    else:
-        file.write(
-            "                else if (question == " + str(question_number) + ")\n"
-        )
-    file.write(
-        "                {\n"
-        "                    OwnCheckEnter(\"" + answer + "\");\n"
-        "                }\n"
-    )
-    file.close()
-
-
-def store_radio(file_name, question, answers, correct_answer, question_number, language):
-    texts = question.split("\\n")
-    answers = answers.split("|")
-    file = open(file_name + ".change", "a")
-    if question_number == 0:
-        file.write(
-            "                if (question == 0)\n"
-        )
-    else:
-        file.write(
-            "                else if (question == " + str(question_number) + ")\n"
-        )
-    file.write(
-        "                {\n"
-        "                    PrintLine(\"" + Translations.choose_answer(language) + "\");\n"
-    )
-    for text in texts:
-        file.write(
-            "                    PrintLine(\"" + text + "\");\n"
-        )
-    file.write(
-        "                    CreateInputradio(" + str(answers) + ");\n"
-        "                }\n"
-    )
-    file.close()
-    file = open(file_name + ".check", "a")
-    if question_number == 0:
-        file.write(
-            "                if (question == 0)\n"
-        )
-    else:
-        file.write(
-            "                else if (question == " + str(question_number) + ")\n"
-        )
-    file.write(
-        "                {\n"
-        "                    OwnCheckRadio(\"" + correct_answer + "\");\n"
-        "                }\n"
-    )
-    file.close()
-
-
-def store_explain(file_name, texts, question_number):
-    texts = texts.split("\\n")
-    file = open(file_name + ".change", "a")
-    if question_number == 0:
-        file.write(
-            "                if (question == 0)\n"
-        )
-    else:
-        file.write(
-            "                else if (question == " + str(question_number) + ")\n"
-        )
-    file.write(
-        "                {\n"
-    )
-    for text in texts:
-        file.write(
-            "                    PrintLine(\"" + text + "\");\n"
-        )
-    file.write(
-        "                }\n"
-    )
-    file.close()
-    if question_number == 0:
-        file = open(file_name + ".check", "a")
-        file.write(
-            "                if (question == 0)\n"
-            "                {\n"
-            "                }\n"
-        )
-        file.close()
-
-
-def print_from_storing_files_to_the_main_one(file_name):
-    write_file = open(file_name, "a")
-    read_file = open(file_name + ".change", "r")
-    for line in read_file:
-        write_file.write(line)
-    read_file.close()
-    read_file = open(file_name + ".check", "r")
-    for line in read_file:
-        write_file.write(line)
-    read_file.close()
-    write_file.close()
-
-
-def print_tests_to_menu(directory, file_name):
-    file = open(file_name, "a")
-    [dirpath, dirnames, filenames] = directory
-    dirpath = dirpath.split("/")
-    if 3 < len(dirpath) < 7:
-        file.write("        <h" + str(len(dirpath) - 2) + ">" + dirpath[len(dirpath) - 1]
-                   + "</h" + str(len(dirpath) - 2) + ">\n")
-    file.write("        <p>\n")
-    for filename in filenames:
-        file.write("            <button onclick=\"window.location.href='")
-        depth = 0
-        for folder in dirpath:
-            depth += 1
-            if depth > 2:
-                file.write(folder + "/")
-        file.write(filename + "';\">" + filename + "</button>\n")
-    file.write("        </p>\n")
+def delete_lesson(language, lesson_id):
+    if lesson_id != -1:
+        connection = sqlite3.connect("NiLeM/Data/" + language.capitalize() + ".db")
+        connection.execute("DELETE FROM Lessons WHERE ID = " + str(lesson_id) + "\n")
+        connection.execute("DELETE FROM Explain WHERE LessonID = " + str(lesson_id) + "\n")
+        connection.execute("DELETE FROM Enter WHERE LessonID = " + str(lesson_id) + "\n")
+        connection.execute("DELETE FROM Radio WHERE LessonID = " + str(lesson_id) + "\n")
+        connection.commit()
+        connection.close()

@@ -39,16 +39,8 @@ def missing_file_error(line, number_of_line, file_name):
     error_ending(line, number_of_line)
 
 
-def wrong_case_error(line, number_of_line, case, command):
-    print("Syntax error! Command: " + command + " was used in the case: " + case + "\n"
-          "It is not supported.")
-    error_ending(line, number_of_line)
-
-
-def directory_does_not_exist_error(line, number_of_line, file_name):
-    print("Error! A file in not existing directory was tried to be created.\n"
-          "Try looking at the path and creating the directory as the solution.\n"
-          "File: " + file_name)
+def wrong_case_error(line, number_of_line, command):
+    print("Syntax error! Command: " + command + " was used in the wrong case.")
     error_ending(line, number_of_line)
 
 
@@ -60,3 +52,12 @@ def nilem_not_found_error(line, number_of_line):
 
 def missing_end_error():
     print("Syntax error! The file has no end line. It must end by the line \"end\".")
+
+
+def new_nilem_error(line, number_of_line):
+    print("Syntax error! This is the new version of NiLeM, it has no need to update menus.")
+    error_ending(line, number_of_line)
+
+
+def database_not_found_error():
+    print("Error! One (or more) NiLeM database not found.")

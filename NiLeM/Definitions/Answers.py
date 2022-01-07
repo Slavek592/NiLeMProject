@@ -122,6 +122,20 @@ def lesson(self):
         elif questions[question][0] == "radio":
             script += "OwnCheckRadio(\"" + str(questions[question][3]) + "\");\n"
         script += "}\n"
+    script += "}\n" \
+              "function Show()\n" \
+              "{\n"
+    for question in range(len(questions)):
+        if question == 0:
+            script += "if (question == 0)\n{\n"
+        else:
+            script += "else if (question == " + str(question) + ")\n{\n"
+        if questions[question][0] == "enter":
+            script += "ShowCorrect(\"" + questions[question][2] + "\");\n"
+        elif questions[question][0] == "radio":
+            script += "ShowCorrect(\"" + questions[question][2]\
+                .split("|")[questions[question][3]] + "\");\n"
+        script += "}\n"
     script += "}\n"
     self.send_response(200)
     self.send_header("Content-type", "text/html")
@@ -148,6 +162,8 @@ def lesson(self):
         + Translations.button_next(language) + "</button>"
         "<button type=\"button\" onclick=\"Check()\">"
         + Translations.button_check(language) + "</button>"
+        "<button type=\"button\" onclick=\"Show()\">"
+        + Translations.button_show(language) + "</button>"
         "</p>"
         "<p id=\"c\">" + Translations.no_checked_answer(language) + "</p>"
         "<p><a href=\"../" +

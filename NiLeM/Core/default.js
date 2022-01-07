@@ -60,3 +60,7 @@ function CheckRadio(correct_string, incorrect_string, correct_answer)
         }
     }
 }
+function ShowCorrect(correct_answer)
+{
+    document.getElementById("c").innerHTML = correct_answer;
+}

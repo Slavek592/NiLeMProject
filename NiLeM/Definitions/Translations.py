@@ -216,6 +216,21 @@ def button_check(language):
         return "Checar respuesta"
 
 
+def button_show(language):
+    if language == "english":
+        return "Show correct answer"
+    elif language == "czech":
+        return "Ukázat správnou odpověď"
+    elif language == "russian":
+        return "Показать правильный ответ"
+    elif language == "german":
+        return "Richtige Antwort anzeigen"
+    elif language == "french":
+        return "Afficher la réponse correcte"
+    elif language == "spanish":
+        return "Mostrar respuesta correcta"
+
+
 def no_checked_answer(language):
     if language == "english":
         return "There is no any checked answer."

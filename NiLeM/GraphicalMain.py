@@ -81,7 +81,7 @@ def main_menu(self):
 
 def settings(self):
     self.erase()
-    Label(self.root, text="Settings", font=("Lucida Sans", 60),
+    Label(self.root, text=Translations.settings(self.language), font=("Lucida Sans", 60),
           bg=self.background_color, fg=self.text_color).pack()
     Label(self.root, text=Translations.languages(self.language), font=("Lucida Sans", 40),
           bg=self.background_color, fg=self.text_color).pack()

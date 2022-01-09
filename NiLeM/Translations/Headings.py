@@ -11,7 +11,7 @@ def subjects(language):
     elif language == "german":
         return "Betreff"
     elif language == "french":
-        return "Sujet"
+        return "Matière"
     elif language == "spanish":
         return "Asunto"
 
@@ -170,13 +170,13 @@ def update(language):
     if language == "english":
         return "Update"
     elif language == "czech":
-        return "Aktualizovat"
+        return "Aktualizace"
     elif language == "russian":
-        return "Обновить"
+        return "Обновление"
     elif language == "german":
-        return "Aktualisieren"
+        return "Aktualisierung"
     elif language == "french":
-        return "Mettre à jour"
+        return "Mise à jour"
     elif language == "spanish":
         return "Actualizar"
 

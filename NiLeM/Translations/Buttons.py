@@ -11,7 +11,7 @@ def turn_off(language):
     elif language == "german":
         return "Schalte aus"
     elif language == "french":
-        return "Éteindre"
+        return "Fermer"
     elif language == "spanish":
         return "Apagar"
 
@@ -326,7 +326,7 @@ def show_correct(language):
     elif language == "german":
         return "Richtige Antwort anzeigen"
     elif language == "french":
-        return "Afficher la bonne réponse"
+        return "Afficher la réponse correcte"
     elif language == "spanish":
         return "Mostrar respuesta correcta"
 

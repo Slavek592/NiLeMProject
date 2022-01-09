@@ -105,7 +105,7 @@ def subject_name(subject, language):
             return "Informatik"
     elif language == "french":
         if subject == "math":
-            return "Mathématique"
+            return "Mathématiques"
         elif subject == "physics":
             return "Physique"
         elif subject == "chemistry":
@@ -115,7 +115,7 @@ def subject_name(subject, language):
         elif subject == "geography":
             return "Géographie"
         elif subject == "history":
-            return "Historique"
+            return "Histoire"
         elif subject == "english":
             return "Anglais"
         elif subject == "german":
@@ -306,7 +306,7 @@ def on_subject_menu(subject, language):
             return "Zurück zum Informatik-Menü"
     elif language == "french":
         if subject == "math":
-            return "Retour au menu mathématique"
+            return "Retour au menu mathématiques"
         elif subject == "physics":
             return "Retour au menu physique"
         elif subject == "chemistry":
@@ -316,7 +316,7 @@ def on_subject_menu(subject, language):
         elif subject == "geography":
             return "Retour au menu géographie"
         elif subject == "history":
-            return "Retour au menu historique"
+            return "Retour au menu histoire"
         elif subject == "english":
             return "Retour au menu anglais"
         elif subject == "german":

@@ -26,7 +26,7 @@ def good(language):
     elif language == "german":
         return "Richtig."
     elif language == "french":
-        return "Corriger."
+        return "Correct."
     elif language == "spanish":
         return "Correcto."
 
@@ -56,7 +56,7 @@ def congrats(language):
     elif language == "german":
         return "Herzlichen Glückwunsch! Sie haben diese Lektion beendet."
     elif language == "french":
-        return "Félicitations ! Vous avez terminé cette leçon."
+        return "Félicitations ! Vous avez terminé la leçon."
     elif language == "spanish":
         return "Enhorabuena Has terminado esta lección."
 

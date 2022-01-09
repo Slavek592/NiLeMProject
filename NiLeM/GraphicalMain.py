@@ -1,10 +1,14 @@
 #!/usr/bin/python3
 from tkinter import *
-from tkPDFViewer.tkPDFViewer import *
 from . import Settings
 from . import Translations
 from . import Other
 from . import Updating
+
+try:
+    from tkPDFViewer.tkPDFViewer import *
+except:
+    print("Unable to show PDF documents. Try installing tkPDFViewer.")
 
 
 def info(self):
@@ -178,17 +182,20 @@ def change_language(self, language):
 
 
 def show_pdf(self, name):
-    self.erase()
-    v1 = ShowPdf()
-    v2 = v1.pdf_view(self.root, pdf_location="Info/" + name, width=75, height=100)
-    v2.pack()
-    exit_buttons = Frame(self.root, bg=self.background_color)
-    turn_off_button = Button(exit_buttons, text=Translations.turn_off(self.language),
-                             command=lambda: self.turn_off(),
+    try:
+        self.erase()
+        v1 = ShowPdf()
+        v2 = v1.pdf_view(self.root, pdf_location="Info/" + name, width=75, height=100)
+        v2.pack()
+        exit_buttons = Frame(self.root, bg=self.background_color)
+        turn_off_button = Button(exit_buttons, text=Translations.turn_off(self.language),
+                                 command=lambda: self.turn_off(),
+                                 bg=self.background_color, fg=self.text_color)
+        turn_off_button.grid(row=0, column=0)
+        back_button = Button(exit_buttons, text=Translations.to_info(self.language),
+                             command=lambda: self.info(),
                              bg=self.background_color, fg=self.text_color)
-    turn_off_button.grid(row=0, column=0)
-    back_button = Button(exit_buttons, text=Translations.to_info(self.language),
-                         command=lambda: self.info(),
-                         bg=self.background_color, fg=self.text_color)
-    back_button.grid(row=1, column=0)
-    exit_buttons.place(relx=0.75, rely=0.5)
+        back_button.grid(row=1, column=0)
+        exit_buttons.place(relx=0.75, rely=0.5)
+    except:
+        self.info()

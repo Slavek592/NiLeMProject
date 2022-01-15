@@ -228,17 +228,17 @@ def databases(language):
 
 def file_runner(language):
     if language == "english":
-        return "File runner"
+        return "Run files"
     elif language == "czech":
-        return "Spouštěč souborů"
+        return "Spustit soubory"
     elif language == "russian":
-        return "Выполнитель файлов"
+        return "Выполнить файлы"
     elif language == "german":
-        return "Datei-Anlasser"
+        return "Datei anlassen"
     elif language == "french":
-        return "Coureur de fichiers"
+        return "Démarrer le fichier"
     elif language == "spanish":
-        return "Corredor de archivos"
+        return "Ejecutar archivos"
 
 
 def export_lesson(language):

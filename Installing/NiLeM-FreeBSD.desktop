@@ -1,6 +1,6 @@
 [Desktop Entry]
 Version=0.0
-Exec=/usr/local/share/NiLeM/NiLeM.sh
+Exec=sh /usr/local/share/NiLeM/NiLeM.sh
 Icon=/usr/local/share/NiLeM/Pictures/Physics.png
 Name=NiLeM
 Type=Application

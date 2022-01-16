@@ -15,6 +15,7 @@ mkdir /usr/local/share/NiLeM
 cp Installing/NiLeM-FreeBSD.desktop /usr/local/share/applications/NiLeM.desktop
 cp -r NiLeM /usr/local/share/NiLeM/NiLeM
 cp -r Data /usr/local/share/NiLeM/Data
+chmod -R 777 /usr/local/share/NiLeM/Data
 cp -r Info /usr/local/share/NiLeM/Info
 cp -r Pictures /usr/local/share/NiLeM/Pictures
 cp NiLeM.py /usr/local/share/NiLeM/NiLeM.py

@@ -15,6 +15,7 @@ mkdir /usr/share/NiLeM
 cp Installing/NiLeM-Linux.desktop /usr/share/applications/NiLeM.desktop
 cp -r NiLeM /usr/share/NiLeM/NiLeM
 cp -r Data /usr/share/NiLeM/Data
+chmod -R 777 /usr/share/NiLeM/Data
 cp -r Info /usr/share/NiLeM/Info
 cp -r Pictures /usr/share/NiLeM/Pictures
 cp NiLeM.py /usr/share/NiLeM/NiLeM.py

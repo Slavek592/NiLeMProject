@@ -19,6 +19,8 @@ cp -r Info /usr/local/share/NiLeM/Info
 cp -r Pictures /usr/local/share/NiLeM/Pictures
 cp NiLeM.py /usr/local/share/NiLeM/NiLeM.py
 cp NiLeM-FreeBSD.sh /usr/local/share/NiLeM/NiLeM.sh
+mkdir /usr/local/share/NiLeM/NileshScripts
+chmod 777 /usr/local/share/NiLeM/NileshScripts
 
 echo Congratulation! The NiLeM has been installed. Enjoy!
 echo If there is a problem, try installing dependencies.

@@ -19,6 +19,8 @@ cp -r Info /usr/share/NiLeM/Info
 cp -r Pictures /usr/share/NiLeM/Pictures
 cp NiLeM.py /usr/share/NiLeM/NiLeM.py
 cp NiLeM-Linux.sh /usr/share/NiLeM/NiLeM.sh
+mkdir /usr/share/NiLeM/NileshScripts
+chmod 777 /usr/share/NiLeM/NileshScripts
 
 echo Congratulation! The NiLeM has been installed. Enjoy!
 echo If there is a problem, try installing dependencies.

@@ -45,35 +45,32 @@ def main_menu(self):
     Label(self.root, text=Translations.main(self.language), font=("Lucida Sans", 60),
           bg=self.background_color, fg=self.text_color).pack()
     main_part = Frame(self.root, bg=self.background_color)
-    left = Frame(main_part, bg=self.background_color)
-    right = Frame(main_part, bg=self.background_color)
-    Label(left, text=Translations.settings(self.language), font=("Lucida Sans", 40),
-          bg=self.background_color, fg=self.text_color).pack()
+    Label(main_part, text=Translations.settings(self.language), font=("Lucida Sans", 40),
+          bg=self.background_color, fg=self.text_color).grid(row=2, column=2)
     settings_button = Button(
-        left, image=self.settings_image, command=lambda: self.settings(),
+        main_part, image=self.settings_image, command=lambda: self.settings(),
         bg=self.background_color, fg=self.text_color)
-    settings_button.pack()
-    Label(left, text=Translations.about(self.language), font=("Lucida Sans", 40),
-          bg=self.background_color, fg=self.text_color).pack()
-    about_button = Button(left, image=self.about_image, command=lambda: self.info(),
+    settings_button.grid(row=3, column=2)
+    Label(main_part, text=Translations.about(self.language), font=("Lucida Sans", 40),
+          bg=self.background_color, fg=self.text_color).grid(row=2, column=0)
+    about_button = Button(main_part, image=self.about_image, command=lambda: self.info(),
                           bg=self.background_color, fg=self.text_color)
-    about_button.pack()
-    Label(right, text="NiLeM", font=("Lucida Sans", 40),
-          bg=self.background_color, fg=self.text_color).pack()
-    nilem_button = Button(right, image=self.subject_images[1],
+    about_button.grid(row=3, column=0)
+    Label(main_part, text="NiLeM", font=("Lucida Sans", 40),
+          bg=self.background_color, fg=self.text_color).grid(row=0, column=1)
+    nilem_button = Button(main_part, image=self.subject_images[1],
                           command=lambda: self.nilem_menu(),
                           bg=self.background_color, fg=self.text_color)
-    nilem_button.pack()
-    Label(right, text="NiLeSh", font=("Lucida Sans", 40),
-          bg=self.background_color, fg=self.text_color).pack()
-    nilesh_button = Button(right, image=self.subject_images[15],
+    nilem_button.grid(row=1, column=1)
+    Label(main_part, text="NiLeSh", font=("Lucida Sans", 40),
+          bg=self.background_color, fg=self.text_color).grid(row=2, column=1)
+    nilesh_button = Button(main_part, image=self.subject_images[15],
                            command=lambda: self.nilesh_main(),
                            bg=self.background_color, fg=self.text_color)
-    nilesh_button.pack()
-    left.grid(row=0, column=0)
-    right.grid(row=0, column=1)
-    main_part.columnconfigure(0, minsize=350)
-    main_part.columnconfigure(1, minsize=350)
+    nilesh_button.grid(row=3, column=1)
+    main_part.columnconfigure(0, minsize=400)
+    main_part.columnconfigure(1, minsize=200)
+    main_part.columnconfigure(2, minsize=400)
     main_part.pack()
     exit_buttons = Frame(self.root, bg=self.background_color)
     turn_off_button = Button(exit_buttons, text=Translations.turn_off(self.language),

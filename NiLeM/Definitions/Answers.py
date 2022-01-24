@@ -174,3 +174,11 @@ def lesson(self):
         "</html>",
         "utf-8"
     ))
+
+
+def welcome(self):
+    file = open("NiLeM.html", "rb")
+    self.send_response(200)
+    self.send_header("Content-type", "text/html")
+    self.end_headers()
+    self.wfile.write(file.read())

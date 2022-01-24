@@ -5,21 +5,20 @@ from http.server import BaseHTTPRequestHandler
 class NiLeMServer(BaseHTTPRequestHandler):
     def do_GET(self):
         path = self.path.split("/")
-        if len(path) > 0:
-            if path[1] in ["Math", "Physics", "Chemistry", "Biology",
-                           "Geography", "History", "English", "Czech",
-                           "Russian", "German", "French", "Spanish",
-                           "Literature", "Music", "Art", "Informatics"]:
-                if len(path) == 3:
-                    self.subject_menu()
-                else:
-                    self.lesson()
+        if path[1] in ["Math", "Physics", "Chemistry", "Biology",
+                       "Geography", "History", "English", "Czech",
+                       "Russian", "German", "French", "Spanish",
+                       "Literature", "Music", "Art", "Informatics"]:
+            if len(path) == 3:
+                self.subject_menu()
             else:
-                try:
-                    self.send_file()
-                except:
-                    self.not_found()
+                self.lesson()
+        elif self.path == "/":
+            self.welcome()
         else:
-            self.not_found()
+            try:
+                self.send_file()
+            except:
+                self.not_found()
 
-    from .Answers import not_found, send_file, subject_menu, lesson
+    from .Answers import not_found, send_file, subject_menu, lesson, welcome

@@ -34,6 +34,8 @@ def print_start_of_body(file_name, name, language):
         + Translations.button_next(language) + "</button>\n"
         "            <button type=\"button\" onclick=\"Check()\">"
         + Translations.button_check(language) + "</button>\n"
+        "            <button type=\"button\" onclick=\"Show()\">"
+        + Translations.show_correct(language) + "</button>"
         "        </p>\n"
         "        <p id=\"c\">" + Translations.no_checked_answer(language) + "</p>\n"
     )
@@ -108,6 +110,10 @@ def print_start_of_script(file_name, language):
         "                }\n"
         "                document.getElementById(\"q\").appendChild(inputplace);\n"
         "            }\n"
+        "            function ShowCorrect(answer)\n"
+        "            {\n"
+        "                document.getElementById(\"c\").innerHTML = answer;\n"
+        "            }\n"
     )
 
 
@@ -144,6 +150,12 @@ def create_storing_files(file_name, language):
         "            {\n"
     )
     file.close()
+    file = open(file_name + ".show", "w")
+    file.write(
+        "            function Show()\n"
+        "            {\n"
+    )
+    file.close()
 
 
 def add_closings_to_storing_files(file_name, language):
@@ -157,6 +169,11 @@ def add_closings_to_storing_files(file_name, language):
     )
     file.close()
     file = open(file_name + ".check", "a")
+    file.write(
+        "            }\n"
+    )
+    file.close()
+    file = open(file_name + ".show", "a")
     file.write(
         "            }\n"
     )
@@ -202,6 +219,21 @@ def store_enter(file_name, question, answer, question_number, language):
         "                }\n"
     )
     file.close()
+    file = open(file_name + ".show", "a")
+    if question_number == 0:
+        file.write(
+            "                if (question == 0)\n"
+        )
+    else:
+        file.write(
+            "                else if (question == " + str(question_number) + ")\n"
+        )
+    file.write(
+        "                {\n"
+        "                    ShowCorrect(\"" + answer + "\");\n"
+        "                }\n"
+    )
+    file.close()
 
 
 def store_radio(file_name, question, answers, correct_answer, question_number, language):
@@ -244,6 +276,21 @@ def store_radio(file_name, question, answers, correct_answer, question_number, l
         "                }\n"
     )
     file.close()
+    file = open(file_name + ".show", "a")
+    if question_number == 0:
+        file.write(
+            "                if (question == 0)\n"
+        )
+    else:
+        file.write(
+            "                else if (question == " + str(question_number) + ")\n"
+        )
+    file.write(
+        "                {\n"
+        "                    ShowCorrect(\"" + str(answers[int(correct_answer)]) + "\");\n"
+        "                }\n"
+    )
+    file.close()
 
 
 def store_explain(file_name, texts, question_number, language):
@@ -277,6 +324,13 @@ def store_explain(file_name, texts, question_number, language):
             "                }\n"
         )
         file.close()
+        file = open(file_name + ".show", "a")
+        file.write(
+            "                if (question == 0)\n"
+            "                {\n"
+            "                }\n"
+        )
+        file.close()
 
 
 def print_from_storing_files_to_the_main_one(file_name):
@@ -289,9 +343,14 @@ def print_from_storing_files_to_the_main_one(file_name):
     for line in read_file:
         write_file.write(line)
     read_file.close()
+    read_file = open(file_name + ".show", "r")
+    for line in read_file:
+        write_file.write(line)
+    read_file.close()
     write_file.close()
 
 
 def delete_storing_files(file_name):
     os.remove(file_name + ".change")
     os.remove(file_name + ".check")
+    os.remove(file_name + ".show")

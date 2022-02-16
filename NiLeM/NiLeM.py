@@ -5,7 +5,10 @@ from Definitions import Main
 hostName = "localhost"
 serverPort = 8080
 
-webServer = HTTPServer((hostName, serverPort), Main.NiLeMServer)
+try:
+    webServer = HTTPServer((hostName, serverPort), Main.NiLeMServer)
+except OSError:
+    exit(0)
 print("Server started http://%s:%s" % (hostName, serverPort))
 
 try:

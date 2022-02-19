@@ -1,8 +1,0 @@
-czech//english
-Basics/00-02-Basics
-{
-explain//Hello. = Ahoj.\nHow are You? = Jak se máš?\nGood. = Dobře.\nBad = Špatně.
-enter//Translate "Hello." (starts with capital, ends with .)://Ahoj.
-enter//Translate "Good." (with capital and dot)://Dobře.
-}
-end

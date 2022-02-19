@@ -1,0 +1,13 @@
+math//czech
+Zlomky 01
+{
+enter//Převeďte na desetinné číslo (s desetinnou čárkou, bez mezer):\n64/625//0,1024
+enter//Zkraťte zlomek (zapište pomocí lomítka, bez mezer):\n16/24//2/3
+radio//Zkraťte zlomek:\n1536/1024//512|15/11|512/1|6/7|5/3|1,5|2/3|7/4|2|3/1|16/11//5
+radio//Sečtěte zlomky:\n8/9 + 2/6//14/15|10/15|10/9|22/15|11/9|14/11//4
+enter//Sečtěte zlomky (napište v základním tvaru s pomocí lomítka, bez mezer):\n3/7+7/3//58/21
+radio//Vynásobte zlomky:\n25/4 * 6/14//31/39|21000/140=150|1, nebo 2|Něco kolem 7|15|3/5|15/14//6
+radio//Spočtěte a řekněte, ke kterému celému číslu je výsledek nejblíže:\n(15/28 + 59/14) * (64/56 - 42/48)//Cca 0|Cca 1|Cca -1|Cca 2|Cca 6|Cca 4|Cca 3|Cca -5//1
+}
+end
+

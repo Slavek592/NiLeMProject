@@ -1,12 +1,3 @@
-/*
-Here are the modes.
-If it is a server, You can change the mode in the main menu.
-Otherwise, You will need to change this file.
-Changing the mode:
-1. Comment the lines of the one being used.
-2. Uncomment the lines of the one You want to use.
-*/
-
 /* Dark mode: */
 body {
     background-color: black;
@@ -87,3 +78,22 @@ input {
     border-color: #007F00;
 }*/
 
+.image_big {
+    width: 200px;
+}
+.image_small {
+    width: 120px;
+}
+
+h1 {
+  font-size: 40px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 20px;
+}
+p {
+  font-size: 14px;
+}

@@ -156,7 +156,7 @@ def lesson(self):
         "</head>"
         "<body>"
         "<h1>" + ReadDatabase.get_lesson_name(language, int(path[3])) + "</h1>"
-        "<div id=\"q\">" + Translations.click_on_next(language) + "</div>"
+        "<div id=\"q\"><p>" + Translations.click_on_next(language) + "</p></div>"
         "<p>"
         "<button type=\"button\" onclick=\"ChangeContent()\">"
         + Translations.button_next(language) + "</button>"

@@ -76,23 +76,14 @@ def lesson(self):
     path = self.path.split("/")
     language = path[2].lower()
     questions = ReadDatabase.get_lesson_questions(language, int(path[3]))
-    script = "question = -1;\n" \
-             "function OwnCheckEnter(correct_answer)\n" \
-             "{\n" \
-             "CheckEnter(\"" + Translations.good(language) + "\", \""\
-             + Translations.bad(language) + "\", correct_answer)\n" \
-             "}\n" \
-             "function OwnCheckRadio(correct_answer)\n" \
-             "{\n" \
-             "CheckRadio(\"" + Translations.good(language) + "\", \""\
-             + Translations.bad(language) + "\", correct_answer)\n" \
-             "}\n"
+    script = "var question = -1;\n" \
+             "var correct_string = \"" + Translations.good(language) + "\";\n"\
+             "var incorrect_string = \"" + Translations.bad(language) + "\";\n"
     script += "function ChangeContent()\n" \
               "{\n" \
               "document.getElementById(\"q\").innerHTML = \"\";\n" \
               "document.getElementById(\"c\").innerHTML = \""\
-              + Translations.no_checked_answer(language) + "\";\n" \
-              "question ++;\n"
+              + Translations.no_checked_answer(language) + "\";\n"
     for question in range(len(questions)):
         if question == 0:
             script += "if (question == 0)\n{\n"
@@ -118,9 +109,9 @@ def lesson(self):
         else:
             script += "else if (question == " + str(question) + ")\n{\n"
         if questions[question][0] == "enter":
-            script += "OwnCheckEnter(\"" + questions[question][2] + "\");\n"
+            script += "CheckEnter(\"" + questions[question][2] + "\");\n"
         elif questions[question][0] == "radio":
-            script += "OwnCheckRadio(\"" + str(questions[question][3]) + "\");\n"
+            script += "CheckRadio(\"" + str(questions[question][3]) + "\");\n"
         script += "}\n"
     script += "}\n" \
               "function Show()\n" \
@@ -158,12 +149,14 @@ def lesson(self):
         "<h1>" + ReadDatabase.get_lesson_name(language, int(path[3])) + "</h1>"
         "<div id=\"q\"><p>" + Translations.click_on_next(language) + "</p></div>"
         "<p>"
-        "<button type=\"button\" onclick=\"ChangeContent()\">"
-        + Translations.button_next(language) + "</button>"
+        "<button type=\"button\" onclick=\"Previous()\">"
+        + Translations.button_previous(language) + "</button>"
         "<button type=\"button\" onclick=\"Check()\">"
         + Translations.button_check(language) + "</button>"
         "<button type=\"button\" onclick=\"Show()\">"
         + Translations.button_show(language) + "</button>"
+        "<button type=\"button\" onclick=\"Next()\">"
+        + Translations.button_next(language) + "</button>"
         "</p>"
         "<p id=\"c\">" + Translations.no_checked_answer(language) + "</p>"
         "<p><a href=\"../" +

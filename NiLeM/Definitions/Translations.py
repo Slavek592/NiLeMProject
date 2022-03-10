@@ -231,6 +231,21 @@ def button_show(language):
         return "Mostrar respuesta correcta"
 
 
+def button_previous(language):
+    if language == "english":
+        return "Previous"
+    elif language == "czech":
+        return "Předchozí"
+    elif language == "russian":
+        return "Назад"
+    elif language == "german":
+        return "Vorheriger"
+    elif language == "french":
+        return "Précédent"
+    elif language == "spanish":
+        return "Previo"
+
+
 def no_checked_answer(language):
     if language == "english":
         return "There is no any checked answer."

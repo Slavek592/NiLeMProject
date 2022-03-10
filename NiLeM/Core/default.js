@@ -30,7 +30,7 @@ function CreateInputradio(answers)
         document.getElementById("q").appendChild(inputplace);
     }
 }
-function CheckEnter(correct_string, incorrect_string, correct_answer)
+function CheckEnter(correct_answer)
 {
     if (document.getElementById("ans").value == correct_answer)
     {
@@ -41,7 +41,7 @@ function CheckEnter(correct_string, incorrect_string, correct_answer)
         document.getElementById("c").innerHTML = incorrect_string;
     }
 }
-function CheckRadio(correct_string, incorrect_string, correct_answer)
+function CheckRadio(correct_answer)
 {
     var ele = document.getElementsByName('ans');
     for (i = 0; i < ele.length; i++)
@@ -62,4 +62,17 @@ function CheckRadio(correct_string, incorrect_string, correct_answer)
 function ShowCorrect(correct_answer)
 {
     document.getElementById("c").innerHTML = correct_answer;
+}
+function Next()
+{
+    question ++;
+    ChangeContent();
+}
+function Previous()
+{
+    if (question > 0)
+    {
+        question --;
+        ChangeContent();
+    }
 }

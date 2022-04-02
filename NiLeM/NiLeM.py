@@ -17,4 +17,4 @@ except KeyboardInterrupt:
     pass
 
 webServer.server_close()
-print("Server stopped.\n")
+print("\nServer stopped.")

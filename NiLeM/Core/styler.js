@@ -198,7 +198,8 @@ function Set()
     }
     style.innerHTML += " "
         + "h1, h2, h3, h4, h5, h6, p, div { "
-        + "text-align: center;"
+        + "text-align: center; "
+        + "font-family: Arial, Helvetica, sans-serif; "
         + "}"
     document.head.appendChild(style);
 }

@@ -11,8 +11,10 @@ class NiLeMServer(BaseHTTPRequestHandler):
                        "Literature", "Music", "Art", "Informatics"]:
             if len(path) == 3:
                 self.subject_menu()
-            else:
+            elif len(path) == 4:
                 self.lesson()
+            elif path[4] == "download":
+                self.download_lesson()
         elif self.path == "/":
             self.welcome()
         else:
@@ -21,4 +23,4 @@ class NiLeMServer(BaseHTTPRequestHandler):
             except:
                 self.not_found()
 
-    from .Answers import not_found, send_file, subject_menu, lesson, welcome
+    from .Answers import not_found, send_file, subject_menu, lesson, welcome, download_lesson

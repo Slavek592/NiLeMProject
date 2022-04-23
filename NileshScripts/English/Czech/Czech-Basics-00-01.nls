@@ -1,8 +1,0 @@
-czech//english
-Basics/00-01-Basics
-{
-explain//Man in muž.\nWoman is žena.\nBoy is chlapec.\nAnd girl is dívka.
-enter//Translate man to czech (lowercase).//muž
-radio//Translate girl to czech.//muž|chlapec|dívka|žena//2
-}
-end

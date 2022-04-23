@@ -1,0 +1,12 @@
+math//czech
+Zlomky 02
+{
+radio//Sečtěte zlomky:\n75/26 + 63/53//0 až 1|1 až 2|2 až 3|3 až 4|4 až 5|5 až 6|6 až 7|celé číslo|ani jedno z toho//4
+enter//Vynásobte:\n74/95 * 57/32\nA napište, která číslice se v zápisu základního tvaru vyskytuje nejčastěji.//1
+enter//Vypočtěte a napište výsledek jako desetinné číslo (s desetinnou čárkou, bez mezer):\n0,25 * 16%//0,04
+enter//Převeďte na procenta (napište se symbolem procenta, bez mezer):\n7/20//35%
+enter//Petr měl 1650 Kč.\n3/10 z toho utratil.\nPoté vyhrál olympiádu a dostal 5/11 toho, co zrovna měl.\nKolik měl Petr korun po olympiádě?\nNapište jako číslo bez mezer.//1680
+radio//(4/102) + (25/34) : (15/22) - (2/17)//15,3|4/13|27/5|6,7|5,1764|celé číslo|2 až 5 (kromě celých)|menší než 2 (kromě celých)|větší než 7 (kromě celých)|ani jedno z toho//5
+}
+end
+

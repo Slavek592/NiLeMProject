@@ -1,0 +1,7 @@
+math//czech
+Zlomky 03
+{
+enter//Vypočítejte a napište odpověď jako desetinné/celé číslo s nejmenším možným počtem desetinných míst (pokud je číslo desetinné, pište ho s čárkou bez mezer)\n225/343 * 196/175 * 539/306 + [144/125 * 625/612 - (232/136 - 456/204)]//3
+}
+end
+

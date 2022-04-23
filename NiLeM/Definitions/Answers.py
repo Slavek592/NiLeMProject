@@ -65,8 +65,11 @@ def subject_menu(self):
         "<body>"
         "<h1>" + Translations.subject_name(path[1].lower(), language.lower()) + "</h1>"
         "<div style=\"margin-right: 100px; margin-left: 100px;\">" + lessons + "</div>"
-        "<p><a href=\"../Main" + Translations.file_language(language.lower())
-        + ".html\">" + Translations.to_main(language.lower()) + "</a></p>"
+        "<p><button onclick=\"window.location.href='../Core/Subjects"
+        + Translations.file_language(language.lower()) + ".html';\">"
+        "<p><img src=\"../Pictures/Back.jpg\" alt=\"Back\" class=\"image_big\"></p>"
+        "<h3>" + Translations.to_main(language.lower()) + "</h3>"
+        "</button></p>"
         "</body>"
         "</html>",
         "utf-8"))
@@ -156,7 +159,7 @@ def lesson(self):
         + Translations.button_next(language) + "</button>"
         "</p>"
         "<p><a href=\"" + self.path + "/download\" download=\""
-        + lesson_name + ".html\">Download lesson</a></p>"
+        + lesson_name + ".html\">" + Translations.download_lesson(language) + "</a></p>"
         "<p id=\"c\">" + Translations.no_checked_answer(language) + "</p>"
         "<p><a href=\"../" +
         path[1] + Translations.file_language(language)

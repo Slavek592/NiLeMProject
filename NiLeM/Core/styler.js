@@ -200,6 +200,10 @@ function Set()
         + "h1, h2, h3, h4, h5, h6, p, div { "
         + "text-align: center; "
         + "font-family: Arial, Helvetica, sans-serif; "
+        + "} "
+        + "table {"
+        + "margin-left: auto; "
+        + "margin-right: auto; "
         + "}"
     document.head.appendChild(style);
 }

@@ -263,17 +263,23 @@ def no_checked_answer(language):
 
 def to_main(language):
     if language == "english":
-        return "Back to Main menu"
+        #return "Back to Main menu"
+        return "Back"
     elif language == "czech":
-        return "Zpátky na hlavní menu"
+        #return "Zpátky na hlavní menu"
+        return "Zpátky"
     elif language == "russian":
-        return "Обратно на главное меню"
+        #return "Обратно на главное меню"
+        return "Обратно"
     elif language == "german":
-        return "Zurück zum Hauptmenü"
+        #return "Zurück zum Hauptmenü"
+        return "Zurück"
     elif language == "french":
-        return "Retour au menu principal"
+        #return "Retour au menu principal"
+        return "Retour"
     elif language == "spanish":
-        return "Volver al menú principal"
+        #return "Volver al menú principal"
+        return "Volver"
 
 
 def on_subject_menu(subject, language):
@@ -557,3 +563,18 @@ def choose_answer(language):
         return "Choisir la réponse."
     elif language == "spanish":
         return "Elegir respuesta."
+
+
+def download_lesson(language):
+    if language == "english":
+        return "Download lesson"
+    elif language == "czech":
+        return "Stáhnout lekci"
+    elif language == "russian":
+        return "Сохранить урок"
+    elif language == "german":
+        return "Lektion herunterladen"
+    elif language == "french":
+        return "Télécharger la leçon"
+    elif language == "spanish":
+        return "Descargar lección"

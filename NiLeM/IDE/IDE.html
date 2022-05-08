@@ -3,22 +3,7 @@
     <head>
         <title>Nikiforov's Learning Shell IDE</title>
         <meta charset="utf-8"/>
-        <style id="style">
-            body {
-                background-color: black;
-                color: white;
-            }
-            button {
-                background-color: #0F0F0F;
-                color: white;
-                border-color: gray;
-            }
-            input {
-                background-color: #0F0F0F;
-                color: white;
-                border-color: gray;
-            }
-        </style>
+        <script src="../Core/styler.js"></script>
         <script>
             var language = "none";
             var subject = "none";
@@ -209,43 +194,22 @@
                 }
                 else if (q_needs == q_done)
                 {
-                    document.getElementById("result").innerHTML = "";
-                    document.getElementById("comment").innerHTML = "Copy these lines and paste them into a file.";
-                    WriteNewLine("result", subject + "//" + language);
-                    WriteNewLine("result", name);
-                    WriteNewLine("result", "{");
+                    var result = document.getElementById("result");
+                    result.value = "";
+                    document.getElementById("comment").innerHTML = "You can copy these lines (optional).";
+                    result.value += subject + "//" + language + "\n";
+                    result.value += name + "\n";
+                    result.value += "{\n";
                     for (let i = 0; i < questions.length; i ++)
                     {
-                        WriteNewLine("result", questions[i]);
+                        result.value += questions[i] + "\n";
                     }
-                    WriteNewLine("result", "}");
-                    WriteNewLine("result", "end");
+                    result.value += "}\n";
+                    result.value += "end";
                 }
                 else
                 {
                     document.getElementById("comment").innerHTML = "Your last question is not finished.";
-                }
-            }
-            function GenerateMenu()
-            {
-                if (language == "none")
-                {
-                    document.getElementById("comment").innerHTML = "Choose language.";
-                }
-                else if (subject == "none")
-                {
-                    document.getElementById("comment").innerHTML = "Choose subject.";
-                }
-                else
-                {
-                    document.getElementById("result").innerHTML = "";
-                    document.getElementById("comment").innerHTML = "Copy these lines and paste them into a file.";
-                    WriteNewLine("result", subject + "//" + language);
-                    WriteNewLine("result", "menu");
-                    WriteNewLine("result", "{");
-                    WriteNewLine("result", "update");
-                    WriteNewLine("result", "}");
-                    WriteNewLine("result", "end");
                 }
             }
             function NewAnswer()
@@ -253,112 +217,23 @@
                 CreateInputbox(possible_answers);
                 possible_answers ++;
             }
-            function ChangeMode(color)
+            function Send()
             {
-                var style = document.getElementById("style");
-                if (color == "dark")
-                {
-                    style.innerHTML = ""
-                        + "body {"
-                        + "    background-color: black;"
-                        + "    color: white;"
-                        + "}"
-                        + "button {"
-                        + "    background-color: #0F0F0F;"
-                        + "    color: white;"
-                        + "    border-color: gray;"
-                        + "}"
-                        + "input {"
-                        + "    background-color: #0F0F0F;"
-                        + "    color: white;"
-                        + "    border-color: gray;"
-                        + "}";
-                }
-                else if (color == "light")
-                {
-                    style.innerHTML = ""
-                        + "body {"
-                        + "    background-color: white;"
-                        + "    color: black;"
-                        + "}"
-                        + "button {"
-                        + "    background-color: #F0F0F0;"
-                        + "    color: black;"
-                        + "    border-color: gray;"
-                        + "}"
-                        + "input {"
-                        + "    background-color: #F0F0F0;"
-                        + "    color: black;"
-                        + "    border-color: gray;"
-                        + "}";
-                }
-                else if (color == "fire")
-                {
-                    style.innerHTML = ""
-                        + "body {"
-                        + "    background-color: red;"
-                        + "    color: black;"
-                        + "}"
-                        + "button {"
-                        + "    background-color: #F02F2F;"
-                        + "    color: black;"
-                        + "    border-color: #7F0000;"
-                        + "}"
-                        + "input {"
-                        + "    background-color: #F02F2F;"
-                        + "    color: black;"
-                        + "    border-color: #7F0000;"
-                        + "}";
-                }
-                else if (color == "water")
-                {
-                    style.innerHTML = ""
-                        + "body {"
-                        + "    background-color: blue;"
-                        + "    color: black;"
-                        + "}"
-                        + "button {"
-                        + "    background-color: #2F2FF0;"
-                        + "    color: black;"
-                        + "    border-color: #00007F;"
-                        + "}"
-                        + "input {"
-                        + "    background-color: #2F2FF0;"
-                        + "    color: black;"
-                        + "    border-color: #00007F;"
-                        + "}";
-                }
-                else if (color == "grass")
-                {
-                    style.innerHTML = ""
-                        + "body {"
-                        + "    background-color: green;"
-                        + "    color: black;"
-                        + "}"
-                        + "button {"
-                        + "    background-color: #2FF02F;"
-                        + "    color: black;"
-                        + "    border-color: #007F00;"
-                        + "}"
-                        + "input {"
-                        + "    background-color: #2FF02F;"
-                        + "    color: black;"
-                        + "    border-color: #007F00;"
-                        + "}";
-                }
+                Generate();
+                var lesson = document.getElementById("result").value;
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST", "http://nilem.mensagymnazium.cz:8000/lesson", true);
+                xhr.setRequestHeader('Content-Type', 'application/json');
+                xhr.send(JSON.stringify({
+                    text: lesson
+                }));
+                alert("Hello. Your lesson was sent. Thank You.");
             }
         </script>
     </head>
 
     <body>
         <h1>IDE</h1>
-        <p>
-            <button type="button" onclick="ChangeMode('dark')">Dark mode</button>
-            <button type="button" onclick="ChangeMode('light')">Light mode</button>
-            <button type="button" onclick="ChangeMode('fire')">Red mode</button>
-            <button type="button" onclick="ChangeMode('water')">Blue mode</button>
-            <button type="button" onclick="ChangeMode('grass')">Green mode</button>
-        </p>
         <h2>Language</h2>
         <p>
             <button type="button" onclick="ChangeLanguage('english')">English</button>
@@ -406,12 +281,39 @@
             <button type="button" onclick="NewQuestion('explain')">New explanation</button>
         </p>
         <div id="new_question" class="container"></div>
+        <h2>Result</h2>
         <div id="questions" class="container"></div>
         <p>
             <button type="button" onclick="Generate()">Generate</button>
-            <button type="button" onclick="GenerateMenu()">Generate menu</button>
+            <button type="button" onclick="Send()">Generate & Send</button>
         </p>
         <p id="comment"></p>
-        <p id="result"></p>
+        <p><textarea id="result" rows="10" cols="60"></textarea></p>
+        <p>
+            <button onclick="window.location.href='../Main.html';">
+                <p><img src="../Pictures/Back.jpg" alt="Back" class="image_small"></p>
+                <h3>Back</h3>
+            </button>
+            <button onclick="window.location.href='../Main-czech.html';">
+                <p><img src="../Pictures/Back.jpg" alt="Back" class="image_small"></p>
+                <h3>Zpátky</h3>
+            </button>
+            <button onclick="window.location.href='../Main-russian.html';">
+                <p><img src="../Pictures/Back.jpg" alt="Back" class="image_small"></p>
+                <h3>Назад</h3>
+            </button>
+            <button onclick="window.location.href='../Main-german.html';">
+                <p><img src="../Pictures/Back.jpg" alt="Back" class="image_small"></p>
+                <h3>Zurück</h3>
+            </button>
+            <button onclick="window.location.href='../Main-french.html';">
+                <p><img src="../Pictures/Back.jpg" alt="Back" class="image_small"></p>
+                <h3>Retour</h3>
+            </button>
+            <button onclick="window.location.href='../Main-spanish.html';">
+                <p><img src="../Pictures/Back.jpg" alt="Back" class="image_small"></p>
+                <h3>Volver</h3>
+            </button>
+        </p>
     </body>
 </html>

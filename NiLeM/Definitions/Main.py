@@ -24,3 +24,7 @@ class NiLeMServer(BaseHTTPRequestHandler):
                 self.not_found()
 
     from .Answers import not_found, send_file, subject_menu, lesson, welcome, download_lesson
+    try:
+        from .Post import do_POST
+    except:
+        print("You do not have the Post.py file.")

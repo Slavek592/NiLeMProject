@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Nikiforov's Learning Machine</title>
+    <meta charset="utf-8"/>
+    <link rel="icon" href="../Pictures/Physics.jpg">
+    <script src="styler.js"></script>
+    <script>
+        function Send()
+        {
+            var question = document.getElementById("q").value;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "http://nilem.mensagymnazium.cz:8000/question", true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.send(JSON.stringify({
+                text: question
+            }));
+            alert("Hello. Your question was sent. Thank You.");
+        }
+    </script>
+</head>
+<body>
+    <h1>Help / Pomoc</h1>
+    <p>Write Your problems here and give us Your contact.</p>
+    <p>Please, write in english/czech.</p>
+    <p>Napište sem svůj problém a dejte nám kontakt na sebe.</p>
+    <p>Prosím, pište v češtině/angličtině.</p>
+    <p><textarea id="q" name="q" rows="10" cols="60"></textarea></p>
+    <p><button onclick="Send()">Send / Odeslat</button></p>
+    <p>
+        <button onclick="window.location.href='About.html';">
+            <p><img src="../Pictures/Back.jpg" alt="Back" class="image_small"></p>
+            <h3>Back</h3>
+        </button>
+        <button onclick="window.location.href='About-czech.html';">
+            <p><img src="../Pictures/Back.jpg" alt="Back" class="image_small"></p>
+            <h3>Zpátky</h3>
+        </button>
+        <button onclick="window.location.href='About-russian.html';">
+            <p><img src="../Pictures/Back.jpg" alt="Back" class="image_small"></p>
+            <h3>Назад</h3>
+        </button>
+        <button onclick="window.location.href='About-german.html';">
+            <p><img src="../Pictures/Back.jpg" alt="Back" class="image_small"></p>
+            <h3>Zurück</h3>
+        </button>
+        <button onclick="window.location.href='About-french.html';">
+            <p><img src="../Pictures/Back.jpg" alt="Back" class="image_small"></p>
+            <h3>Retour</h3>
+        </button>
+        <button onclick="window.location.href='About-spanish.html';">
+            <p><img src="../Pictures/Back.jpg" alt="Back" class="image_small"></p>
+            <h3>Volver</h3>
+        </button>
+    </p>
+</body>
+</html>

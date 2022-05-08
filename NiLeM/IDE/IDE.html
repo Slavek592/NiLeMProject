@@ -206,11 +206,13 @@
                     }
                     result.value += "}\n";
                     result.value += "end";
+                    return true;
                 }
                 else
                 {
                     document.getElementById("comment").innerHTML = "Your last question is not finished.";
                 }
+                return false;
             }
             function NewAnswer()
             {
@@ -219,15 +221,27 @@
             }
             function Send()
             {
-                Generate();
-                var lesson = document.getElementById("result").value;
-                var xhr = new XMLHttpRequest();
-                xhr.open("POST", "http://nilem.mensagymnazium.cz:8000/lesson", true);
-                xhr.setRequestHeader('Content-Type', 'application/json');
-                xhr.send(JSON.stringify({
-                    text: lesson
-                }));
-                alert("Hello. Your lesson was sent. Thank You.");
+                var school = document.getElementById("school").value;
+                var password = document.getElementById("password").value;
+                if (school == "" || password == "")
+                {
+                    document.getElementById("comment").innerHTML = "Your wrote no school/password.";
+                }
+                else if (Generate())
+                {
+                    var lesson = document.getElementById("result").value;
+                    var xhr = new XMLHttpRequest();
+                    xhr.open("POST", "http://nilem.mensagymnazium.cz:8000/lesson", true);
+                    xhr.setRequestHeader('Content-Type', 'application/json');
+                    xhr.send(JSON.stringify({
+                        text: lesson,
+                        school: school,
+                        password: password
+                    }));
+                    alert("Hello. Your lesson was sent. Thank You.");
+                    document.getElementById("school").value = "";
+                    document.getElementById("password").value = "";
+                }
             }
         </script>
     </head>
@@ -288,6 +302,7 @@
             <button type="button" onclick="Send()">Generate & Send</button>
         </p>
         <p id="comment"></p>
+        <p>School: <input type="text" id="school"> Password: <input type="password" id="password"></p>
         <p><textarea id="result" rows="10" cols="60"></textarea></p>
         <p>
             <button onclick="window.location.href='../Main.html';">

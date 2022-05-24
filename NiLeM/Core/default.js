@@ -65,8 +65,13 @@ function ShowCorrect(correct_answer)
 }
 function Next()
 {
-    question ++;
-    ChangeContent();
+    if (question < document.getElementById("qt").innerHTML)
+    {
+        question ++;
+        if (question < document.getElementById("qt").innerHTML)
+            document.getElementById("yq").innerHTML = question + 1
+        ChangeContent();
+    }
 }
 function Previous()
 {
@@ -74,5 +79,6 @@ function Previous()
     {
         question --;
         ChangeContent();
+        document.getElementById("yq").innerHTML = question + 1
     }
 }

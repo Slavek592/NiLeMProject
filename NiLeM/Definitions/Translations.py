@@ -578,3 +578,33 @@ def download_lesson(language):
         return "Télécharger la leçon"
     elif language == "spanish":
         return "Descargar lección"
+
+
+def your_question(language):
+    if language == "english":
+        return "Your question:"
+    elif language == "czech":
+        return "Vaše otázka:"
+    elif language == "russian":
+        return "Ваш вопрос:"
+    elif language == "german":
+        return "Ihre Frage:"
+    elif language == "french":
+        return "Votre question :"
+    elif language == "spanish":
+        return "Tu pregunta:"
+
+
+def total_questions(language):
+    if language == "english":
+        return "Total questions:"
+    elif language == "czech":
+        return "Celkem otázek:"
+    elif language == "russian":
+        return "Всего вопросов:"
+    elif language == "german":
+        return "Fragen insgesamt:"
+    elif language == "french":
+        return "Nombre total de questions :"
+    elif language == "spanish":
+        return "Total de preguntas:"

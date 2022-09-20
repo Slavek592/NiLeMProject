@@ -54,7 +54,7 @@ def about(language):
     elif language == "russian":
         return "Информация"
     elif language == "german":
-        return "Informations"
+        return "Informationen"
     elif language == "french":
         return "Informations"
     elif language == "spanish":

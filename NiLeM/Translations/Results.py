@@ -9,7 +9,7 @@ def no_checked_answer(language):
     elif language == "russian":
         return "Здесь нет никакого исправленного ответа."
     elif language == "german":
-        return "Es gibt keine geprüfte antwort."
+        return "Es gibt keine geprüfte Antwort."
     elif language == "french":
         return "Il n'y a pas de réponse vérifiée."
     elif language == "spanish":

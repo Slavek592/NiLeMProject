@@ -9,7 +9,7 @@ def turn_off(language):
     elif language == "russian":
         return "Выключить"
     elif language == "german":
-        return "Schalte aus"
+        return "Schließen"
     elif language == "french":
         return "Fermer"
     elif language == "spanish":

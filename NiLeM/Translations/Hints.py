@@ -69,7 +69,7 @@ def click_on_next(language):
     elif language == "russian":
         return "Нажмите на кнопку \"Дальше\", чтобы начать."
     elif language == "german":
-        return "Klicken Sie den Knopf \"Nächster\" für fortzufahren."
+        return "Klicken Sie den Knopf \"Nächster\" um fortzufahren."
     elif language == "french":
         return "Cliquez sur le bouton \"Suivant\" pour commencer."
     elif language == "spanish":

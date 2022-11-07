@@ -71,6 +71,8 @@ def main_menu(self):
     main_part.columnconfigure(0, minsize=400)
     main_part.columnconfigure(1, minsize=200)
     main_part.columnconfigure(2, minsize=400)
+    main_part.rowconfigure(1, minsize=150)
+    main_part.rowconfigure(3, minsize=150)
     main_part.pack()
     exit_buttons = Frame(self.root, bg=self.background_color)
     turn_off_button = Button(exit_buttons, text=Translations.turn_off(self.language),
@@ -151,25 +153,21 @@ def change_mode(self, mode):
 
 def set_mode(self, mode):
     if mode == "dark":
-        self.root.configure(background="black")
         self.text_color = "#fff"
-        self.background_color = "#000"
+        self.background_color = "#002"
     elif mode == "light":
-        self.root.configure(background="white")
         self.text_color = "#000"
-        self.background_color = "#fff"
+        self.background_color = "#eee"
     elif mode == "fire":
-        self.root.configure(background="red")
         self.text_color = "#000"
-        self.background_color = "#f00"
+        self.background_color = "#e11"
     elif mode == "water":
-        self.root.configure(background="blue")
         self.text_color = "#000"
-        self.background_color = "#00f"
+        self.background_color = "#00c"
     elif mode == "grass":
-        self.root.configure(background="#0f0")
         self.text_color = "#000"
         self.background_color = "#0f0"
+    self.root.configure(background=self.background_color)
 
 
 def change_language(self, language):

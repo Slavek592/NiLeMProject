@@ -69,7 +69,7 @@ function Next()
     {
         question ++;
         if (question < document.getElementById("qt").innerHTML)
-            document.getElementById("yq").innerHTML = question + 1
+            document.getElementById("yq").innerHTML = question + 1;
         ChangeContent();
     }
 }
@@ -79,6 +79,6 @@ function Previous()
     {
         question --;
         ChangeContent();
-        document.getElementById("yq").innerHTML = question + 1
+        document.getElementById("yq").innerHTML = question + 1;
     }
 }

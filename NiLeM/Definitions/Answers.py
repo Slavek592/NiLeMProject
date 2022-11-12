@@ -233,12 +233,16 @@ def download_lesson(self):
              "} function ShowCorrect(answer) {" \
              "document.getElementById(\"c\").innerHTML = answer; " \
              "} function Next() { " \
+             "if (question < document.getElementById(\"qt\").innerHTML) { " \
              "question ++; " \
+             "if (question < document.getElementById(\"qt\").innerHTML) " \
+             "document.getElementById(\"yq\").innerHTML = question + 1; " \
              "ChangeContent(); " \
-             "} function Previous() { " \
+             "} } function Previous() { " \
              "if (question > 0) { " \
              "question --; " \
              "ChangeContent(); " \
+             "document.getElementById(\"yq\").innerHTML = question + 1; " \
              "} } "
     script += "function ChangeContent() " \
               "{ " \
@@ -296,8 +300,61 @@ def download_lesson(self):
         "<meta charset=\"utf-8\"/>"
         "<style>"
         "body { "
-        "background-color: black; "
-        "color: white; } "
+        "background-color: #00001F; "
+        "color: white; "
+        "} "
+        "button { "
+        "background-color: #0F0F2F; "
+        "color: white; "
+        "border-color: gray; "
+        "} "
+        "input, textarea { "
+        "background-color: #0F0F2F; "
+        "color: white; "
+        "border-color: gray; "
+        "} "
+        ".image_big { "
+        "width: 280px; "
+        "} "
+        ".image_small { "
+        "width: 140px; "
+        "} "
+        "body { "
+        "margin: 10px;"
+        "} "
+        "h1 { "
+        "font-size: 60px; "
+        "} "
+        "h2 { "
+        "font-size: 50px; "
+        "} "
+        "h3 { "
+        "font-size: 32px; "
+        "} "
+        "h4 { "
+        "font-size: 28px; "
+        "} "
+        "p { "
+        "font-size: 25px; "
+        "} "
+        "button { "
+        "font-size: 25px; "
+        "margin: 5px; "
+        "} "
+        "input, textarea { "
+        "font-size: 25px; "
+        "} "
+        "input[type=radio] { "
+        "height: 1em; "
+        "} "
+        "h1, h2, h3, h4, h5, h6, p, div { "
+        "text-align: center; "
+        "font-family: Arial, Helvetica, sans-serif; "
+        "} "
+        "table {"
+        "margin-left: auto; "
+        "margin-right: auto; "
+        "}"
         "</style>"
         "<script>"
         + script +
@@ -305,6 +362,14 @@ def download_lesson(self):
         "</head>"
         "<body>"
         "<h1>" + ReadDatabase.get_lesson_name(language, int(path[3])) + "</h1>"
+        "<table>"
+        "<tr>"
+        "<td><p>" + Translations.your_question(language) + " </p>"
+        "<p>" + Translations.total_questions(language) + " </p></td>"
+        "<td><p id=\"yq\">0</p>"
+        "<p id=\"qt\">" + str(len(questions)) + "</p></td>"
+        "</tr>"
+        "</table>"
         "<div id=\"q\"><p>" + Translations.click_on_next(language) + "</p></div>"
         "<p>"
         "<button type=\"button\" onclick=\"Previous()\">"

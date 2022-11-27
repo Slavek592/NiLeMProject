@@ -25,12 +25,17 @@ def not_found(self):
 def send_file(self):
     name = self.path[1:]
     file = open(name, "rb")
-    self.send_response(200)
     if ".jpg" in name:
+        self.send_response(200)
         self.send_header("Content-type", "image/jpeg")
     elif ".pdf" in name:
+        self.send_response(200)
         self.send_header("Content-type", "application/pdf")
+    elif (".py" in name) or (".db" in name):
+        self.not_found()
+        return
     else:
+        self.send_response(200)
         self.send_header("Content-type", "text/html")
     self.end_headers()
     self.wfile.write(file.read())

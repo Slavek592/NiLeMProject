@@ -166,6 +166,7 @@ def lesson(self):
         "</tr>"
         "</table>"
         "<div id=\"q\"><p>" + Translations.click_on_next(language) + "</p></div>"
+        "<p id=\"c\">" + Translations.no_checked_answer(language) + "</p>"
         "<p>"
         "<button type=\"button\" onclick=\"Previous()\">"
         + Translations.button_previous(language) + "</button>"
@@ -178,7 +179,8 @@ def lesson(self):
         "</p>"
         "<p><a href=\"" + self.path + "/download\" download=\""
         + lesson_name + ".html\">" + Translations.download_lesson(language) + "</a></p>"
-        "<p id=\"c\">" + Translations.no_checked_answer(language) + "</p>"
+        "<p><a href=\"" + self.path + "/simple\" download=\""
+        + lesson_name + ".txt\">" + Translations.download_simple(language) + "</a></p>"
         "<p><a href=\"../" +
         path[1] + Translations.file_language(language)
         + ".html\">" + Translations.on_subject_menu(path[1].lower(), language)
@@ -187,6 +189,25 @@ def lesson(self):
         "</html>",
         "utf-8"
     ))
+
+
+def download_simple(self):
+    path = self.path.split("/")
+    language = path[2].lower()
+    questions = ReadDatabase.get_lesson_questions(language, int(path[3]))
+    answer = ReadDatabase.get_lesson_name(language, int(path[3])) + "\n\n"
+    for question in range(len(questions)):
+        answer += str(question) + ":\n"
+        answer += questions[question][1].replace("\\n", "\n") + "\n"
+        if questions[question][0] == "enter":
+            answer += questions[question][2] + "\n"
+        elif questions[question][0] == "radio":
+            answer += questions[question][2].split("|")[questions[question][3]] + "\n"
+        answer += "\n"
+    self.send_response(200)
+    self.send_header("Content-type", "text/html")
+    self.end_headers()
+    self.wfile.write(bytes(answer, "utf-8"))
 
 
 def download_lesson(self):

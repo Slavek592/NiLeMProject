@@ -509,7 +509,7 @@ def bad(language):
     if language == "english":
         return "Incorrect."
     elif language == "czech":
-        return "Nesprávně."
+        return "Špatně."
     elif language == "russian":
         return "Не правильно."
     elif language == "german":
@@ -578,6 +578,21 @@ def download_lesson(language):
         return "Télécharger la leçon"
     elif language == "spanish":
         return "Descargar lección"
+
+
+def download_simple(language):
+    if language == "english":
+        return "Download correct answers"
+    elif language == "czech":
+        return "Stáhnout správné odpovědi"
+    elif language == "russian":
+        return "Сохранить правильные ответы"
+    elif language == "german":
+        return "Richtige Antworten herunterladen"
+    elif language == "french":
+        return "Télécharger les bonnes réponses"
+    elif language == "spanish":
+        return "Descargar respuestas correctas"
 
 
 def your_question(language):

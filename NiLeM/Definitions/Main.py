@@ -15,6 +15,8 @@ class NiLeMServer(BaseHTTPRequestHandler):
                 self.lesson()
             elif path[4] == "download":
                 self.download_lesson()
+            elif path[4] == "simple":
+                self.download_simple()
         elif self.path == "/":
             self.welcome()
         else:
@@ -23,7 +25,7 @@ class NiLeMServer(BaseHTTPRequestHandler):
             except:
                 self.not_found()
 
-    from .Answers import not_found, send_file, subject_menu, lesson, welcome, download_lesson
+    from .Answers import not_found, send_file, subject_menu, lesson, welcome, download_lesson, download_simple
     try:
         from .Post import do_POST
     except:

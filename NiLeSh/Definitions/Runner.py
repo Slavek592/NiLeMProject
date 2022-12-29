@@ -36,6 +36,25 @@ def run_file(file_name, mode):
         return False
 
 
+def run_from_console():
+    while True:
+        args = [True, 0, "", "", "", 1, 0, False, -1]
+        while True:
+            data = str(input("NiLeSh# "))
+            if data == "":
+                continue
+            args = read_line("execute", data, args)
+            if args[0] == "False":
+                return
+            elif args[7]:
+                print("Your code was executed.")
+                break
+            else:
+                args[5] += 1
+        if y_or_n("Do You want to end?"):
+            break
+
+
 def run_strings(strings, mode):
     args = [True, 0, "", "", "", 1, 0, False, -1]
     #   Arguments:
@@ -170,3 +189,17 @@ def get_outer_path(file_name, steps):
     for i in range(len(path) - steps):
         result += path[i] + "/"
     return result
+
+
+def y_or_n(string):
+    while True:
+        print(string)
+        answer = str(input("y/n "))
+        if answer in ["y", "n", "Y", "N", "yes", "no", "Yes", "No"]:
+            break
+        else:
+            print("Unknown answer.")
+    if answer in ["y", "Y", "yes", "Yes"]:
+        return True
+    else:
+        return False

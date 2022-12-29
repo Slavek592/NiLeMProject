@@ -195,7 +195,10 @@ def run_from_console():
     while True:
         args = [True, 0, "", "", "", 1, 0, False, 0, ""]
         while True:
-            args = read_line("execute", str(input("NiLeSh# ")), args)
+            data = str(input("NiLeSh# "))
+            if data == "":
+                continue
+            args = read_line("execute", data, args)
             if args[0] == "False":
                 if os.path.isfile(args[4] + ".change"):
                     os.remove(args[4] + ".change")
@@ -203,8 +206,9 @@ def run_from_console():
                 return
             elif args[7]:
                 print("Your code was executed.")
-                os.remove(args[4] + ".change")
-                os.remove(args[4] + ".check")
+                if os.path.isfile(args[4] + ".change"):
+                    os.remove(args[4] + ".change")
+                    os.remove(args[4] + ".check")
                 break
             else:
                 args[5] += 1

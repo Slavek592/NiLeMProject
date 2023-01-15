@@ -16,19 +16,25 @@ function CreateInputbox()
 }
 function CreateInputradio(answers)
 {
+    var table = document.createElement("table");
     for (let i = 0; i < answers.length; i++)
     {
-        var inputplace = document.createElement("p");
+        var inputplace = document.createElement("tr");
+        var inputplaceleft = document.createElement("td");
         var inputradio = document.createElement("input");
         inputradio.type = "radio";
         inputradio.id = "ans";
         inputradio.name = "ans";
-        inputplace.appendChild(inputradio);
+        inputplaceleft.appendChild(inputradio);
+        inputplace.appendChild(inputplaceleft);
+        var inputplaceright = document.createElement("td");
         var radiotext = document.createElement("label");
         radiotext.innerHTML = answers[i];
-        inputplace.appendChild(radiotext);
-        document.getElementById("q").appendChild(inputplace);
+        inputplaceright.appendChild(radiotext);
+        inputplace.appendChild(inputplaceright);
+        table.appendChild(inputplace);
     }
+    document.getElementById("q").appendChild(table);
 }
 function CheckEnter(correct_answer)
 {
